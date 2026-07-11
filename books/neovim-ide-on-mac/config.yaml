@@ -1,0 +1,24 @@
+title: 'AI駆動開発時代のNeovim — Mac × ローカルLLM × tmux で作る統合開発環境'
+summary: |
+  「AI 駆動開発時代の IDE」として、Mac（Apple Silicon）に Neovim 0.12 + tmux + Ghostty の開発環境を組み、
+  AI エージェント（クラウドの Claude Code から自前のローカル LLM まで）を Neovim に繋いで協働するところまでを一本道で扱う実践本。
+  汎用 Neovim 入門ではなく AI 連携の土俵づくりに特化し、とりわけローカル LLM の構築・接続まで踏み込む点が他にない。
+topics: ['neovim', 'tmux', 'ollama', 'ai', 'mac']
+published: true
+price: 0
+chapters:
+  - intro
+  - setup
+  - ghostty
+  - terminal-and-tmux
+  - tmux
+  - neovim-basics
+  - neovim-ide
+  - neovim-tmux
+  - remote-dev
+  - neovim-llm
+  - neovim-claudecode
+  - agent-pair
+  - outro
+  - cheatsheet
+  - cli-tools
