@@ -8,13 +8,19 @@ published: false
 
 PDF Association に、こういう記事が出た。
 
-> [The UK says a PDF is not an invoice. France just made it one.](https://pdfa.org/the-uk-says-a-pdf-is-not-an-invoice-france-just-made-it-one/)
+@[card](https://pdfa.org/the-uk-says-a-pdf-is-not-an-invoice-france-just-made-it-one/)
 
-同じ年に、同じ問題（VAT ギャップと自動化）に対して、海峡の両側が逆の答えを出した、という話です。なおこの記事は PDF Association の会員による寄稿で、冒頭に「本記事の見解は著者のものであり、PDF Association の方針や立場を反映するものではない」というディスクレーマーが付いています。
+同じ年に、同じ問題（VAT ギャップと自動化）に対して、海峡の両側が逆の答えを出した、という話です。
+
+:::message
+この記事は PDF Association の会員による寄稿で、冒頭に「本記事の見解は著者のものであり、PDF Association の方針や立場を反映するものではない」というディスクレーマーが付いています。以下「元記事」と呼びますが、PDF Association の公式見解ではありません。
+:::
 
 面白かったので読んで終わりにせず、**フランスが「請求書」と認めた形式（Factur-X）を実際に自分で作って、veraPDF に通してみました**。結論から書くと、こうなりました。
 
-> **人が見ると 1 200,00 EUR、機械が読むと 12 000,00 EUR の請求書が、veraPDF の PDF/A-3b 検証を 146/146 で PASS した。**
+:::message alert
+**人が見ると 1 200,00 EUR、機械が読むと 12 000,00 EUR の請求書が、veraPDF の PDF/A-3b 検証を 146/146 で PASS した。**
+:::
 
 以下、仕様・実測・日本への含意の順に書きます。
 
@@ -139,7 +145,7 @@ flowchart TB
 
 XML 側のプロファイル宣言はここです。
 
-```xml
+```xml:factur-x.xml
 <rsm:ExchangedDocumentContext>
   <ram:GuidelineSpecifiedDocumentContextParameter>
     <ram:ID>urn:cen.eu:en16931:2017</ram:ID>
@@ -147,25 +153,28 @@ XML 側のプロファイル宣言はここです。
 </rsm:ExchangedDocumentContext>
 ```
 
-この URN は EN 16931 プロファイルの正しい GuidelineID です。**ただし、これも「宣言」です。** 今回は EN 16931 の Schematron にかけていないので、この XML が本当に EN 16931 準拠かは測っていません（実際、支払手段 BG-16 など足りない BT があります）。この記事の主題がさっそく自分に返ってきているので、先に書いておきます。
+この URN は EN 16931 プロファイルの正しい GuidelineID です。
+
+:::message alert
+**ただし、これも「宣言」です。** 今回は EN 16931 の Schematron にかけていないので、この XML が本当に EN 16931 準拠かは測っていません（実際、支払手段 BG-16 など足りない BT があります）。この記事の主題がさっそく自分に返ってきているので、先に書いておきます。
+:::
 
 Factur-X には MINIMUM / BASIC WL / BASIC / EN 16931 / EXTENDED の 5 プロファイルがあります。MINIMUM と BASIC WL は明細行を持たず（WL = _without lines_）、EN 16931 準拠でもないため、移行的な位置づけとされています。またフランス向けには **EXTENDED-CTC-FR**（EXTENDED の部分集合）という参照プロファイルがあり、根拠規格は AFNOR XP Z12-012 です。
 
 ### 手順
 
-```
-① 請求書 PDF を生成（tagged, lang=fr-FR）
-     ↓
-② factur-x.xml を AFRelationship=Alternative で添付
-     ↓
-③ PDF/A-3b の「器」に載せる（/ID・OutputIntent・XMP pdfaid）
-     ↓
-④ veraPDF で検証
+```mermaid
+flowchart TB
+    S1["① 請求書 PDF を生成<br/>tagged / lang=fr-FR / A4"]
+    S2["② factur-x.xml を添付<br/>AFRelationship = Alternative"]
+    S3["③ PDF/A-3b の器に載せる<br/>/ID・OutputIntent・XMP pdfaid"]
+    S4["④ veraPDF で検証"]
+    S1 --> S2 --> S3 --> S4
 ```
 
 ③ の時点で、書き込み側のツールはこう警告してきます。
 
-```
+```text:pdf-writer-mcp が返した警告
 This file now CLAIMS PDF/A-3b (pdfaid:part=3, conformance=B),
 but conformance was NOT checked here. (...)
 If the document does not actually conform, that claim is now false.
@@ -177,7 +186,7 @@ If the document does not actually conform, that claim is now false.
 
 生成されたファイルの中身を覗くと、Filespec は仕様どおりでした。
 
-```
+```:03-facturx-candidate.pdf ─ Filespec 辞書
 <<
 /Type /Filespec
 /F (factur-x.xml)
@@ -190,7 +199,7 @@ If the document does not actually conform, that claim is now false.
 
 埋め込みファイルストリーム側も、ISO 32000-2 14.13.2 が **shall とした `Subtype`（MIME 型）**と、**should とした `Params`（あるなら `ModDate` は shall）**の両方を満たしています。
 
-```
+```:03-facturx-candidate.pdf ─ EmbeddedFile ストリーム辞書
 <<
 /Type /EmbeddedFile
 /Subtype /text#2Fxml              ← text/xml を名前オブジェクトとしてエスケープ
@@ -203,7 +212,7 @@ If the document does not actually conform, that claim is now false.
 
 ## 4. veraPDF に通す
 
-```json
+```json:03-facturx-candidate.pdf の判定
 {
   "engine": "verapdf",
   "flavour": "PDF/A-3b",
@@ -217,15 +226,17 @@ If the document does not actually conform, that claim is now false.
 
 **146 ルール全 PASS。veraPDF は PDF/A-3b COMPLIANT と判定しました。**
 
+:::message
 環境は以下です。
 
-```
+```text:verapdf --version
 veraPDF 1.30.0
 Built: Wed Jun 03 13:47:00 JST 2026
 （Homebrew の formula は verapdf 1.30.2、同梱 jar は gui-1.30.0.jar）
 ```
 
 **ルール数は veraPDF のビルドと Validation Profile のリビジョンに依存します。** この記事はこのあと「146 ルールの範囲でしか有効でない」と繰り返し書くので、その範囲が環境ごとに違うことも込みで、バージョンを先に置いておきます。再現するときは自分の環境の数字を見てください。
+:::
 
 これで Factur-X の請求書ができた……と言いたいところですが、**言えません**。
 
@@ -233,7 +244,7 @@ Built: Wed Jun 03 13:47:00 JST 2026
 
 XMP を吐き出すとこうなっています。
 
-```xml
+```xml:03-facturx-candidate.pdf の XMP（抜粋）
 <rdf:Description rdf:about="" xmlns:pdfaid="http://www.aiim.org/pdfa/ns/id/">
   <pdfaid:part>3</pdfaid:part>
   <pdfaid:conformance>B</pdfaid:conformance>
@@ -255,7 +266,7 @@ XMP を吐き出すとこうなっています。
 
 こちらが本命です。**XML の合計金額だけを 10 倍に書き換えて、同じ手順でもう 1 本作りました。**
 
-```diff xml
+```diff xml:factur-x.xml → factur-x-divergent.xml
 -        <ram:GrandTotalAmount>1200.00</ram:GrandTotalAmount>
 -        <ram:DuePayableAmount>1200.00</ram:DuePayableAmount>
 +        <ram:GrandTotalAmount>12000.00</ram:GrandTotalAmount>
@@ -266,7 +277,7 @@ PDF のページには **1 200,00 EUR** と印字されたまま。埋め込み 
 
 veraPDF の判定：
 
-```json
+```json:05-divergent-candidate.pdf の判定
 {
   "flavour": "PDF/A-3b",
   "compliant": true,
@@ -285,9 +296,9 @@ veraPDF の判定：
 | `/Names /EmbeddedFiles` | ✅                    | ✅                    |
 | veraPDF PDF/A-3b        | **COMPLIANT 146/146** | **COMPLIANT 146/146** |
 | XMP `fx:` 拡張スキーマ  | ❌ 無し               | ❌ 無し               |
-| PDF 面と XML 面の金額   | 一致                  | **1 200 vs 12 000**   |
+| PDF 面と XML 面の金額   | 一致                  | **1 200 vs 12 000**[^diff]   |
 
-（厳密には 2 本は金額以外にも差があります。添付の `/Desc`、`/Size`、`ModDate`。PDF のページ内容と生成手順は同一です。）
+[^diff]: 厳密には 2 本は金額以外にも差があります。添付の `/Desc`、`/Size`、`ModDate`。PDF のページ内容と生成手順は同一です。
 
 これは veraPDF のバグでも何でもありません。**veraPDF が見ているのは PDF/A-3b の 146 ルール、つまり「このファイルが自己完結して開けるか」の側であって、「中身が正しいか」はそもそもその 146 に入っていない**からです。ハイブリッド形式が抱え込んだ固有の失敗モード——**2 つの原本が食い違う**——を見る層は、この検証のどこにも存在しません。
 
@@ -380,9 +391,13 @@ flowchart TB
 
 この記事で測ったファイル一式（生成した PDF 5 本と CII XML 2 本、md5 つき）を置いてあります。
 
-→ [artifacts/facturx-pdfa3-uk-france-einvoicing](https://github.com/shuji-bonji/zenn-articles/tree/main/artifacts/facturx-pdfa3-uk-france-einvoicing)
+@[card](https://github.com/shuji-bonji/zenn-articles/tree/main/artifacts/facturx-pdfa3-uk-france-einvoicing)
 
-`04` と `05` は**意図的に壊した検体**です。請求書の雛形として流用しないでください。一方、検証ツールを書く人には「PDF/A の検証を通ってしまう不整合」の実物なので、テストフィクスチャとして自由に使ってください。
+:::message alert
+`04` と `05` は**意図的に壊した検体**です。請求書の雛形として流用しないでください。
+
+一方、検証ツールを書く人には「PDF/A の検証を通ってしまう不整合」の実物なので、テストフィクスチャとして自由に使ってください。作り方はこの記事に全部書いてあるので、バイナリを伏せても何も守れません。だから公開しています。
+:::
 
 ### 参考
 
@@ -402,8 +417,12 @@ flowchart TB
 - [Factur-X](https://fnfe-mpe.org/factur-x/) — FNFE-MPE。プロファイル構成・AFNOR XP Z12-012 との関係
 - Factur-X の XMP 拡張スキーマと `AFRelationship` のプロファイル依存については、実装ライブラリの解説を参照しました（仕様本文は未確認）
 
-**未検証であることを明記しておく点**
+:::message alert
+**この記事が測っていないこと**
 
 - 生成した CII XML を EN 16931 の Schematron にかけていません
-- ISO 19005（PDF/A）の原文は参照していません。PDF/A について書いたことはすべて AN002 経由です
+- ISO 19005（PDF/A）の原文は参照していません。PDF/A について書いたことはすべて AN002 経由です。したがってこの記事が言えるのは「veraPDF はこう判定した」までで、「ISO 19005 に適合する」ではありません
 - フランスのフォーマット要件の一次資料（DGFiP spécifications externes、AFNOR XP Z12-012）は参照していません
+
+宣言と適合を分ける記事なので、自分の宣言も分けておきます。
+:::
