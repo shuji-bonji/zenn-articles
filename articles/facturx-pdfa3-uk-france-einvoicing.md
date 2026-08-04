@@ -1,26 +1,41 @@
 ---
-title: '「PDFは請求書ではない」と英国は言い、フランスは「PDFが請求書だ」と決めた'
+title: '英国は「PDFは請求書ではない」とし、仏国は「PDFが請求書だ」と決めた'
 emoji: '🧾'
 type: 'tech'
 topics: ['pdf', '電子帳簿保存法', 'インボイス', 'mcp', 'typescript']
 published: false
 ---
 
-PDF Association に、こういう記事が出た。
+PDF Association に、こういう記事が出た[^disclaimer]。
 
-@[card](https://pdfa.org/the-uk-says-a-pdf-is-not-an-invoice-france-just-made-it-one/)
+https://pdfa.org/the-uk-says-a-pdf-is-not-an-invoice-france-just-made-it-one/
 
-同じ年に、同じ問題（VAT ギャップと自動化）に対して、海峡の両側が逆の答えを出した、という話です。
+同じ年に、同じ問題（VAT ギャップ、つまり付加価値税の徴収漏れと、その解消には、電子インボイスやリアルタイム報告の自動化が必要という課題）に対して、海峡の両側が逆の答えを出した、という話です。
 
-:::message
-この記事は PDF Association の会員による寄稿で、冒頭に「本記事の見解は著者のものであり、PDF Association の方針や立場を反映するものではない」というディスクレーマーが付いています。以下「元記事」と呼びますが、PDF Association の公式見解ではありません。
-:::
+[^disclaimer]: この記事は PDF Association の会員による寄稿で、冒頭に「本記事の見解は著者のものであり、PDF Association の方針や立場を反映するものではない」というディスクレーマーが付いています。以下「元記事」と呼びますが、PDF Association の公式見解ではありません。
 
-面白かったので読んで終わりにせず、**フランスが「請求書」と認めた形式（Factur-X）を実際に自分で作って、veraPDF に通してみました**。結論から書くと、こうなりました。
+面白かったので読んで終わりにせず、**フランスが「請求書」と認めた形式を実際に自分で作って、検証ツールにかけてみました**。
+
+その形式は **Factur-X** といって、1 つの PDF ファイルの中に、以下両方入れたものです。
+
+- 「人が目で読むため」の請求書の見た目
+- 「会計システムが読み取るため」の請求書データ（XML）
+
+人も機械も、同じ 1 ファイルから請求書を読み取れる。
+
+そこで、こういう実験をしました。**わざと、その 2 つの中身を食い違わせてみたのです。**
 
 :::message alert
-**人が見ると 1 200,00 EUR、機械が読むと 12 000,00 EUR の請求書が、veraPDF の PDF/A-3b 検証を 146/146 で PASS した。**
+同じ 1 つのファイルなのに、以下金額が 10 倍違うようにした。
+
+- 人が目で読む金額は 1,200 ユーロ
+- 会計システムが読み取る金額は 12,000 ユーロ
+
+ところが、**PDF の業界標準の検証ツールは、このファイルを「問題なし」と判定**しました。
+**チェック項目 146 個すべてに合格**です。
 :::
+
+つまり、**検証ツールが緑になっても、請求書として正しいことは何ひとつ保証されていない**。しかもこの形式は、来月からフランスで法的な請求書になります。
 
 以下、仕様・実測・日本への含意の順に書きます。
 
@@ -34,15 +49,38 @@ PDF Association に、こういう記事が出た。
 >
 > — [Tax update 2026: simplification, modernisation and fairness summary](https://www.gov.uk/government/publications/summary-of-tax-update-2026-simplification-modernisation-and-fairness/tax-update-2026-simplification-modernisation-and-fairness-summary)（HMRC, 2026-06-23）
 
+:::message
+**Peppol（ペポル）とは**
+
+請求書などの商取引文書を、企業のシステム間で直接やり取りするための共通基盤です。文書フォーマットの仕様（BIS）、送受信のネットワークと通信規約（AS4）、そして参加者を認定する運用ルール。この 3 点セットで成り立っています。
+
+構造は**四隅モデル（four-corner model）** と呼ばれます。売り手と買い手がそれぞれ認定を受けたアクセスポイント（接続を担うサービス事業者）と契約し、アクセスポイント同士が文書を中継する。**国が中央に置く単一のプラットフォームは存在しません。**
+
+ISO や CEN のような標準化機関の規格ではなく、ベルギーに拠点を置く非営利団体 **OpenPeppol AISBL** が仕様を所有・維持しています。国ごとに管理団体（Peppol Authority）が置かれ、その国のサービス事業者を認定する仕組みで、**日本ではデジタル庁が 2021 年 9 月からこの役割を担っています**（第 6 節で詳しく触れます）。
+
+この「中央に何も置かない」という性質が、次に見るフランスとの決定的な違いになります。
+:::
+
 範囲についてはその前、2025 年 11 月 26 日公表の consultation response が、**本協議の目的における** e-invoice の定義から、PDF・Word・JPEG 等の画像・HTML・OCR・FAX 画像を明示的に外しています。
 
-注意すべきは、これが**まだ制度そのものの法的定義ではない**ことです。同じ文書が「完全な技術標準は業界と共同設計中」「詳細なロードマップは 2026 年 11 月の Budget 2026 で公表」とも言っています。ただし方向性は読めていて、**請求書とはデータであり、人間が読む画面はソフトウェアが都度生成する表示層にすぎない**、という立場です。
+注意すべきは、これが**まだ制度そのものの法的定義ではない**ことです。同じ文書が「完全な技術標準は業界と共同設計中」「詳細なロードマップは 2026 年 11 月の Budget 2026 で公表」とも言っています。ただし方向性は読めていて、
+
+:::message
+**「請求書とはデータであり、人間が読む画面はソフトウェアが都度生成する表示層にすぎない」**
+:::
+
+という立場です。
 
 ### フランス：PDF も請求書である
 
 フランスは 3 年早く、しかも逆の設計で来ました。**2026 年 9 月 1 日**（この記事を書いている時点で 1 か月後）から、フランスで VAT の課税対象となるすべての事業者は、規模を問わず**認可プラットフォーム（plateformes agréées）経由で電子請求書を受領できる状態**にしていなければなりません。発行義務は大企業・中堅企業が同じ日から、中小・零細は 2027 年 9 月 1 日から。
 
-そして受け入れるべき「共通基盤」の3形式が、**UBL 2.1 / CII / Factur-X**。前2つは純粋な構造化 XML です。3 つめの Factur-X が本題で、これは **PDF/A-3 の文書に CII の XML を埋め込んだハイブリッド**。人はビューアで読み、機械は XML を読む。どちらかが他方の派生物ではなく、**両方が請求書**。
+そして受け入れるべき「共通基盤」の3形式が、**UBL 2.1 / CII / Factur-X**。前2つは純粋な構造化 XML です。3 つめの Factur-X が本題で、これは **PDF/A-3 の文書に CII の XML を埋め込んだハイブリッド**。
+
+:::message
+人はビューアで読み、機械は XML を読む。
+どちらかが他方の派生物ではなく、**両方が請求書** とみなす。
+:::
 
 ```mermaid
 flowchart TB
@@ -140,7 +178,8 @@ flowchart TB
 
 ### 材料
 
-- **見た目**：フランス国内 B2B のシンプルな請求書 1 ページ。税抜 1 000,00 EUR、TVA 20 % で 200,00 EUR、税込 1 200,00 EUR
+- **見た目**：フランス国内 B2B のシンプルな請求書 1 ページ
+  税抜 1 000,00 EUR、TVA 20 % で 200,00 EUR、税込 1 200,00 EUR
 - **XML**：CII（UN/CEFACT CrossIndustryInvoice）で同じ内容
 
 XML 側のプロファイル宣言はここです。
@@ -227,7 +266,7 @@ If the document does not actually conform, that claim is now false.
 **146 ルール全 PASS。veraPDF は PDF/A-3b COMPLIANT と判定しました。**
 
 :::message
-環境は以下です。
+実行環境は以下です。
 
 ```text:verapdf --version
 veraPDF 1.30.0
@@ -244,7 +283,7 @@ Built: Wed Jun 03 13:47:00 JST 2026
 
 XMP を吐き出すとこうなっています。
 
-```xml:03-facturx-candidate.pdf の XMP（抜粋）
+```xml
 <rdf:Description rdf:about="" xmlns:pdfaid="http://www.aiim.org/pdfa/ns/id/">
   <pdfaid:part>3</pdfaid:part>
   <pdfaid:conformance>B</pdfaid:conformance>
@@ -256,11 +295,16 @@ XMP を吐き出すとこうなっています。
 <!-- fx: が無い -->
 ```
 
-ついでなので、ここに出ている PDF/UA-1 の宣言も測っておきました。**`pdfua-1` で 106/106 PASS。**宣言を見つけたら測る、というルールを自分に適用するとこうなります。
+ついでなので、ここに出ている PDF/UA-1 の宣言も測っておきました。
+**`pdfua-1` で 106/106 PASS** !
+宣言を見つけたら測る、というルールを自分に適用するとこうなります。
 
-しかし **Factur-X としては不完全です。** Factur-X は、XMP に `urn:factur-x:pdfa:CrossIndustryDocument:invoice:1p0#`（prefix `fx`）の拡張スキーマを置き、`DocumentType` / `DocumentFileName` / `Version` / `ConformanceLevel` を宣言することを要求します。**受け取り側は、まずこの XMP を見て「この PDF に請求書 XML が入っているか、どのプロファイルか、ファイル名は何か」を判断する**ので、ここが無いと Factur-X として認識されません。
+しかし **Factur-X としては不完全です。**
+Factur-X は、XMP に `urn:factur-x:pdfa:CrossIndustryDocument:invoice:1p0#`（prefix `fx`）の拡張スキーマを置き、`DocumentType` / `DocumentFileName` / `Version` / `ConformanceLevel` を宣言することを要求します。**受け取り側は、まずこの XMP を見て「この PDF に請求書 XML が入っているか、どのプロファイルか、ファイル名は何か」を判断する**ので、ここが無いと Factur-X として認識されません。
 
-それでも veraPDF は 146/146 で通しました。当然です。**veraPDF が判定したのは PDF/A-3b であって、Factur-X ではない。** ここは自作ツール側の宿題でもあって、現状 pdfaid と pdfuaid 以外の任意の XMP 拡張スキーマを書く口がありません（設計上の抜けとして記録しました）。
+それでも veraPDF は 146/146 で通しました。
+当然です。**veraPDF が判定したのは PDF/A-3b であって、Factur-X ではない。**
+ここは自作ツール側の宿題でもあって、現状 pdfaid と pdfuaid 以外の任意の XMP 拡張スキーマを書く口がありません（設計上の抜けとして記録しました）。
 
 ### 問題 2：もっとまずい方
 
@@ -289,14 +333,14 @@ veraPDF の判定：
 
 **146/146 PASS。**
 
-|                         | 正しい方              | 金額が食い違う方      |
-| ----------------------- | --------------------- | --------------------- |
-| catalog `/AF`           | ✅                    | ✅                    |
-| `AFRelationship`        | `Alternative`         | `Alternative`         |
-| `/Names /EmbeddedFiles` | ✅                    | ✅                    |
-| veraPDF PDF/A-3b        | **COMPLIANT 146/146** | **COMPLIANT 146/146** |
-| XMP `fx:` 拡張スキーマ  | ❌ 無し               | ❌ 無し               |
-| PDF 面と XML 面の金額   | 一致                  | **1 200 vs 12 000**[^diff]   |
+|                         | 正しい方              | 金額が食い違う方           |
+| ----------------------- | --------------------- | -------------------------- |
+| catalog `/AF`           | ✅                    | ✅                         |
+| `AFRelationship`        | `Alternative`         | `Alternative`              |
+| `/Names /EmbeddedFiles` | ✅                    | ✅                         |
+| veraPDF PDF/A-3b        | **COMPLIANT 146/146** | **COMPLIANT 146/146**      |
+| XMP `fx:` 拡張スキーマ  | ❌ 無し               | ❌ 無し                    |
+| PDF 面と XML 面の金額   | 一致                  | **1 200 vs 12 000**[^diff] |
 
 [^diff]: 厳密には 2 本は金額以外にも差があります。添付の `/Desc`、`/Size`、`ModDate`。PDF のページ内容と生成手順は同一です。
 
@@ -415,6 +459,8 @@ flowchart TB
 - [The UK says a PDF is not an invoice. France just made it one.](https://pdfa.org/the-uk-says-a-pdf-is-not-an-invoice-france-just-made-it-one/) — PDF Association への寄稿記事（著者個人の見解というディスクレーマー付き）。この記事の出発点
 - [Facturation électronique et plateformes agréées](https://www.impots.gouv.fr/facturation-electronique-et-plateformes-agreees) — impots.gouv.fr
 - [Factur-X](https://fnfe-mpe.org/factur-x/) — FNFE-MPE。プロファイル構成・AFNOR XP Z12-012 との関係
+- [デジタルインボイス（Peppol e-invoice）について](https://www.digital.go.jp/) — デジタル庁。2021 年 9 月から Japan Peppol Authority として活動、JP PINT を策定・公表
+- Peppol の四隅モデル・OpenPeppol AISBL によるガバナンス・アクセスポイント認定の仕組みは、複数の解説記事を突き合わせて記述しました（OpenPeppol の一次文書は未確認）
 - Factur-X の XMP 拡張スキーマと `AFRelationship` のプロファイル依存については、実装ライブラリの解説を参照しました（仕様本文は未確認）
 
 :::message alert
