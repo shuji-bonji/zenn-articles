@@ -3,7 +3,7 @@ title: 'MCP サーバーを作っていたら「AI のための PDF 知識イン
 emoji: '🏗️'
 type: 'tech'
 topics: ['pdf', 'mcp', 'claude', 'llm', '電子署名']
-published: false
+published: true
 ---
 
 ## はじめに
