@@ -1,5 +1,5 @@
 ---
-title: 'MCP サーバーを作っていたら「AI のための PDF 知識インフラ」になっていた — PDF Agent Stack'
+title: 'MCP サーバーを作っていたら「AI のための PDF 知識インフラ」になっていた 👉 PDF Agent Stack'
 emoji: '🏗️'
 type: 'tech'
 topics: ['pdf', 'mcp', 'claude', 'llm', '電子署名']
@@ -118,27 +118,57 @@ This file now **CLAIMS** PDF/A-3b …, but conformance was **NOT checked** here.
 
 運用ルールはシンプルです。**宣言を書いたら、同じ flavour で必ず測る。測れない状況なら、宣言を書かない。** このルールはツールの警告文と、納品 Skill（pdf-publish）の手順書の両方に組み込んであり、「宣言だけ書かれた非適合ファイル」が検査を受けずにパイプラインを素通りすることは、仕組みの上でできなくなっています。
 
+3 つの区別に重ねると、この流れはこう描けます。
+
+```mermaid
+graph TB
+  subgraph DECL["宣言 = 名乗り"]
+    direction TB
+    W["ensure_pdfa<br>XMP に『PDF/A-3b です』と書く"]
+    WARN>"⚠️ 成功しても必ず警告<br>『宣言のみ・適合は未検査』"]
+    W --> WARN
+  end
+
+  subgraph VAL["検証 = 測る"]
+    V[["validate_conformance<br>（判定者は veraPDF）"]]
+  end
+
+  subgraph CONF["適合 = 実体（証明は不能・反証のみ可能）"]
+    direction TB
+    NG[/"違反が見つかった<br>= 適合が反証された → 宣言は嘘"/]
+    OK[/"違反が見つからなかった<br>= 検証器の規則の範囲で反証なし"/]
+  end
+
+  WARN -->|警告が検証を強制する| V
+  V --> NG
+  V --> OK
+  NG --> FIX(["修正して測り直す<br>or 宣言を取り下げる"])
+  OK --> SHIP(["納品してよい"])
+```
+
+宣言の枠から出た警告が検証への矢印になり、検証が適合の枠に触れられるのは**反証**（違反発見）か**反証なし**かの 2 つだけ — 「適合そのもの」に到達する矢印は存在しません。表で述べた 3 区別が、そのままパイプラインの形になっています。
+
 ## 4 層に分けた理由
 
 前節の表を実行系に落としたものが、この 4 層 + Skill です。
 
 ```mermaid
 graph LR
-  AGENT["AI エージェント"]
+  AGENT(["AI エージェント"])
 
   subgraph FAMILY["PDF Family"]
     direction TB
     subgraph SKILL["Skill — 手順・編成"]
       direction TB
-      TRUST["pdf-trust<br>受入監査"]
-      PUBLISH["pdf-publish<br>納品パイプライン"]
+      TRUST{{"pdf-trust<br>受入監査"}}
+      PUBLISH{{"pdf-publish<br>納品パイプライン"}}
     end
     subgraph MCP["MCP — 計算・暗号"]
       direction TB
-      SPEC["pdf-spec<br>正典"]
-      READER["pdf-reader<br>実体"]
-      VERIFY["pdf-verify<br>判定"]
-      WRITER["pdf-writer<br>生成"]
+      SPEC[["pdf-spec<br>正典"]]
+      READER[["pdf-reader<br>実体"]]
+      VERIFY[["pdf-verify<br>判定"]]
+      WRITER[["pdf-writer<br>生成"]]
     end
     SKILL --> MCP
   end
@@ -203,6 +233,23 @@ pdf-verify-mcp の
 
 同じファイル・同じプロファイルなら、モデルが何であれ、いつ実行しようが、**常に同じ判定**が返ります。
 
+```mermaid
+graph TB
+  PDF[/"PDF"/] --> FACTS["検証事実の収集<br>署名・失効・改ざん"]
+  FACTS --> ENGINE[["evaluate_policy<br>固定ルール表"]]
+  ENGINE --> VERDICT[/"4 値判定<br>（常に同じ答え）"/]
+  ENGINE --> RULES[/"firedRules<br>発火したルール"/]
+  VERDICT --> REPORT(["Trust Report"])
+  RULES --> LLM["LLM<br>解説・推奨アクション・法令根拠"]
+  LLM --> REPORT
+
+  subgraph CODE["ここまでコードの仕事"]
+    FACTS
+    ENGINE
+    VERDICT
+  end
+```
+
 LLM の仕事はその後です。
 
 発火したルールを人間に説明する、推奨アクションを文章化する、必要なら法令根拠を（houki 系 MCP の**原文**から）引く、といったことを行います。
@@ -223,6 +270,16 @@ LLM の仕事はその後です。
 | T2  | ISO 19005 (PDF/A)             | 「**veraPDF が** COMPLIANT **と判定**」 | 「ISO 19005 準拠」    |
 | T3  | ETSI PAdES                    | 「**構造が** B-LT **に一致する**」      | 「PAdES B-LT に適合」 |
 
+この 3 層は、次の 2 つの問いで決まっています。
+
+```mermaid
+graph LR
+  Q1{"規範の原文が<br>手元（コーパス）にある？"} -->|ある| T1(["T1<br>条文を引用して断定できる"])
+  Q1 -->|ない| Q2{"第三者の検証器は<br>ある？"}
+  Q2 -->|"ある（veraPDF）"| T2(["T2<br>『veraPDF がこう判定した』と<br>判定者を名指しして言う"])
+  Q2 -->|ない| T3(["T3<br>『構造がこう一致する』と<br>観測としてのみ言う"])
+```
+
 PDF/UA は仕様原文がコーパスにあるので条文を引いて言い切れます。PDF/A は原文がない代わりに veraPDF という第三者検証器があるので「誰が判定したか」を名指しします。PAdES に至っては規範も検証器もない — 構造を観測しているのは自分自身なので、「これは観測であって適合判定ではない」と言い続けるしかありません。
 
 まどろっこしく見えますが、受入監査のレポートは「この文書は◯◯準拠です」と相手に伝えるために使われます。**適合の刻印は、押した者が責任を負う** — 実測していないことを実測したかのように書かない、というだけのことです。
@@ -240,6 +297,16 @@ pdf-verify-mcp にかけると、署名本体はどちらも VALID。ところ�
 そこで **known-good 検体を自作**しました。自作 CA・署名者証明書・ダミー TSA を生成し、pyHanko で署名・署名タイムスタンプ・DocTimeStamp を付与します。全工程が管理下にあるので、この検体の期待値だけは仮説ではなく事実です。
 
 結果: **自作検体でも同じ診断で INDETERMINATE**。しかも決定的な対照が取れました — **同じダミー TSA が発行した「署名タイムスタンプ」は、同じファイルの中で検証に成功していた**のです。3 つの独立した生成系（pyHanko / esig-dss / 官報の AMANO）で同一症状、かつ同一 TSA でも通る経路と落ちる経路があります。バグは DocTimeStamp の検証分岐に局在すると確定しました。
+
+```mermaid
+graph TB
+  A(["観測: 官報 / esig-dss の検体で<br>DocTimeStamp が INDETERMINATE"]) --> Q1{"検体が悪い？<br>検証器が悪い？"}
+  Q1 -->|外部検体の期待値は仮説| B["known-good 検体を自作<br>（CA・署名・TSA すべて管理下）"]
+  B --> Q2{"自作検体でも<br>同一診断？"}
+  Q2 -->|はい| C["検証器のバグと確定"]
+  Q2 -->|いいえ| D(["外部検体の側を疑う"])
+  C --> E(["対照: 同じ TSA の署名タイムスタンプは成功<br>→ DocTimeStamp 分岐に局在"])
+```
 
 原因は 1 行の一般化でした。使用ライブラリの pkijs は、CMS の中身が RFC 3161 の TSTInfo である場合、encapsulated（内包）であっても messageImprint の再検証用に外部データを要求します。検証コードは「内包型なら外部データ不要」と一般化していて、TSTInfo だけがその例外でした。修正して、3 検体すべての DocTimeStamp が VALID になりました（v0.14.2 として公開済み）。
 
