@@ -11,7 +11,7 @@ published: true
 published_at: "2026-05-11 06:29"
 ---
 
-LLM に **日本の法令（憲法・法律・政令・省令・規則）はもちろん、条例や通達まで** 、一次情報として正確に引かせるための MCP サーバ群を GW で作りました。
+LLM に **日本の法令（憲法・法律・政令・省令・規則）** と、**国税庁の通達・Q&A** を一次情報として正確に引かせるための MCP サーバ群を GW で作りました。条例と、国税庁以外の通達は扱っていません。
 
 成果物は次の 4 つです（すべて公開済み）。
 
@@ -24,7 +24,16 @@ LLM に **日本の法令（憲法・法律・政令・省令・規則）はも�
 
 > Skill は MCP ではないですが、「LLM に法規を扱うときの振る舞いルールを揃えさせる」ためには **MCP だけでは足りない** と痛感したので、横串の責務を Skill 層として切り出しました。理由は後述します。
 
-これらは [`shuji-bonji/claude-plugins`](https://github.com/shuji-bonji/claude-plugins) という個人 plugin marketplace 経由で `/plugin install` できる形に整備中です（後述）。
+これらは [`shuji-bonji/claude-plugins`](https://github.com/shuji-bonji/claude-plugins) という個人 plugin marketplace から `/plugin install` できます（後述）。ドキュメントの入口は [houki-hub](https://shuji-bonji.github.io/houki-hub/) です。
+
+:::message
+**2026-09-08 追記。** この記事は 2026-05 の制作記録です。本文の版番号は執筆時点のまま残しています。
+
+- 入口: [houki-hub（ドキュメント）](https://shuji-bonji.github.io/houki-hub/)
+- いま引ける範囲: 法令は e-Gov 法令 API v2 に載っている憲法・法律・政令・省令・規則。通達・Q&A は国税庁のみ。条例は未対応
+- 入れるとき: `/plugin marketplace add shuji-bonji/claude-plugins` のあと `/plugin install houki-research@shuji-bonji`（必要なら `houki-egov-mcp` / `houki-nta-mcp` も同じ marketplace から）
+- 版の正: npm とサイトの [現状と予定](https://shuji-bonji.github.io/houki-hub/guide/roadmap)
+:::
 
 
 ## なぜ作ったか？
@@ -334,16 +343,19 @@ houki family の成果物は、Anthropic 公式（`anthropics/claude-plugins-off
 
 | 状態 | plugin |
 | --- | --- |
-| **install 可能** | `houki-research-skill` (v0.1.0) |
-| 整備中 | `houki-egov-mcp` / `houki-nta-mcp` / `pdf-reader-mcp` |
-| 計画中 | 全 5 カテゴリ計 19 plugin（houki / web-spec / quality-tools / domain-specific / dev-meta） |
+| **install 可能** | `houki-research` / `houki-egov-mcp` / `houki-nta-mcp` |
+| 同じ marketplace にある関連 | `pdf-reader-mcp`（改正通達の PDF を読むとき。PDF Agent Stack 側） |
+
+marketplace 全体の plugin 数は `claude-plugins` の README を見てください。
 
 marketplace 自体は **薄い catalog**（`.claude-plugin/marketplace.json`）で、各 plugin の実体は元リポジトリに置く参照型です。リリース粒度を独立に保ちながら、利用者には「shuji-bonji の plugin はここから install」という統一の入口を提供できます。
 
 ```bash
 # Claude Code / Cowork から
 /plugin marketplace add shuji-bonji/claude-plugins
-/plugin install houki-research-skill@shuji-bonji
+/plugin install houki-research@shuji-bonji
+/plugin install houki-egov-mcp@shuji-bonji
+/plugin install houki-nta-mcp@shuji-bonji
 ```
 
 > houki 以外にも `rfcxml`, `w3c`, `epsg`, `ifc-core`, `xcomet`, `pdf-spec` 等の「正典 MCP」群を同じ流儀で配る予定。**「LLM に正典を引かせる道具箱」** として一括インストール できる状態を目指しています。
@@ -515,8 +527,8 @@ houki-nta-mcp.nta_search_tsutatsu の legal_status 部分:
 - **`houki-mhlw-mcp`**（厚労省通達）— 労働基準・社保系。フリーランスとしては個人的に欲しい。
 - **`houki-saiketsu-mcp`**（裁決全般）— 初版は国税不服審判所（kfs.go.jp、約 1,950 件）。将来的に公取委・特許庁審判部など。
 - **`houki-court-mcp`**（判例全般）— 民事判決オープンデータ API 公開待ち。
-- **`houki-hub`**（meta-package）— 一括 install 用。
-- **mikuro.net （自前ドメイン）でファミリー全体の入口を構築** — 当初は別 repo の MkDocs ハブを検討していましたが、個人ブランドサイトに統合する方針に切り替えました。各 MCP の `llms.txt` 集約と plugin marketplace 案内を一箇所にまとめる予定。
+- ドキュメントサイト [houki-hub](https://shuji-bonji.github.io/houki-hub/) は 2026-09-08 に公開済み。一括 install 用の meta-package `@shuji-bonji/houki-hub` はまだ作っていない
+- 英語ページと、厚生労働省の通達（`houki-mhlw-mcp`）より先に、法令メタデータの時系列（`houki-metadata-mcp`）を足す予定
 
 
 ## まとめ
@@ -538,6 +550,8 @@ GW の自由研究としては満足。みなさんも、自分の業務で「LL
 
 ### リンク集
 
+- [houki-hub（ドキュメントサイト）](https://shuji-bonji.github.io/houki-hub/)
+- [houki-hub（GitHub）](https://github.com/shuji-bonji/houki-hub)
 - [houki-egov-mcp (npm)](https://www.npmjs.com/package/@shuji-bonji/houki-egov-mcp)
 - [houki-nta-mcp (npm)](https://www.npmjs.com/package/@shuji-bonji/houki-nta-mcp)
 - [houki-abbreviations (npm)](https://www.npmjs.com/package/@shuji-bonji/houki-abbreviations)
@@ -545,4 +559,4 @@ GW の自由研究としては満足。みなさんも、自分の業務で「LL
 - [shuji-bonji/claude-plugins (marketplace)](https://github.com/shuji-bonji/claude-plugins) — `/plugin marketplace add shuji-bonji/claude-plugins` で利用可能
 - [shuji-bonji の MCP 一覧 (npm)](https://www.npmjs.com/~shuji-bonji)
 
-> 本記事は 2026-05 執筆しており、記事中の各パッケージのバージョンは執筆時点（houki-egov-mcp v0.3.0 / houki-nta-mcp v0.9.3 / houki-abbreviations v0.4.1 / pdf-reader-mcp v0.6.2）のもので、最新版は npm を参照ください。
+> 本記事は 2026-05 執筆です。本文中の版は執筆時点（houki-egov-mcp v0.3.0 / houki-nta-mcp v0.9.3 / houki-abbreviations v0.4.1 / pdf-reader-mcp v0.6.2 / houki-research-skill v0.1.0）です。2026-09-08 時点の入口は [houki-hub](https://shuji-bonji.github.io/houki-hub/)、版の正は npm とサイトの現状と予定です。
