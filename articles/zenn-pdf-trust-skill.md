@@ -1,9 +1,15 @@
 ---
-title: '「このPDF、信用していい？」に答える Claude Skill を作った — pdf-trust-skill'
-emoji: '🔏'
-type: 'tech'
-topics: ['claude', 'claudecode', 'pdf', '電子署名', 'skill']
+title: "「このPDF、信用していい？」に答える Claude Skill を作った — pdf-trust-skill"
+emoji: "🔏"
+type: "tech"
+topics:
+  - "pdf"
+  - "skill"
+  - "電子署名"
+  - "claude"
+  - "claudecode"
 published: true
+published_at: "2026-07-14 10:25"
 ---
 
 ## はじめに

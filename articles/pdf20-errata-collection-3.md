@@ -1,9 +1,14 @@
 ---
-title: 'PDF 2.0 Errata Collection 3 が公開された — 何が変わったのか'
-emoji: '📄'
-type: 'tech'
-topics: ['PDF', 'ISO', '電子文書', '仕様']
+title: "PDF 2.0 Errata Collection 3 が公開された — 何が変わったのか"
+emoji: "📄"
+type: "tech"
+topics:
+  - "pdf"
+  - "iso"
+  - "仕様"
+  - "電子文書"
 published: true
+published_at: "2026-07-12 04:25"
 ---
 
 ## はじめに

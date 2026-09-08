@@ -1,9 +1,15 @@
 ---
-title: 'PDFの署名が「本物か」をLLMが検証できるMCPサーバーを作った'
-emoji: '🔏'
-type: 'tech'
-topics: ['ai', 'pdf', 'typescript', 'mcpサーバー', '電子署名']
+title: "PDFの署名が「本物か」をLLMが検証できるMCPサーバーを作った"
+emoji: "🔏"
+type: "tech"
+topics:
+  - "ai"
+  - "typescript"
+  - "pdf"
+  - "電子署名"
+  - "mcpサーバー"
 published: true
+published_at: "2026-07-14 01:44"
 ---
 
 ## はじめに

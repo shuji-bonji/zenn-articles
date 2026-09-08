@@ -1,9 +1,15 @@
 ---
-title: 'MCP サーバーを作っていたら「AI のための PDF 知識インフラ」になっていた 👉 PDF Agent Stack'
-emoji: '🏗️'
-type: 'tech'
-topics: ['pdf', 'mcp', 'claude', 'llm', '電子署名']
+title: "MCP サーバーを作っていたら「AI のための PDF 知識インフラ」になっていた 👉 PDF Agent Stack"
+emoji: "🏗️"
+type: "tech"
+topics:
+  - "pdf"
+  - "mcp"
+  - "電子署名"
+  - "llm"
+  - "claude"
 published: true
+published_at: "2026-08-12 14:40"
 ---
 
 ## はじめに

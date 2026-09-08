@@ -1,9 +1,15 @@
 ---
-title: 'PDF 2.0 Errata Collection 3 が出たので pdf-spec-mcp を対応させた'
-emoji: '📝'
-type: 'tech'
-topics: ['PDF', 'ISO', 'TypeScript', 'MCPサーバー', 'AI']
+title: "PDF 2.0 Errata Collection 3 が出たので pdf-spec-mcp を対応させた"
+emoji: "📝"
+type: "tech"
+topics:
+  - "ai"
+  - "typescript"
+  - "pdf"
+  - "iso"
+  - "mcpサーバー"
 published: true
+published_at: "2026-07-12 04:25"
 ---
 
 ## はじめに

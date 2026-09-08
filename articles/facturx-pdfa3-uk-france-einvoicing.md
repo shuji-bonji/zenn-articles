@@ -1,9 +1,15 @@
 ---
-title: '英国は「PDFは請求書ではない」とし、仏国は「PDFが請求書だ」と決めた'
-emoji: '🧾'
-type: 'tech'
-topics: ['pdf', '電子帳簿保存法', 'インボイス', 'mcp', 'typescript']
+title: "英国は「PDFは請求書ではない」とし、仏国は「PDFが請求書だ」と決めた"
+emoji: "🧾"
+type: "tech"
+topics:
+  - "typescript"
+  - "pdf"
+  - "mcp"
+  - "電子帳簿保存法"
+  - "インボイス"
 published: true
+published_at: "2026-08-05 02:21"
 ---
 
 PDF Association に、こういう記事が出た[^disclaimer]。
