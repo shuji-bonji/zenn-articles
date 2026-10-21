@@ -4,8 +4,6 @@ title: "主要な標準の概要"
 
 この章では、対話型電子技術マニュアル（Interactive Electronic Technical Manual、IETM）と対話型電子技術出版物（Interactive Electronic Technical Publication、IETP）の周りで、公開情報から確認できる主な標準を並べます。どれか一つが世界共通の必須規格だ、という整理にはしません。事業がどれを契約に書くかで、従う文書が決まります。
 
-## 概要
-
 国際的に広く参照される作成仕様は S1000D です。技術出版物を、共通ソースデータベース（Common Source Data Base、CSDB）を使って作るための国際仕様であり、Aerospace, Security and Defence Industries Association of Europe（ASD）、Aerospace Industries Association of America（AIA）、ATA e-Business Program が共同で出しています。
 
 :::message alert
@@ -22,9 +20,7 @@ flowchart TB
   Q --> J["JSG 0852<br/>インド国防省のガイド<br/>本文の要求は未確認"]
 ```
 
-## 詳細
-
-### S1000D
+## S1000D
 
 公式サイトの標題は、「共通ソースデータベースを用いる技術出版物のための国際仕様」です。技術出版物の作成仕様であり、仕様書、スキーマ、サンプルは同サイトから無償でダウンロードできます。
 
@@ -53,7 +49,7 @@ flowchart TB
 
 データモジュールや CSDB の中身は、次の二つの章で公式サイトの定義に沿って説明します。
 
-### 米国の MIL 系
+## 米国の MIL 系
 
 1992 年 11 月 20 日に出た最初の一式は、MIL-M-87268（内容、スタイル、形式、利用者とのやり取り）、MIL-D-87269（改訂可能なデータベース）、MIL-Q-87270（品質保証）です。
 
@@ -72,7 +68,7 @@ MIL-HDBK-511 が扱う相互運用は、データそのものの相互運用の�
 
 これらの文書の現行版、廃止、置き換えは、本書の調査日以降にも変わります。ASSIST の表示を、契約の指定版と突き合わせてください。
 
-### JSG 0852
+## JSG 0852
 
 JSG 0852 は、インド国防省の標準化局（Directorate of Standardisation, Department of Defence Production）が扱う Joint Services Guide の一つで、標題は Interactive Electronic Technical Manual です。公開されているファイルの表題には、JSG 0852:2019（Second Revision）とあります。承認者として、情報技術の標準化小委員会の議長が記されています。
 
