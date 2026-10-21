@@ -28,12 +28,14 @@ flowchart TB
 
 公式サイトの標題は、「共通ソースデータベースを用いる技術出版物のための国際仕様」です。技術出版物の作成仕様であり、仕様書、スキーマ、サンプルは同サイトから無償でダウンロードできます。
 
-維持の主体は、公式サイトが次のように説明しています。
+維持の主体は、公式サイトが次のように説明しています。1980 年代前半に、当時 AECMA と呼ばれた ASD の航空宇宙標準として始まり、現在の共同発行者は ASD、AIA、ATA e-Business Program です。Issue 2 で対象は陸と海へ広がりました。
 
+:::details 公式サイトが説明する維持の経緯
 - 概念は 1980 年代前半、当時 AECMA と呼ばれた ASD の航空宇宙標準として始まった。当時、民間の航空機事業の多くは ATA 100、軍の事業は各国の仕様に従っていた。
 - AECMA の Customer and Product Support Committee が Documentation Working Group を置き、ATA 100 を元に民間と軍の文書を調和させることを選んだ。軍の代表を加えた Augmented Documentation Working Group が、のちに Technical Publications Specification Maintenance Group、さらに S1000D Steering Committee へ引き継がれた。
 - 現在の共同発行者は ASD、AIA、ATA e-Business Program である。三者の覚書から S1000D Council が置かれ、開発全体の統治を担う。Steering Committee は Change Proposal Form（CPF）を処理し、仕様の版を出す。
 - Issue 2 で、対象は陸と海へ広がった。公式の概要は、軍と民間の装備、出版物、建設、方針手順、法務文書、組織の文書などへ適用し得ると述べている。トップページは、防衛（陸・海・空）、民間航空、建設、船舶を現在の用途として挙げている。
+:::
 
 版番号の読み方は、ダウンロードページが説明しています。
 

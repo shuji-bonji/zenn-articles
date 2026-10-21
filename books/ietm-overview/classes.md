@@ -17,13 +17,15 @@ Tri-Service IETM Working Group は、ETM を Class 0 から Class 5 まで定義
 :::
 
 ```mermaid
-flowchart LR
-  C0["Class 0<br/>ページ画像<br/>ETM ではない"] --> C1["Class 1<br/>索引付きページ画像"]
-  C1 --> C2["Class 2<br/>スクロール文書"]
-  C2 --> C3["Class 3<br/>線形の構造化 IETM"]
-  C3 --> C4["Class 4<br/>階層データベース"]
-  C4 --> C5["Class 5<br/>統合 IETIS<br/>将来機能に開く"]
+flowchart TB
+  C0["Class 0  ページ画像。ETM ではない"] --> C1["Class 1  索引付きページ画像"]
+  C1 --> C2["Class 2  スクロール文書。著者の対話はない"]
+  C2 --> C3["Class 3  線形の構造化 IETM"]
+  C3 --> C4["Class 4  階層データベースの IETM"]
+  C4 --> C5["Class 5  統合 IETIS。将来の機能に開く"]
 ```
+
+上の並びは、Jorgensen が spectrum 上の点として書いたものです。境目は Class 2 と Class 3 の間にあります。Class 0 は ETM ではなく、Class 1 と Class 2 は著者の対話を持たない ETM、Class 3 以上が IETM です。
 
 ## 詳細
 
@@ -72,7 +74,11 @@ MIL-STD-40051-1B の表は、機能ごとに複雑さの係数を、線形の列
 | Prognostics | NA | 5 | Diagnostics and Prognostics |
 | System Simulation | 4 | 4 | Diagnostics and Prognostics |
 
-区分として表に並んでいるものには、Access、Annotation、Delivery and Distribution、Diagnostics and Prognostics、External Processes、Graphics、Linking、Navigation and Tracking、Printing、Special Content、Updates、User Operation Mode があります。配送媒体（CD-ROM、DVD、ネットワーク）、注釈、印刷、外部プロセス（不具合報告、部品発注、整備データ収集など）が、クラスという言葉より具体的な行になっています。
+区分は 12 あります。配送媒体（CD-ROM、DVD、ネットワーク）、注釈、印刷、外部プロセス（不具合報告、部品発注、整備データ収集など）が、クラスという言葉より具体的な行になっています。
+
+:::details 附属書 A に並んでいる区分
+Access、Annotation、Delivery and Distribution、Diagnostics and Prognostics、External Processes、Graphics、Linking、Navigation and Tracking、Printing、Special Content、Updates、User Operation Mode。
+:::
 
 :::message alert
 S1000D のマトリックスと陸軍のマトリックスを、同じチェックリストとして混ぜないでください。どちらも「番号一つでは機能が指定できない」という問題への回答ですが、行の定義と、どの規格の契約で効くかは別です。マトリックス上の数字は、その IETM 全体のクラス番号ではありません。
