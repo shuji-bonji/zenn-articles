@@ -1,7 +1,7 @@
-title: "IETM入門 — 概念から S1000D まで"
-summary: "IETM（Interactive Electronic Technical Manual）の定義、米国 DoD のクラス、IETP との関係、S1000D の基本までを、公式情報に沿って段階的に説明する入門書。"
-topics: ["ietm", "s1000d", "xml", "defense"]
-published: false
+title: 'IETM入門 — 概念から S1000D まで'
+summary: 'IETM（Interactive Electronic Technical Manual）の定義、米国 DoD のクラス、IETP との関係、S1000D の基本までを、公式情報に沿って段階的に説明する入門書。'
+topics: ['ietm', 's1000d', 'xml', 'defense']
+published: true
 price: 0
 chapters:
   - what-is-ietm
