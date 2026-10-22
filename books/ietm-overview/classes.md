@@ -2,9 +2,9 @@
 title: "クラスと Functionality Matrix"
 ---
 
-この章では、米国国防総省（Department of Defense、DoD）が電子技術マニュアル（Electronic Technical Manual、ETM）を分類するために定めたクラスと、のちに契約で使われるようになった機能マトリックス（Functionality Matrix）の関係を説明します。ETM には、対話型電子技術マニュアル（Interactive Electronic Technical Manual、IETM）も含まれます。
+クラスは、米国国防総省（Department of Defense、DoD）が電子技術マニュアル（Electronic Technical Manual、ETM）を、機能の多さによって Class 0 から Class 5 までの 6 段階に分けたものです。IETM と呼べるのは、著者が作った対話を持つ Class 3 以上です。ただし、クラス番号を一つ指定しただけでは、調達する IETM の機能は決まりません。そのため、のちの契約では、機能マトリックス（Functionality Matrix）を使って必要な機能を一つずつ指定するようになりました。
 
-先に結論を書くと、クラス番号を一つ指定しただけでは、調達する IETM の機能は決まりません。機能は機能マトリックスで一つずつ指定します。
+この章では、各クラスの定義と、クラスと機能マトリックスの関係を説明します。
 
 ## クラスの全体像
 
