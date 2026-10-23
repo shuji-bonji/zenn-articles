@@ -39,6 +39,24 @@ DMC だけでは、「いつの版の、どの言語の DM か」は決まりま
 
 適用は、その情報がどの装備のどの構成に当てはまるかを、データとして持たせることです。概要は、識別・状態の部分が適用を管理すると書いています。利点のページは、メタデータと内容による、適用を条件にした検索と取り出しを利点に挙げています。紙の注記「この派生型の場合は次のページ」を、データの条件に移す、という理解で足ります。適用をどの粒度で書くか、どの属性を条件に使うかは、プロジェクトのルールと、対象の版のスキーマで決まります。
 
+適用を付ける単位は、DM 全体だけではありません。Issue 4.2 の既定 BREX は、内容の部分の要素、たとえば `dialog`、`dmSeq`、`commonInfoDescrPara` に付く `applicRefId` 属性を検査の対象にしています。内容の部分の要素は、`applicRefId` で、別に定義した適用の条件を参照できます。つまり、一つの DM の中で、どの段落やステップを出すかも、適用で切り替えられます。この属性名は Issue 4.2 の既定 BREX で確認したものです。他の版の要素名と、条件を定義する要素の置き場所は、その版のスキーマで確認します。
+
+```mermaid
+flowchart TB
+  DM["Data Module"]
+  DM --> ID["識別・状態の部分"]
+  DM --> BODY["内容の部分"]
+  ID --> APP1["DM 全体の適用<br/>この DM がどの構成に当てはまるか"]
+  BODY --> P1["段落・ステップ A<br/>適用の指定なし"]
+  BODY --> P2["段落・ステップ B<br/>applicRefId で条件を参照"]
+  BODY --> P3["段落・ステップ C<br/>applicRefId で別の条件を参照"]
+  APP1 -. "DM を出すかどうか" .-> V["ビューアの出し分け"]
+  P2 -. "要素を出すかどうか" .-> V
+  P3 -. "要素を出すかどうか" .-> V
+```
+
+条件に使う値の管理には、製品の属性を扱う適用相互参照表（Applicability Cross-reference Table、ACT）、製品の属性以外の条件を扱う条件相互参照表（Conditions Cross-reference Table、CCT）、個々の製品を扱う製品相互参照表（Products Cross-reference Table、PCT）があります。米海軍の NAVSEA の S1000D ガイドは、この三つの表を Issue 3.0 以降について説明しています。表の要素の詳細は、本書では扱いません。
+
 品質保証の情報は、その DM がどの検証を通ったかを管理するためのものです。取り出しの制御には、セキュリティの区分のように、誰が取り出せるかに関わる情報が含まれます。区分の符号の意味は、版の符号表で確認します。本書は符号の一覧を写しません。
 
 ## 内容の部分が持たないもの
@@ -68,6 +86,8 @@ Issue 7 の XML スキーマパッケージには、種類に対応するファ�
 - Issue 4.1 のスキーマを `xsi:noNamespaceSchemaLocation` で参照している公開テンプレート（`identAndStatusSection`、`dmCode`、`language`、`issueInfo`）. https://github.com/oxygenxml/S1000D/blob/master/templates/Data%20Module.xml
 - Issue 4.2 の既定 BREX のファイル名とスキーマ位置. https://github.com/kibook/S1000D/blob/master/csdb/DMC-S1000D-F-04-10-0301-00A-022A-D_001-00_EN-US.XML
 - RWS Contenta S1000D の文書が列挙している Issue 4.0 のスキーマ URL（`descript.xsd`、`fault.xsd`、`ipd.xsd`、`crew.xsd`、`brex.xsd`、`checklist.xsd`、`learning.xsd`）. https://docs.rws.com/en-US/contenta-s1000d-5.9-866363/supported-schemas-15425
+- Issue 4.2 の既定 BREX（内容の部分の要素に付く `applicRefId` を検査するルール）. https://github.com/kibook/S1000D/blob/master/csdb/DMC-S1000D-F-04-10-0301-00A-022A-D_001-00_EN-US.XML
+- Naval Surface Warfare Center Carderock Division. *NAVSEA S1000D Tool Acquisition and Guidance*（適用の注釈、`applicRefId`、ACT、CCT、PCT）. https://www.navsea.navy.mil/portals/103/documents/nswc_carderock/navsea%20s1000d%20taag.pdf
 - 著者が入手した S1000D Issue 6 のパッケージ（XML スキーマパッケージ、自転車サンプルの記述 DM）。入手先は https://users.s1000d.org/
 - 著者が入手した S1000D Issue 7 のパッケージ（第1.2章、第3.2章、第4.2章、XML スキーマパッケージ、自転車サンプルの記述 DM）。入手先は https://users.s1000d.org/
 

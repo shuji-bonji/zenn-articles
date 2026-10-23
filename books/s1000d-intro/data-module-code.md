@@ -52,6 +52,44 @@ Issue 7 の第4.3章は、DMC を図に示した位置のハイフンで示し�
 
 文字列を左から読むと、`S1000DBIKE`、`AAA`、`D00`、`00`、`00`、`00AA`、`041A`、`A` です。4番目の `00` はサブシステム `0` とサブサブシステム `0`、5番目の `00` はアセンブリ、`00AA` は分解コードとバリアント、`041A` は情報コードとバリアントです。SNS を空白なしでつなぐと `D000000`（`D00` + `0` + `0` + `00`）になります。
 
+次の図は、同じ文字列の区切りと属性の対応です。左は文字列を先頭から順に区切ったもの、右は対応する属性です。ハイフンは属性の値に含まれません。一つの区切りが二つの属性を含む箇所があります。
+
+```mermaid
+flowchart LR
+  subgraph STR["文字列の区切り"]
+    S1["S1000DBIKE"]
+    S2["AAA"]
+    S3["D00"]
+    S4["00"]
+    S5["00"]
+    S6["00AA"]
+    S7["041A"]
+    S8["A"]
+  end
+  subgraph INFO["情報に関する部分：どんな種類の情報か"]
+    B1["infoCode = 041<br/>infoCodeVariant = A"]
+    B2["itemLocationCode = A"]
+  end
+  subgraph SYS["システムに関する部分：どの製品の、どの部分か"]
+    A1["modelIdentCode = S1000DBIKE"]
+    A2["systemDiffCode = AAA"]
+    A3["systemCode = D00"]
+    A4["subSystemCode = 0<br/>subSubSystemCode = 0"]
+    A5["assyCode = 00"]
+    A6["disassyCode = 00<br/>disassyCodeVariant = AA"]
+  end
+  S1 --> A1
+  S2 --> A2
+  S3 --> A3
+  S4 --> A4
+  S5 --> A5
+  S6 --> A6
+  S7 --> B1
+  S8 --> B2
+```
+
+SNS は、`systemCode` から `assyCode` までの四つの属性です。図の `D00`、`00`、`00` の三つの区切りにまたがります。
+
 同じ Issue 7 のサンプルには、モデル識別 `S1000DBIKE`、システム `DA1`、情報コード `041` の記述 DM もあります。`techName` は “Brake system”、`infoName` は先の自転車全体の DM と同じ “Description of how it is made” です。階層が違えば、同じ情報コードでも別の DM です。サンプルには、モデル識別が `BRAKE` の別の記述 DM もあります。`S1000DBIKE` のブレーキと、`BRAKE` という製品は、同じファイルではありません。Issue 6 のサンプルにも、同じ二つの DMC があります。`S1000DBIKE` 側の発行番号は `010`、`BRAKE` 側の発行番号は `004`、`issueDate` はどちらも 2024-06-19 です。標題は Issue 7 のファイルと同じです。
 
 ## 同じ概念でも桁が違う公式の例
