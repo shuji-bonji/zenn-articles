@@ -6,7 +6,9 @@ S1000D の価値は、「対話型のマニュアル」という考え方その�
 
 しかも S1000D が決めているのはデータの形だけで、画面を表示するビューアは指定していません。データを S1000D の考え方に沿って持てば、表示は Web 技術など、今の技術で自由に作れます。
 
-この章では、ここまでの章で確認した事実を整理したうえで、S1000D から何を受け取れるかについての著者の見解を述べます。
+古い仕様でありながら S1000D が今注目されているのは、航空機の整備手順だけでなく陸・海の装備や建設などにも使える仕様になったこと、各国の防衛分野や NATO で採用が進んでいること、表示を今の技術で作れること、3D や VR のような新しい表示方法にも対応できることによると考えられます。
+
+この章では、ここまでの章で確認した事実と、新しく確認した事実を整理したうえで、S1000D から何を受け取れるかについての著者の見解を述べます。
 
 ## これまでの章で確認した事実
 
@@ -22,6 +24,25 @@ S1000D の価値は、「対話型のマニュアル」という考え方その�
 - 米国の MIL-PRF-87268A は、IETM の内容と、それを表示する電子表示装置の操作画面の両方に要求を定めていました（「IETM と IETP の構成要素」の章）。
 - これに対して S1000D は、オーサリング環境、CSDB、ビューアの間でやり取りするデータの形を定め、製品は指定していません。公式サイトは CSDB の機能を定めないと明記しており、ビューアのプログラムも仕様の配布物には含まれていません。
 - 画面にどの機能を持たせるかは、事業ごとに機能マトリックスで選びます。
+
+### 航空機の整備手順だけの仕様ではなくなった
+
+- 公式の概要ページによると、Issue 2 から陸上と海上の装備が範囲に加わりました。さらに、軍用と民用の装備のほか、建設、方針や手続き、法務文書、組織の文書などにも使えると書いています。
+- ダウンロードサイトの案内は、現在の用途として、防衛（陸・海・空）、民間航空、建設、船舶を挙げています。
+- 民間航空には ATA Spec 1000BR、海運には Shipdex、防衛には DIG のビジネスルールがあり、分野ごとに S1000D を使うためのルールが整えられています。
+- AIA は、S シリーズは航空宇宙と防衛のために作られたが、海事、海中、鉄道、建設、農業などにも使えると書いています（「S シリーズと IPS」の章）。
+
+### 採用が国際的に広がっている
+
+- S シリーズの公式サイトは、最近加わった国としてカナダ、オーストラリア、韓国、日本を挙げています。2024 年の出来事としては、NATO の統合ライフサイクル支援の指針（ALP-10）への組み込み、米国防総省による採用の検討の要請、日本の業界団体 SJAC との覚書を挙げています。
+- SJAC との覚書は、S1000D について AIA、A4A、ASD、SJAC が結んだものと、S シリーズ全体について AIA、ASD、SJAC が結んだものの二つです。これにより SJAC は、主要な委員会と作業部会に参加できるようになりました。
+- 防衛の分野では、米空軍の MIL-STD-3048、ドイツ軍が契約で使える版の指定、オーストラリア国防省の S1000D の IETP の標準 DEF(AUST) IPS-5630 などが整えられています。ただし、確認した範囲では、どの契約でも S1000D を必須にするとまでは書かれていません。
+
+### 3D と VR に対応している
+
+- Issue 7 の仕様書には、対話的な 3D コンテンツ（Interactive 3D content）の規則（第3.9.2.5章）があります。
+- 第6.4.1章と第7.3.3章は、3D モデルを使って、仮想的な組み立てと分解、部品の取り外しと取り付けを、アニメーション、シミュレーション、仮想現実（virtual reality）の考え方で示せると書いています。同時に、それらをどこまで使うかで費用が大きく変わるとも注意しています。
+- IETP の 3D の部品を、複数の XR ヘッドセットに同時に表示する仕組みについての米国特許（US10891798、2021 年登録）もあります。
 
 ## 著者の見解
 
@@ -67,6 +88,14 @@ flowchart LR
 
 1990 年代の IETM は、専用の電子表示装置で動かすことが前提でした。今はブラウザが動く端末であれば、タブレットでも作業用のノートパソコンでも、同じ情報を表示できます。適用による出し分けや Process の分岐は、Web アプリケーションの状態管理の考え方とも相性の良い処理です。
 
+### DX と XR との関係
+
+S1000D は、技術情報を冊子ではなく、識別コードと適用の条件を持った小さなデータの単位として管理します。これは、紙の書類を電子化するだけでなく、業務の仕組みそのものをデータ中心に変える DX（デジタルトランスフォーメーション）の考え方とよく合っています。
+
+また、AR や VR のような XR の技術は、情報をどう見せるかという「表現」の技術で、S1000D は何をどの条件で見せるかを決める「データ」の仕様です。たとえば、作業員が AR ゴーグルで故障した部品を見ると、部品の名前と在庫の状況（S2000M のデータ）と、交換の手順（S1000D のデータ）が視界に重ねて表示される、という整備の環境が考えられます。S1000D と S2000M は、モデル識別コードの付け方に同じ規則を使っており（「S シリーズと IPS」の章で触れた Issue 7 の第2.3章）、二つのデータをつなぐ前提は仕様の側にあります。
+
+さらに進めば、S1000D のデータから XR の表示を自動で作ることも考えられます。ただし、そうした仕組みが一般に使われていると言えるだけの一次資料は確認できていません。仕様書自身も VR をどこまで使うかで費用が大きく変わると注意しているので、現時点では可能性として捉えるのが適切だと考えます。
+
 ### 準拠することと、考え方を取り入れることは別
 
 S1000D を活用する方法は、完全に準拠することだけではありません。
@@ -85,8 +114,21 @@ IETM という語は、1990 年代の米軍の調達用語として、今では�
 - 「IETM と IETP の構成要素」：CSDB の機能を定めないこと、ビューアが配布物に含まれないこと、MIL-PRF-87268A が画面にも要求を定めていたこと。https://www.navsea.navy.mil/Portals/103/Documents/NSWC_Carderock/s87268a.pdf
 - 「S1000D の基本」「Data Module の種類と構造」：DM、DMC、PM、適用、Process、BREX の説明。
 
+この章で新しく使った出典は、次のとおりです。
+
+- S1000D. *About S1000D*（Issue 2 からの範囲、装備以外の文書への適用）. https://s1000d.org/?page_id=101
+- S1000D. *External Links*（ATA Spec 1000BR、DIG、Shipdex）. https://s1000d.org/?page_id=44
+- Aerospace Industries Association. *S-Series IPS Specifications*. https://www.aia-aerospace.org/standards/s-series-ips/
+- S-Series. *Global adoption*. https://www.s-series.org/our-specifications/global-adoption/
+- S-Series. *Aerospace cooperation boosted by new agreements on S1000D and S-Series specifications*. https://www.s-series.org/news-and-events/news/aerospace-cooperation-boosted-by-new-agreements-on-s1000d-and-s-series-specifications/
+- Department of Defense. MIL-STD-3048A(USAF). https://everyspec.com/MIL-STD/MIL-STD-3000-9999/download.php?spec=MIL-STD-3048A.054327.pdf
+- Bundeswehr. *S1000D International specification for technical publications*. https://www.bundeswehr.de/de/organisation/unterstuetzungsbereich/logistik/logistikkommando-der-bundeswehr-in-erfurt/einheitliche-materialkatalogisierung-im-logkdobw/s-1000d-international-en-specification-en-for-en-technical-en-publications-en-5707894
+- Australian Government, Defence. *Developing S1000D Interactive Electronic Technical Publications Standard*. https://defence.gov.au/business-industry/industry-governance/developing-s1000d-interactive-electronic-technical-publications-standard
+- 著者が入手した S1000D Issue 7 のパッケージ（第2.3章、第3.9.2.5章、第6.4.1章、第7.3.3章）。入手先は https://users.s1000d.org/
+- US10891798. https://patents.google.com/patent/US10891798
+
 ## この章のポイント
 
-- S1000D は、1980 年代前半から現在の Issue 7 まで改訂が続き、防衛、民間航空、建設、船舶で使われている仕様です。決めているのはデータの形だけで、ビューアは指定していません。
+- S1000D は、1980 年代前半から現在の Issue 7 まで改訂が続き、航空機の整備手順だけでなく、防衛、民間航空、建設、船舶などで使われる仕様になりました。採用は NATO や各国の防衛分野に広がり、2024 年には日本の SJAC も覚書を結びました。
 - 著者の見解では、S1000D の一番の価値は、データモジュール、適用、Process、BREX といった、長く使われて固まってきたデータの決まりにあります。
-- データを S1000D の考え方に沿って持てば、表示は Web 技術など今の技術で作れます。完全に準拠するか、考え方を取り入れるかは、事業の分野と契約によって選べます。
+- S1000D はデータの形だけを決めているので、表示は Web 技術や XR など、今の技術で作れます。完全に準拠するか、考え方を取り入れるかは、事業の分野と契約によって選べます。
