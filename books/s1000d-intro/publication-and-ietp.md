@@ -41,14 +41,14 @@ Issue 7 の第6.3章は、IETP を、CSDB に DM として格納された前付�
 
 ## IETP と IETM
 
-S1000D が使う語は IETP です。米国の文書が使う語は IETM（Interactive Electronic Technical Manual）です。米空軍の MIL-STD-3048A は、二つの語をほぼ同等（roughly equivalent）だと定義しています。同規格の定義の要点は、次のとおりです。
+S1000D が使う語は IETP です。米国の文書が使う語は IETM（Interactive Electronic Technical Manual）です。米空軍の MIL-STD-3048A は、二つの語をほぼ同等（roughly equivalent）だと定義しています。定義の要点は、次のとおりです。
 
 | 語 | MIL-STD-3048A の定義の要点 |
 | --- | --- |
-| IETM | 非線形に表示するために非線形に執筆した技術マニュアル。S1000D の IETP とほぼ同等 |
 | IETP | 製品の説明、運用、整備に必要な情報を、電子表示装置で対話的に表示できるよう構成したもの。条件分岐を含み、パラメータの値は実行時に決まり得る。米国でより一般的な IETM とほぼ同等 |
+| IETM | 非線形に表示するために非線形に執筆した技術マニュアル。S1000D の IETP とほぼ同等 |
 
-ほぼ同等は、どの契約でも同じ成果物だ、という意味ではありません。同じ MIL-STD-3048 の適用範囲では、IETM が紙やページ型を含む広い意味で使われている箇所もあります。語の定義と、規格の適用範囲と、契約の要求は、別々に読みます。クラス 1 から 5 という米国の区分は、S1000D の機能マトリックスそのものではありません。クラスの説明は『IETM入門』にあります。
+ほぼ同等であっても、契約の成果物が同じであることにはなりません。同じ規格の適用範囲では、IETM が紙やページ型を含む広い意味で使われている箇所もあります。クラス 1 から 5 は、S1000D の機能マトリックスそのものではありません。クラスの説明は『IETM入門 — 概念から S1000D まで』にあります。
 
 公式の概要が名前を挙げている Process データモジュールは、対話的な表示で、どの DM をどの条件で出すかという流れを、手順の本文とは別に書くための種類です。Issue 7 の第4.11章は、これを、複数の DM またはステップを順序づけた手順の流れだと書き、分岐、繰り返し、選択的な絞り込み、外部アプリケーションとのインターフェースを含む、と述べています。出版物全体を一つの Process の DM にはしない、とも書いています。流れを表す要素名は、版の process のスキーマにあります。Issue 6 と Issue 7 のスキーマパッケージには `process.xsd` があります。要素名の一覧は、本書では書きません。第4.11章の説明は、Issue 7 の本文から読んだものです。手順の DM がステップの本文を持ち、Process の DM が表示の流れを持つ、という役割の分離だけを、ここでは押さえておきます。
 
@@ -73,7 +73,7 @@ S1000D が使う語は IETP です。米国の文書が使う語は IETM（Inter
 - 著者が入手した S1000D Issue 7 のパッケージ（第4.9章、第4.9.1章、第4.11章、第6.3章、`pm.xsd`、`process.xsd`、機能マトリックス）。入手先は https://users.s1000d.org/
 - S1000D. Issue 4.1 のダウンロード説明（functionality matrix を同梱）. https://users.s1000d.org/ProductDescription.aspx?ProductID=16
 - S1000D. Issue 5.0 のダウンロード説明（functionality matrix を同梱）. https://users.s1000d.org/ProductDescription.aspx?ProductID=34
-- Department of Defense. MIL-STD-3048A における IETM と IETP の定義（本書『IETM入門』で文面を確認した範囲）. https://zenn.dev/shuji_bonji/books/ietm-overview
+- Department of Defense. MIL-STD-3048A における IETP と IETM の定義（『IETM入門 — 概念から S1000D まで』で文面を確認した範囲）. https://zenn.dev/shuji_bonji/books/ietm-overview
 
 ## この章のポイント
 
