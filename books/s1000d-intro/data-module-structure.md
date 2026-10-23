@@ -39,7 +39,7 @@ DMC だけでは、「いつの版の、どの言語の DM か」は決まりま
 
 適用は、その情報がどの装備のどの構成に当てはまるかを、データとして持たせることです。概要は、識別・状態の部分が適用を管理すると書いています。利点のページは、メタデータと内容による、適用を条件にした検索と取り出しを利点に挙げています。紙の注記「この派生型の場合は次のページ」を、データの条件に移す、という理解で足ります。適用をどの粒度で書くか、どの属性を条件に使うかは、プロジェクトのルールと、対象の版のスキーマで決まります。
 
-適用を付ける単位は、DM 全体だけではありません。Issue 4.2 の既定 BREX は、内容の部分の要素、たとえば `dialog`、`dmSeq`、`commonInfoDescrPara` に付く `applicRefId` 属性を検査の対象にしています。内容の部分の要素は、`applicRefId` で、別に定義した適用の条件を参照できます。つまり、一つの DM の中で、どの段落やステップを出すかも、適用で切り替えられます。この属性名は Issue 4.2 の既定 BREX で確認したものです。他の版の要素名と、条件を定義する要素の置き場所は、その版のスキーマで確認します。
+適用を付ける単位は、DM 全体だけではありません。Issue 7 の自転車サンプルでは、DM 全体の適用を識別・状態の部分の `dmStatus` の中の `applic` に書き、内容の部分の要素には `applicRefId` 属性を付けています。`applicRefId` は、内容の部分の `referencedApplicGroup` に定義した適用の条件を参照します。属性が付いている要素は、`proceduralStep`、`para`、`dmRef`、`wire` などです。つまり、一つの DM の中で、どの段落やステップを出すかも、適用で切り替えられます。Issue 4.2 の既定 BREX も、`dialog`、`dmSeq`、`commonInfoDescrPara` などに付く `applicRefId` を検査しています。条件の定義を置く場所は、版によって違うことがあります。対象の版のスキーマで確認します。
 
 ```mermaid
 flowchart TB
@@ -55,7 +55,7 @@ flowchart TB
   P3 -. "要素を出すかどうか" .-> V
 ```
 
-条件に使う値の管理には、製品の属性を扱う適用相互参照表（Applicability Cross-reference Table、ACT）、製品の属性以外の条件を扱う条件相互参照表（Conditions Cross-reference Table、CCT）、個々の製品を扱う製品相互参照表（Products Cross-reference Table、PCT）があります。米海軍の NAVSEA の S1000D ガイドは、この三つの表を Issue 3.0 以降について説明しています。表の要素の詳細は、本書では扱いません。
+条件に使う値の管理には、製品の属性を扱う適用相互参照表（Applicability Cross-reference Table、ACT）、製品の属性以外の条件を扱う条件相互参照表（Conditions Cross-reference Table、CCT）、個々の製品を扱う製品相互参照表（Products Cross-reference Table、PCT）があります。Issue 3.0、Issue 4.0、Issue 7 のスキーマパッケージには、それぞれに対応する `appliccrossreftable.xsd`、`condcrossreftable.xsd`、`prdcrossreftable.xsd` があります。米海軍の NAVSEA の S1000D ガイドも、この三つの表を Issue 3.0 以降について説明しています。表の要素の詳細は、本書では扱いません。
 
 品質保証の情報は、その DM がどの検証を通ったかを管理するためのものです。取り出しの制御には、セキュリティの区分のように、誰が取り出せるかに関わる情報が含まれます。区分の符号の意味は、版の符号表で確認します。本書は符号の一覧を写しません。
 
@@ -73,9 +73,9 @@ flowchart TB
 
 ## スキーマは種類ごとに分かれる
 
-DM の外側は共通でも、内容の部分を検証するスキーマは種類ごとに分かれます。Issue 4.0 のスキーマ URL を列挙している公開文書には、`descript.xsd`、`fault.xsd`、`ipd.xsd`、`crew.xsd`、`brex.xsd` が別ファイルとしてあり、同じ一覧に `checklist.xsd` と `learning.xsd` も現れます。この一覧の抜粋には、手順用と配線用のファイル名は含まれていませんでした。Issue 4.0 にそのファイルが無かった、とまでは言いません。
+DM の外側は共通でも、内容の部分を検証するスキーマは種類ごとに分かれます。Issue 4.0 のスキーマパッケージには、`descript.xsd`、`proced.xsd`、`fault.xsd`、`ipd.xsd`、`wrngdata.xsd`、`crew.xsd`、`brex.xsd`、`checklist.xsd`、`learning.xsd` などが別ファイルとしてあります。
 
-Issue 7 の XML スキーマパッケージには、種類に対応するファイルとして `descript.xsd`、`proced.xsd`、`fault.xsd`、`ipd.xsd`、`wrngdata.xsd`、`wrngflds.xsd`、`schedul.xsd`、`process.xsd`、`crew.xsd`、`brex.xsd`、`brdoc.xsd`、`checklist.xsd`、`learning.xsd`、`frontmatter.xsd`、`pm.xsd` があります。Issue 6 のスキーマパッケージにも、ここに挙げたファイル名があります。これらは、それぞれの Issue のファイル名です。Issue 4.0 の抜粋に無かった名前を、Issue 4.0 にもあったことにはしません。どちらのパッケージにも、このほかにデータ型や語彙、XLink などの共通ファイルと、IEEE LOM のスキーマの木があります。DTD のファイルは、この二つのスキーマパッケージの一覧にはありませんでした。ファイルが分かれていても、識別・状態の部分の役割は、概要が説明する共通の構造のままです。
+Issue 7 の XML スキーマパッケージには、種類に対応するファイルとして `descript.xsd`、`proced.xsd`、`fault.xsd`、`ipd.xsd`、`wrngdata.xsd`、`wrngflds.xsd`、`schedul.xsd`、`process.xsd`、`crew.xsd`、`brex.xsd`、`brdoc.xsd`、`checklist.xsd`、`learning.xsd`、`frontmatter.xsd`、`pm.xsd` があります。Issue 6 のスキーマパッケージにも、ここに挙げたファイル名があります。これらは、それぞれの Issue のファイル名です。`brdoc.xsd` と `frontmatter.xsd` は、Issue 4.0 のパッケージにはありません。どちらのパッケージにも、このほかにデータ型や語彙、XLink などの共通ファイルと、IEEE LOM のスキーマの木があります。DTD のファイルは、この二つのスキーマパッケージの一覧にはありませんでした。ファイルが分かれていても、識別・状態の部分の役割は、概要が説明する共通の構造のままです。
 
 新しい版で種類が増えても、本書の「二つの部分」という説明は概要の概念に沿ったものです。増えた種類の要素は、その版のスキーマが定めます。
 
@@ -85,11 +85,12 @@ Issue 7 の XML スキーマパッケージには、種類に対応するファ�
 - S1000D. *Benefits*. https://s1000d.org/?page_id=57
 - Issue 4.1 のスキーマを `xsi:noNamespaceSchemaLocation` で参照している公開テンプレート（`identAndStatusSection`、`dmCode`、`language`、`issueInfo`）. https://github.com/oxygenxml/S1000D/blob/master/templates/Data%20Module.xml
 - Issue 4.2 の既定 BREX のファイル名とスキーマ位置. https://github.com/kibook/S1000D/blob/master/csdb/DMC-S1000D-F-04-10-0301-00A-022A-D_001-00_EN-US.XML
-- RWS Contenta S1000D の文書が列挙している Issue 4.0 のスキーマ URL（`descript.xsd`、`fault.xsd`、`ipd.xsd`、`crew.xsd`、`brex.xsd`、`checklist.xsd`、`learning.xsd`）. https://docs.rws.com/en-US/contenta-s1000d-5.9-866363/supported-schemas-15425
+- 著者が入手した S1000D Issue 3.0 のパッケージ（XML スキーマの `appliccrossreftable.xsd`、`condcrossreftable.xsd`、`prdcrossreftable.xsd`）。入手先は https://users.s1000d.org/
+- 著者が入手した S1000D Issue 4.0 のパッケージ（XML スキーマパッケージの `xml_schema_flat` の種類ごとのファイルと、ACT、CCT、PCT のスキーマ）。入手先は https://users.s1000d.org/
 - Issue 4.2 の既定 BREX（内容の部分の要素に付く `applicRefId` を検査するルール）. https://github.com/kibook/S1000D/blob/master/csdb/DMC-S1000D-F-04-10-0301-00A-022A-D_001-00_EN-US.XML
 - Naval Surface Warfare Center Carderock Division. *NAVSEA S1000D Tool Acquisition and Guidance*（適用の注釈、`applicRefId`、ACT、CCT、PCT）. https://www.navsea.navy.mil/portals/103/documents/nswc_carderock/navsea%20s1000d%20taag.pdf
 - 著者が入手した S1000D Issue 6 のパッケージ（XML スキーマパッケージ、自転車サンプルの記述 DM）。入手先は https://users.s1000d.org/
-- 著者が入手した S1000D Issue 7 のパッケージ（第1.2章、第3.2章、第4.2章、XML スキーマパッケージ、自転車サンプルの記述 DM）。入手先は https://users.s1000d.org/
+- 著者が入手した S1000D Issue 7 のパッケージ（第1.2章、第3.2章、第4.2章、XML スキーマパッケージ、自転車サンプルの記述 DM と、`applicRefId` を使う DM）。入手先は https://users.s1000d.org/
 
 ## この章のポイント
 

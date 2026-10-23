@@ -20,7 +20,7 @@ title: "S1000D とは何か"
 
 ## 誰が作り、何を対象にしてきたか
 
-この仕様は、当初、欧州航空宇宙防衛工業会（Aerospace, Security and Defence Industries Association of Europe、ASD）が作りました。現在は、次の三つの組織と、その会員、顧客が共同で作っています。
+この仕様は、当初、欧州航空宇宙防衛工業会（Aerospace, Security and Defence Industries Association of Europe、ASD）が作りました。当時の名称は AECMA です（第2章）。現在は、次の三つの組織と、その会員、顧客が共同で作っています。
 
 - ASD
 - 米国航空宇宙工業会（Aerospace Industries Association of America、AIA）
@@ -38,7 +38,7 @@ Issue 7 の第1.1章は、共同の作成者として Air Transport Association 
 
 S1000D が直接定めているのは、情報の作り方、管理の仕方、刊行の仕方です。画面に対話的に表示する出版物は、その出力の一つです。S1000D はこの出力を、対話型電子技術出版物（Interactive Electronic Technical Publication、IETP）と呼びます。紙や PDF と並ぶ、出力の一つです。
 
-米国の文書が使う語は、対話型電子技術マニュアル（Interactive Electronic Technical Manual、IETM）です。二つの語は近いものを指します。近いことと、契約が同じ成果物を要求していることは別です。クラス 1 から 5 の説明は、別の本『IETM入門 — 概念から S1000D まで』にあります。規格上の定義の対応と、IETP とパブリケーションモジュール（Publication Module、PM）の関係は、第7章で説明します。
+米国の文書が使う語は、対話型電子技術マニュアル（Interactive Electronic Technical Manual、IETM）です。二つの語は近いものを指します。近いことと、契約が同じ成果物を要求していることは別です。米国 DoD のクラス（Class 0 から 5。IETM と呼べるのは Class 3 以上）の説明は、別の本『IETM入門 — 概念から S1000D まで』にあります。規格上の定義の対応と、IETP とパブリケーションモジュール（Publication Module、PM）の関係は、第7章で説明します。
 
 ## この本の読み方
 

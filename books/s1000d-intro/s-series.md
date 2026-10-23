@@ -6,7 +6,7 @@ S1000D は、単独の仕様であると同時に、製品支援のための一�
 
 ## 公式のリンク集が紹介している仕様
 
-外部リンクのページは、次を紹介しています。SX000i だけが “guide”（ガイド）で、他は仕様または手順仕様です。説明は、リンク集の英語の標題に合わせています。
+外部リンクのページは、次を紹介しています。SX000i だけが “guide”（ガイド）で、他は仕様または手順仕様です。説明は、リンク集の英語の標題に合わせています。S6000T だけは、S シリーズのサイトの現在の標題を載せています。
 
 | 文書 | リンク集の標題 | 扱うこと |
 | --- | --- | --- |
@@ -16,7 +16,7 @@ S1000D は、単独の仕様であると同時に、製品支援のための一�
 | S3000L | International procedure specification for Logistic Support Analysis (LSA) | 後方支援分析の手順 |
 | S4000P | International specification for developing and continuously improving preventive maintenance | 予防整備を作り、継続的に改善すること |
 | S5000F | International specification for in-service data feedback | 運用開始後のデータのフィードバック |
-| S6000T | International specification for training information | 訓練の情報 |
+| S6000T | International specification for training analysis and design | 訓練の分析と設計 |
 
 公式の利点のページは、S1000D のデータを LSAR（後方支援分析の記録）などの元データと連携できる、と述べています。連携できる、という記述であり、S3000L のどの版と、どのデータ項目を、どの方向に渡すかまでは書いていません。渡す項目は、両仕様の版と、プロジェクトの取り決めにあります。
 
@@ -43,7 +43,7 @@ S1000D が持つのは、人が読む技術情報を DM にし、CSDB で管理�
 - S3000L は、後方支援の分析をどう進めるかを扱います。分析の結果を S1000D のどの DM に書くかは、別の取り決めです。
 - S4000P は、予防整備の項目をどう作り、どう改善するかを扱います。S1000D の概要が Schedules という種類の名前を挙げていることと、Schedules の DM が S4000P の出力そのものであることは、同じではありません。概要は、その同一性を述べていません。
 - S5000F は、運用が始まったあとのデータを、開発や整備の側へどう戻すかを扱います。IETP の画面に手順を表示することとは別の流れです。
-- S6000T は、訓練の情報を扱います。IETP で手順を表示するビューアとは、作るものが違います。
+- S6000T は、訓練の分析と設計の方法を扱います。IETP で手順を表示するビューアとは、作るものが違います。
 - SX000i は、これらの使い方を IPS としてまとめるガイドです。個々の仕様の代わりにはなりません。
 
 第2章で見たとおり、S1000D のスポンサーには ATA e-Business Program が含まれます。外部リンクが紹介している他の S シリーズ仕様の標題は、ASD と AIA の名前で書かれているものが中心です。S1000D だけに ATA が関与する、という整理は、スポンサーのページとリンク集の両方から読めます。他の仕様の表紙の権利表示は、入手した文書で確認します。
@@ -78,7 +78,7 @@ IETP の画面から部品を注文できることと、その注文のデータ
 - S3000L. https://www.s3000l.org/
 - S4000P. https://www.s4000p.org/
 - S5000F. https://www.s5000f.org/
-- S6000T. https://www.s6000t.org/
+- S6000T. https://www.s6000t.org/ （標題は https://s-series.org/s6000t/about-s6000t ）
 - ASD-STE100. http://www.asd-ste100.org/
 
 ## この章のポイント

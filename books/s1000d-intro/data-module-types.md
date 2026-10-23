@@ -20,9 +20,9 @@ title: "代表的な Data Module の種類"
 
 概要の一覧の直後に、共通ソースデータベース（Common Source Data Base、CSDB）の説明が続いています。CSDB は DM の種類ではありません。保管場所です。
 
-種類は版が進むと増えます。Issue 4.0 のスキーマ URL を列挙している公開文書には、概要の例に対応するものとして `descript.xsd`、`fault.xsd`、`ipd.xsd`、`crew.xsd`、`brex.xsd` があり、加えて `checklist.xsd` と `learning.xsd` があります。この抜粋では、手順用と配線用のファイル名は確認できませんでした。
+種類は版が進むと増えます。Issue 4.0 のスキーマパッケージには、概要の例に対応するものとして `descript.xsd`、`proced.xsd`、`fault.xsd`、`ipd.xsd`、`schedul.xsd`、`wrngdata.xsd`、`wrngflds.xsd`、`process.xsd`、`crew.xsd`、`brex.xsd` があり、加えて `checklist.xsd`、`learning.xsd`、`pm.xsd` などがあります。
 
-Issue 7 のスキーマパッケージには、上の名前に加えて `proced.xsd`、`wrngdata.xsd`、`wrngflds.xsd`、`schedul.xsd`、`process.xsd`、`brdoc.xsd`、`frontmatter.xsd`、`pm.xsd` があります。Issue 6 のスキーマパッケージにも、これらのファイル名があります。これは、それぞれの Issue のファイル名です。Issue 4.0 の抜粋に無かった名前を、Issue 4.0 にもあったことにはしません。使う版のスキーマのファイル一覧が、その版の種類の一覧です。
+Issue 7 のスキーマパッケージには、上の名前に加えて `brdoc.xsd` と `frontmatter.xsd` があります。Issue 6 のスキーマパッケージにも、これらのファイル名があります。Issue 4.0 のパッケージには、この二つはありません。使う版のスキーマのファイル一覧が、その版の種類の一覧です。
 
 ## 記述（Description）
 
@@ -88,7 +88,7 @@ flowchart LR
 - 著者が入手した S1000D Issue 6 のパッケージ（自転車サンプルの `041`、`121`、`258`、スキーマパッケージの `descript.xsd` と `proced.xsd`）。入手先は https://users.s1000d.org/
 - 著者が入手した S1000D Issue 7 のパッケージ（自転車サンプルの `041`、`121`、`258`、スキーマパッケージの `descript.xsd` と `proced.xsd`）。入手先は https://users.s1000d.org/
 - 自転車サンプルの標題と DMC が印刷されている公開の出版物. https://www.docuneering.com/s1000d/demo/pdf/PMC-S1000DBIKE-C3002-LOAP1-00_000-02_EN-US.pdf
-- RWS Contenta S1000D の文書が列挙している Issue 4.0 のスキーマ URL（確認した範囲は `descript.xsd`、`fault.xsd`、`ipd.xsd`、`crew.xsd`、`brex.xsd`、`checklist.xsd`、`learning.xsd`）。この抜粋に手順用と配線用のファイル名は無い. https://docs.rws.com/en-US/contenta-s1000d-5.9-866363/supported-schemas-15425
+- 著者が入手した S1000D Issue 4.0 のパッケージ（XML スキーマパッケージの `xml_schema_flat`）。入手先は https://users.s1000d.org/
 
 ## この章のポイント
 

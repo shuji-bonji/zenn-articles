@@ -36,31 +36,41 @@ Issue 6 の第7.3.1.4章も、パッチを版番号の二番目の位の英字�
 
 Issue 3.0 から Issue 4.0 は、公式の説明がメジャー改訂の例に使っている境界です。この境界で、識別情報の書き方の名前が変わります。
 
-Issue 2.3 の自転車サンプルを印刷した公開物には、ビジネスルールのオブジェクトパスとして、次の要素名が現れます。パスは `dmaddres/dmc/avee/` の下です。
+Issue 3.0 の自転車サンプル（たとえば `DMC-S1000DBIKE-AAA-D00-00-00-00AA-121A-A_005-00.XML`）では、識別情報が `dmaddres/dmc/avee/` の下の子要素として書かれています。`avee` の子要素は次のとおりです。Issue 2.3 の自転車サンプルを印刷した公開物にも、同じパスの名前が現れます。
 
-| 概念 | Issue 2.3 のサンプル印刷物に現れる要素名 |
+| 概念 | Issue 3.0 のサンプルの要素名 |
 | --- | --- |
 | モデル識別 | `modelic` |
+| システム差分 | `sdc` |
 | システム | `chapnum` |
 | サブシステム | `section` |
 | サブサブシステム | `subsect` |
 | アセンブリ | `subject` |
+| 分解コード | `discode` |
+| 分解コードのバリアント | `discodev` |
 | 情報コード | `incode` |
+| 情報コードのバリアント | `incodev` |
+| アイテムロケーション | `itemloc` |
 
 Issue 4.1 のスキーマを参照する公開テンプレート、Issue 4.2 の既定 BREX、Issue 6 の自転車サンプルと既定 BREX、Issue 7 の自転車サンプルと既定 BREX では、同じ概念が `dmCode` の属性です。Issue 6 のサンプルが宣言しているスキーマの位置は `http://www.s1000d.org/S1000D_6/xml_schema_flat/` の下、Issue 7 のサンプルは `http://www.s1000d.org/S1000D_7/xml_schema_flat/` の下です。これらの URL を、本書の執筆時に再取得してはいません。
 
 | 概念 | Issue 4.1 / 4.2 / 6 / 7 の属性名 |
 | --- | --- |
 | モデル識別 | `modelIdentCode` |
+| システム差分 | `systemDiffCode` |
 | システム | `systemCode` |
 | サブシステム | `subSystemCode` |
 | サブサブシステム | `subSubSystemCode` |
 | アセンブリ | `assyCode` |
+| 分解コード | `disassyCode` |
+| 分解コードのバリアント | `disassyCodeVariant` |
 | 情報コード | `infoCode` |
+| 情報コードのバリアント | `infoCodeVariant` |
+| アイテムロケーション | `itemLocationCode` |
 
-外側の構造も違います。Issue 2.3 のパスは `dmaddres`、`dmc`、`avee` です。Issue 4.1、Issue 4.2、Issue 6、Issue 7 のサンプルは `identAndStatusSection`、`dmAddress`、`dmIdent`、`dmCode` です。短い省略名の子要素から、意味の取れるキャメルケースの属性へ、という変わり方は、少なくとも Issue 6 と Issue 7 のサンプルまで続いています。この表は、確認できた名前だけです。分解コードやアイテムロケーションの旧名は、Issue 2.3 の印刷物の抜粋では確認していないので載せていません。
+外側の構造も違います。Issue 3.0 のパスは `dmaddres`、`dmc`、`avee` です。Issue 4.1、Issue 4.2、Issue 6、Issue 7 のサンプルは `identAndStatusSection`、`dmAddress`、`dmIdent`、`dmCode` です。短い省略名の子要素から、意味の取れるキャメルケースの属性へ、という変わり方は、少なくとも Issue 6 と Issue 7 のサンプルまで続いています。Issue 4.0 の自転車サンプルも、`identAndStatusSection` と `dmCode` の属性を使っています。
 
-参照の要素名にも、同じ境界があります。公開の検証手順の説明は、Issue 3.0 の DM では `brexref`、Issue 4.0 の DM では `brexDmRef`、Issue 4.1 以降は PM などにも `brexDmRef` が要る、と書いています。
+参照の要素名にも、同じ境界があります。Issue 3.0 の自転車サンプルの DM は `brexref`、Issue 4.0 の自転車サンプルの DM は `brexDmRef` を使っています。PM の `brexDmRef` は、Issue 4.0 の `pm.xsd` にはなく、Issue 4.1 の自転車サンプルの PM にはあります。
 
 :::message alert
 Issue 4.0 以降のサンプルを、Issue 3.0 のスキーマで検査することはできません。逆も同じです。変換ツールがファイルを出力しても、公式の説明どおり、メジャー改訂の変換には人の確認が必要です。
@@ -100,7 +110,8 @@ Issue 6 の `S1000D Issue 6 Patches.zip` は、フォルダ `Patch 6.0.A` を含
 - Issue 2.3 の自転車サンプル出版物の印刷（`dmaddres/dmc/avee/modelic` などのパス。Docuneering 社による印刷）. https://www.docuneering.com/s1000d/demo/pdf/s1000d-issue-2.3/PMC-S1000DBIKE-X1234-00023-00_002-00_EN-US.pdf
 - Issue 4.1 のスキーマを参照する公開テンプレート. https://github.com/oxygenxml/S1000D/blob/master/templates/Data%20Module.xml
 - Issue 4.2 の既定 BREX. https://github.com/kibook/S1000D/blob/master/csdb/DMC-S1000D-F-04-10-0301-00A-022A-D_001-00_EN-US.XML
-- RWS Contenta S1000D の文書（`brexref` と `brexDmRef`）. https://docs.rws.com/en-US/contenta-s1000d-5.10-900404/overview-of-s1000d-validate-390220
+- 著者が入手した S1000D Issue 3.0 のパッケージ（自転車サンプル `DMC-S1000DBIKE-AAA-D00-00-00-00AA-121A-A_005-00.XML` の `dmaddres/dmc/avee` と `brexref`）。入手先は https://users.s1000d.org/
+- 著者が入手した S1000D Issue 4.0 と Issue 4.1 のパッケージ（Issue 4.0 の自転車サンプルの `brexDmRef` と `pm.xsd`、Issue 4.1 の自転車サンプルの PM）。入手先は https://users.s1000d.org/
 - Wikipedia. *S1000D*（マークアップ言語の世代の二次的なまとめ。日付の採用は本書ではしていない）. https://en.wikipedia.org/wiki/S1000D
 - 著者が入手した S1000D Issue 6 のパッケージ（表紙は Issue No. 6、日付は 2024-06-19。第7.3.1.4章、第4.10.2.4章、サンプルの要素名、スキーマパッケージ、`Patch 6.0.A`）。入手先は https://users.s1000d.org/
 - 著者が入手した S1000D Issue 7 のパッケージ（表紙は Issue No. 7、日付は 2026-07-16。第7.3.1.4章、サンプルの要素名、スキーマパッケージ）。入手先は https://users.s1000d.org/

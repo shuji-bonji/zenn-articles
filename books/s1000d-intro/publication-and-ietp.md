@@ -10,7 +10,7 @@ title: "Publication Module と IETP"
 
 版による位置の確認は、次のとおりです。
 
-- Issue 6 と Issue 7 のスキーマパッケージには `pm.xsd` が `descript.xsd` とは別のファイルとしてあります。Issue 4.0 のスキーマ URL を列挙している公開文書にも、`pm.xsd` が別ファイルとしてあります。PM は、記述の DM の一種ではありません。
+- Issue 6 と Issue 7 のスキーマパッケージには `pm.xsd` が `descript.xsd` とは別のファイルとしてあります。Issue 4.0 のスキーマパッケージにも、`pm.xsd` が別ファイルとしてあります。PM は、記述の DM の一種ではありません。
 - Issue 7 の第4.9.1章の目次は、要素 `identAndStatusSection`、`pmAddress`、`pmIdent`、`pmEntry` を挙げています。これらは Issue 7 の名前です。Issue 6 の第4.9.1章も、要素 `pmEntry` を挙げ、その項目が DM、出版物、S1000D 以外の出版物、または他の項目への参照を含む、と書いています。属性の一覧は写しません。
 - Issue 4.2 の既定 BREX は、交換される XML のルート要素の一つに `pm` を挙げ、Chap 1.4.2 を引いています。同じ BREX は、属性 `pmEntryType` を出版物の項目の種類として検査し、Chap 3.9.6.1 を引いています。属性名 `pmEntryType` は Issue 4.2 のファイルで確認したものです。要素名 `pmEntry` を、そのファイルの記述として読み替えません。
 
@@ -48,9 +48,9 @@ S1000D が使う語は IETP です。米国の文書が使う語は IETM（Inter
 | IETP | 製品の説明、運用、整備に必要な情報を、電子表示装置で対話的に表示できるよう構成したもの。条件分岐を含み、パラメータの値は実行時に決まり得る。米国でより一般的な IETM とほぼ同等 |
 | IETM | 非線形に表示するために非線形に執筆した技術マニュアル。S1000D の IETP とほぼ同等 |
 
-ほぼ同等であっても、契約の成果物が同じであることにはなりません。同じ規格の適用範囲では、IETM が紙やページ型を含む広い意味で使われている箇所もあります。クラス 1 から 5 は、S1000D の機能マトリックスそのものではありません。クラスの説明は『IETM入門 — 概念から S1000D まで』にあります。
+ほぼ同等であっても、契約の成果物が同じであることにはなりません。同じ規格の適用範囲では、IETM が紙やページ型を含む広い意味で使われている箇所もあります。米国 DoD のクラス（Class 0 から 5）は、S1000D の機能マトリックスそのものではありません。クラスの説明は『IETM入門 — 概念から S1000D まで』にあります。
 
-公式の概要が名前を挙げている Process データモジュールは、対話的な表示で、どの DM をどの条件で出すかという流れを、手順の本文とは別に書くための種類です。Issue 7 の第4.11章は、これを、複数の DM またはステップを順序づけた手順の流れだと書き、分岐、繰り返し、選択的な絞り込み、外部アプリケーションとのインターフェースを含む、と述べています。出版物全体を一つの Process の DM にはしない、とも書いています。流れを表す要素名は、版の process のスキーマにあります。Issue 6 と Issue 7 のスキーマパッケージには `process.xsd` があります。要素名の一覧は、本書では書きません。第4.11章の説明は、Issue 7 の本文から読んだものです。手順の DM がステップの本文を持ち、Process の DM が表示の流れを持つ、という役割の分離だけを、ここでは押さえておきます。
+公式の概要が名前を挙げている Process データモジュールは、対話的な表示で、どの DM をどの条件で出すかという流れを、手順の本文とは別に書くための種類です。Issue 7 の第4.11章は、これを、複数の DM またはステップを順序づけた手順の流れだと書き、分岐、繰り返し、選択的な絞り込み、外部アプリケーションとのインターフェースを含む、と述べています。出版物全体を一つの Process の DM にはしない、とも書いています。流れを表す要素名は、版の process のスキーマにあります。Issue 6 と Issue 7 のスキーマパッケージには `process.xsd` があります。Issue 7 の `process.xsd` には、DM を表示する順序の `dmSeq` と `dmNode`、条件による分岐の `dmIf`、繰り返しの `dmLoop`、利用者への質問の `dialog`、変数の `variableDeclarations` と `variable`、`assertion` が定義されています。要素の親子関係と属性は、本書では写しません。第4.11章の説明は、Issue 7 の本文から読んだものです。手順の DM がステップの本文を持ち、Process の DM が表示の流れを持つ、という役割の分離だけを、ここでは押さえておきます。
 
 ## 出版のときに仕様が決めないこと
 
@@ -67,13 +67,13 @@ S1000D が使う語は IETP です。米国の文書が使う語は IETM（Inter
 ## 出典
 
 - S1000D. *About S1000D*（DM と CSDB の定義。PM の定義文はここにはない）. https://s1000d.org/?page_id=101
-- RWS Contenta S1000D の文書が列挙している Issue 4.0 の `pm.xsd`. https://docs.rws.com/en-US/contenta-s1000d-5.9-866363/supported-schemas-15425
+- 著者が入手した S1000D Issue 4.0 のパッケージ（XML スキーマパッケージの `xml_schema_flat` の `pm.xsd`）。入手先は https://users.s1000d.org/
 - Issue 4.2 の既定 BREX（ルート要素としての `pm`、属性 `pmEntryType`）。要素名 `pmEntry` はこの出典では確認していない. https://github.com/kibook/S1000D/blob/master/csdb/DMC-S1000D-F-04-10-0301-00A-022A-D_001-00_EN-US.XML
 - 著者が入手した S1000D Issue 6 のパッケージ（第4.9.1章、`pm.xsd`、`process.xsd`、機能マトリックス）。入手先は https://users.s1000d.org/
-- 著者が入手した S1000D Issue 7 のパッケージ（第4.9章、第4.9.1章、第4.11章、第6.3章、`pm.xsd`、`process.xsd`、機能マトリックス）。入手先は https://users.s1000d.org/
+- 著者が入手した S1000D Issue 7 のパッケージ（第4.9章、第4.9.1章、第4.11章、第6.3章、`pm.xsd`、`process.xsd` に定義された要素名、機能マトリックス）。入手先は https://users.s1000d.org/
 - S1000D. Issue 4.1 のダウンロード説明（functionality matrix を同梱）. https://users.s1000d.org/ProductDescription.aspx?ProductID=16
 - S1000D. Issue 5.0 のダウンロード説明（functionality matrix を同梱）. https://users.s1000d.org/ProductDescription.aspx?ProductID=34
-- Department of Defense. MIL-STD-3048A における IETP と IETM の定義（『IETM入門 — 概念から S1000D まで』で文面を確認した範囲）. https://zenn.dev/shuji_bonji/books/ietm-overview
+- Department of Defense. MIL-STD-3048A(USAF). 用語 3.2.17（IETM）、3.2.18（IETP）. https://everyspec.com/MIL-STD/MIL-STD-3000-9999/download.php?spec=MIL-STD-3048A.054327.pdf
 
 ## この章のポイント
 
