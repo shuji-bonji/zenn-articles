@@ -6,6 +6,6 @@
     "new": "zenn new:article"
   },
   "devDependencies": {
-    "zenn-cli": "latest"
+    "zenn-cli": "^0.5.7"
   }
 }

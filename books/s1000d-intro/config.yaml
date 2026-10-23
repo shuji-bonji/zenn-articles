@@ -1,0 +1,18 @@
+title: "S1000D入門 — 中心概念を仕様に沿って読む"
+summary: "S1000D の中心概念を、公式サイトと公開されている仕様の概要に沿って把握するための入門。版による違いと、仕様とプロジェクトのルールの境界を明示する。"
+topics: ["s1000d", "xml", "ietp"]
+published: false
+price: 0
+chapters:
+  - what-is-s1000d
+  - history-and-organization
+  - core-concepts
+  - data-module-structure
+  - data-module-code
+  - data-module-types
+  - publication-and-ietp
+  - brex
+  - s-series
+  - how-to-learn
+  - issues-and-cautions
+  - references-and-glossary
