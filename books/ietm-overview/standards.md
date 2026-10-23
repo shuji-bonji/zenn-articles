@@ -42,7 +42,7 @@ S1000D の版番号の付け方は、ダウンロードページで次のよう�
 | パッチ | 3 桁目の文字が変わる（例：4.1.A）。Issue 4.1 より前は数字 | 小さな訂正と不具合の修正のみ。新しい機能は追加されない |
 
 :::message
-2026 年 10 月時点で、公式のダウンロード一覧には Issue 7 が、Issue 6 や Issue 5.0 と並んで掲載されています。Issue 7 のオンラインデータ辞書には 2026-08-27 の日付があります。正式な発行日は仕様書の表紙で確認できますが、本書では確認していません。使う版は、契約と公式サイトの最新の一覧で確認してください。
+2026 年 10 月時点で、公式のダウンロード一覧には Issue 7 が、Issue 6 や Issue 5.0 と並んで掲載されています。Issue 7 の仕様書の表紙の日付は 2026-07-16 です。オンラインデータ辞書のページにある 2026-08-27 は辞書のページの日付で、発行日ではありません。使う版は、契約と公式サイトの最新の一覧で確認してください。
 :::
 
 後の版では、仕様の本体は XML スキーマとして提供されています。データモジュールや CSDB の具体的な内容は、「S1000D の基本」と「Data Module の種類と構造」の章で説明します。
@@ -83,6 +83,7 @@ JSG 0852 は、インド国防省の標準化局（Directorate of Standardisatio
 ## 出典
 
 - S1000D 公式サイト。概要、組織、ダウンロードページの版番号の説明。https://s1000d.org/ 、https://s1000d.org/?page_id=101 、https://s1000d.org/?page_id=61 、https://users.s1000d.org/
+- 著者が入手した S1000D Issue 7 のパッケージ（表紙は “Issue No. 7”、日付は 2026-07-16）。入手先は https://users.s1000d.org/
 - MIL-PRF-87268A（1995-10-01）。https://www.navsea.navy.mil/Portals/103/Documents/NSWC_Carderock/s87268a.pdf
 - Eric L. Jorgensen, 1992-12-10 の仕様発行の説明資料。https://www.navsea.navy.mil/Portals/103/Documents/NSWC_Carderock/CALS92J.pdf
 - Joseph J. Fuller, 1997 年の説明資料（MIL-Q-87270 の廃止、MIL-PRF への移行）。https://www.navsea.navy.mil/Portals/103/Documents/NSWC_Carderock/Fuller97.pdf
