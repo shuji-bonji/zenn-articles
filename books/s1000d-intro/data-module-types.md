@@ -4,7 +4,7 @@ title: "代表的な Data Module の種類"
 
 データモジュール（Data Module、DM）には、説明、手順、故障、部品、配線など、書く情報に応じた種類があります。種類は、内容の部分にどの情報を独立して持たせるかの区別です。識別・状態の部分の役割は、どの種類でも同じです。
 
-公式の概要ページは、種類の例として名前を挙げていますが、種類ごとの定義は書いていません。この章では、よく使われる五つの種類（記述、手順、故障、部品、配線）を、「独立した情報の単位」という DM の定義に沿って説明します。
+[公式の概要ページ](https://s1000d.org/?page_id=101)は、種類の例として名前を挙げていますが、種類ごとの定義は書いていません。この章では、よく使われる五つの種類（記述、手順、故障、部品、配線）を、「独立した情報の単位」という DM の定義に沿って説明します。
 
 ## 公式の概要ページが挙げている種類
 
@@ -17,8 +17,8 @@ title: "代表的な Data Module の種類"
 | Illustrated Parts Data | 図解部品データ。この章で説明する |
 | Schedules | 整備計画の情報（点検の間隔や定期整備など）。名前の紹介にとどめる |
 | Wiring | 配線。この章で説明する |
-| Process Module | 対話的な表示の流れを記述する種類。第7章で説明する |
-| Business Rules Exchange | プロジェクトのルールをやり取りするための種類。第8章で説明する |
+| Process Module | 対話的な表示の流れを記述する種類。[第7章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/publication-and-ietp)で説明する |
+| Business Rules Exchange | プロジェクトのルールをやり取りするための種類。[第8章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/brex)で説明する |
 
 Schedules について、概要ページには名前しか書かれていません。Issue 4.0 を解説した公開の実装資料では、整備計画の情報（maintenance planning information）と説明されています。
 
@@ -60,7 +60,7 @@ Issue 7 の自転車サンプルには、情報コード `121` と `258` の手�
 
 配線の DM が持つのは、配線に関する情報です。系統の一般的な説明は記述の DM が持ち、配線の接続、電線、経路のデータを配線の DM が持ちます。接続表の要素名は、版のスキーマで確認してください。
 
-配線の図も、ほかの種類と同じように、情報管理番号（Information Control Number、ICN）を付けて CSDB に置き、DM から参照します。図を配線の DM の中にだけある画像として埋め込まない、という考え方は、第4章で説明したとおりです。
+配線の図も、ほかの種類と同じように、情報管理番号（Information Control Number、ICN）を付けて CSDB に置き、DM から参照します。図を配線の DM の中にだけある画像として埋め込まない、という考え方は、[第4章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/data-module-structure)で説明したとおりです。
 
 ## 種類に共通すること
 

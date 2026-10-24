@@ -8,7 +8,7 @@ title: "Publication Module と IETP"
 
 ## PM が持つもの
 
-公式の概要ページには、PM の定義は書かれていません。Issue 7 の第4.9章は、DM から作る出版物を定義し、準備し、管理するために PM を使う、と書いています。PM も DM と同じように、識別子、状態の部分、内容の部分を持ちます。内容の部分には、納品する順序と構造に沿って、DM、従来の技術出版物、ほかの PM への参照を書きます。手順の本文や図の実体は、PM には書きません。
+[公式の概要ページ](https://s1000d.org/?page_id=101)には、PM の定義は書かれていません。Issue 7 の第4.9章は、DM から作る出版物を定義し、準備し、管理するために PM を使う、と書いています。PM も DM と同じように、識別子、状態の部分、内容の部分を持ちます。内容の部分には、納品する順序と構造に沿って、DM、従来の技術出版物、ほかの PM への参照を書きます。手順の本文や図の実体は、PM には書きません。
 
 版ごとに確認できることは、次のとおりです。
 
@@ -16,7 +16,7 @@ title: "Publication Module と IETP"
 - Issue 7 の第4.9.1章は、PM の要素として `identAndStatusSection`、`pmAddress`、`pmIdent`、`pmEntry` を挙げています。Issue 6 の第4.9.1章も `pmEntry` を挙げ、出版物の各項目が、DM、出版物、S1000D 以外の出版物、ほかの項目への参照を含むと書いています。
 - Issue 4.2 の既定 BREX は、やり取りする XML の最上位の要素の一つに `pm` を挙げ（Chap 1.4.2）、出版物の項目の種類を表す属性 `pmEntryType` を検査しています（Chap 3.9.6.1）。
 
-手順の本文と、情報管理番号（Information Control Number、ICN）の付いた図は、DM の側にあります。PM が決めるのは、階層と順序だけです。そのため、同じ DM を別の PM から参照できます。第3章で説明した「情報を中心にした管理」を、出版物の側から見た仕組みです。
+手順の本文と、情報管理番号（Information Control Number、ICN）の付いた図は、DM の側にあります。PM が決めるのは、階層と順序だけです。そのため、同じ DM を別の PM から参照できます。[第3章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/core-concepts)で説明した「情報を中心にした管理」を、出版物の側から見た仕組みです。
 
 ```mermaid
 flowchart TB
@@ -51,14 +51,14 @@ Issue 7 の第6.3章は、IETP を、CSDB に DM として保管された前付�
 
 ## IETP と IETM
 
-S1000D では IETP という語を使い、米国の文書では IETM（Interactive Electronic Technical Manual）という語を使います。米空軍の MIL-STD-3048A は、二つの語を「ほぼ同等（roughly equivalent）」と定義しています。
+S1000D では IETP という語を使い、米国の文書では IETM（Interactive Electronic Technical Manual）という語を使います。米空軍の [MIL-STD-3048A](https://everyspec.com/MIL-STD/MIL-STD-3000-9999/download.php?spec=MIL-STD-3048A.054327.pdf) は、二つの語を「ほぼ同等（roughly equivalent）」と定義しています。
 
 | 語 | MIL-STD-3048A の定義の要点 |
 | --- | --- |
 | IETP | 製品の説明、運用、整備に必要な情報を、電子表示装置で対話的に表示できるよう構成したもの。条件分岐を含み、パラメータの値は実行時に決まることがある。米国でより一般的な IETM とほぼ同等 |
 | IETM | 非線形に表示するために、非線形に執筆した技術マニュアル。S1000D の IETP とほぼ同等 |
 
-ただし、ほぼ同等だからといって、契約で求められる納品物が同じになるわけではありません。同じ規格の適用範囲では、IETM が紙やページ型の出版物も含む広い意味で使われている箇所もあります。また、米国 DoD のクラス（Class 0 から 5）は、S1000D の機能マトリックスとは別のものです。クラスについては『IETM入門 — 概念から S1000D まで』で説明しています。
+ただし、ほぼ同等だからといって、契約で求められる納品物が同じになるわけではありません。同じ規格の適用範囲では、IETM が紙やページ型の出版物も含む広い意味で使われている箇所もあります。また、米国 DoD のクラス（Class 0 から 5）は、S1000D の機能マトリックスとは別のものです。クラスについては[『IETM入門 — 概念から S1000D まで』](https://zenn.dev/shuji_bonji/books/ietm-overview/viewer/classes)で説明しています。
 
 ## Process データモジュール
 

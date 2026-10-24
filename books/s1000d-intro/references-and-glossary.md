@@ -6,26 +6,26 @@ title: "参考情報と用語集"
 
 ## 公式の情報の入り口
 
-| 用途 | URL |
+| 用途 | ページ |
 | --- | --- |
-| 公式サイトの入り口 | https://s1000d.org/ |
-| 概要、DM と CSDB の定義、歴史 | https://s1000d.org/?page_id=101 |
-| 組織（Council、Steering Committee、作業グループ） | https://s1000d.org/?page_id=61 |
-| 利点（効果は導入の要因によって変わると書かれているページ） | https://s1000d.org/?page_id=57 |
-| 変更提案（CPF） | https://s1000d.org/?page_id=37 |
-| 外部リンク（S シリーズ、ATA Spec 1000BR、STE100） | https://s1000d.org/?page_id=44 |
-| オンラインのデータ辞書 | https://s1000d.org/?page_id=1003 |
-| 仕様のダウンロード | https://users.s1000d.org/ |
-| 掲載されている版の一覧 | https://users.s1000d.org/ProductList.aspx |
+| 公式サイトの入り口 | [S1000D 公式サイト](https://s1000d.org/) |
+| 概要、DM と CSDB の定義、歴史 | [About S1000D](https://s1000d.org/?page_id=101) |
+| 組織（Council、Steering Committee、作業グループ） | [S1000D Organizational Structure](https://s1000d.org/?page_id=61) |
+| 利点（効果は導入の要因によって変わると書かれているページ） | [Benefits](https://s1000d.org/?page_id=57) |
+| 変更提案（CPF） | [Change Proposals](https://s1000d.org/?page_id=37) |
+| 外部リンク（S シリーズ、ATA Spec 1000BR、STE100） | [External Links](https://s1000d.org/?page_id=44) |
+| オンラインのデータ辞書 | [S1000D Data Dictionaries](https://s1000d.org/?page_id=1003) |
+| 仕様のダウンロード | [S1000D Downloads](https://users.s1000d.org/) |
+| 掲載されている版の一覧 | [Product list](https://users.s1000d.org/ProductList.aspx) |
 
-版ごとの同梱物は、一覧の Description から開く説明ページで確認できます。本書で説明ページの本文を確認したのは、Issue 4.1（https://users.s1000d.org/ProductDescription.aspx?ProductID=16）と Issue 5.0（https://users.s1000d.org/ProductDescription.aspx?ProductID=34）です。Issue 3.0、4.0、4.1、6、7 は、著者が入手したパッケージで中身を確認しました。
+版ごとの同梱物は、一覧の Description から開く説明ページで確認できます。本書で説明ページの本文を確認したのは、[Issue 4.1](https://users.s1000d.org/ProductDescription.aspx?ProductID=16) と [Issue 5.0](https://users.s1000d.org/ProductDescription.aspx?ProductID=34) のページです。Issue 3.0、4.0、4.1、6、7 は、著者が入手したパッケージで中身を確認しました。
 
-仕様書、スキーマ、既定 BREX、自転車サンプルの正式な配布元は、上のダウンロードサイトです。本書の出典にある GitHub の URL は、公式パッケージのファイルが第三者のリポジトリに置かれているもので、属性名などの確認に使いました。公式の配布ではありません。
+仕様書、スキーマ、既定 BREX、自転車サンプルの正式な配布元は、上の[ダウンロードサイト](https://users.s1000d.org/)です。本書の出典にある GitHub の URL は、公式パッケージのファイルが第三者のリポジトリに置かれているもので、属性名などの確認に使いました。公式の配布ではありません。
 
 ## 用語集
 
 **適用（applicability）**
-その情報がどの装備のどの構成に当てはまるかを、データとして持たせることです。公式の概要ページは、識別・状態の部分が適用を管理すると書いています。DM 全体にも、DM の中の段落やステップにも付けられます。条件の値は、ACT、CCT、PCT で管理します。
+その情報がどの装備のどの構成に当てはまるかを、データとして持たせることです。[公式の概要ページ](https://s1000d.org/?page_id=101)は、識別・状態の部分が適用を管理すると書いています。DM 全体にも、DM の中の段落やステップにも付けられます。条件の値は、ACT、CCT、PCT で管理します。
 
 **ATA e-Business Program**
 S1000D の三つのスポンサーの一つで、民間航空の情報交換の規格を担っています。公式サイトの外部リンクでは、Airlines for America（A4A）とは別に紹介されています。
@@ -73,7 +73,7 @@ DM の二つの部分の一つで、CSDB での管理、適用、品質保証、
 S1000D で、画面に対話的に表示する出版物を指す語です。紙や PDF と並ぶ出力の一つです。どの機能を持たせるかは、機能マトリックスとプロジェクトの要求で決まります。
 
 **IETM（Interactive Electronic Technical Manual）**
-主に米国の文書で使われる語です。米空軍の MIL-STD-3048A は、S1000D の IETP とほぼ同等と定義していますが、契約で求められる範囲は、この定義だけでは決まりません。米国 DoD のクラス（Class 0 から 5。IETM と呼べるのは Class 3 以上）は、『IETM入門 — 概念から S1000D まで』で説明しています。
+主に米国の文書で使われる語です。米空軍の [MIL-STD-3048A](https://everyspec.com/MIL-STD/MIL-STD-3000-9999/download.php?spec=MIL-STD-3048A.054327.pdf) は、S1000D の IETP とほぼ同等と定義していますが、契約で求められる範囲は、この定義だけでは決まりません。米国 DoD のクラス（Class 0 から 5。IETM と呼べるのは Class 3 以上）は、[『IETM入門 — 概念から S1000D まで』](https://zenn.dev/shuji_bonji/books/ietm-overview/viewer/classes)で説明しています。
 
 **情報コード（information code）**
 DMC の情報の部分にある、情報の種類を表す 3 文字のコードです。自転車サンプルの `041` は記述の DM、`022` は BREX、`024` は人が読むビジネスルールの DM です。全体の表は、各版の情報コードの章にあります。
@@ -115,9 +115,9 @@ CPF を審議し、仕様の新しい版を発行する、維持の責任者で�
 
 次の点は、確認した情報の範囲では結論を出していません。
 
-- S1000D を採用すると費用が下がるかどうか。公式の利点のページは、可能性と、効果が要因によって変わることを書いています。
+- S1000D を採用すると費用が下がるかどうか。公式の[利点のページ](https://s1000d.org/?page_id=57)は、可能性と、効果が要因によって変わることを書いています。
 - 日本の公的機関が、S1000D を納品の仕様として採用しているかどうか。業界団体の SJAC は 2024 年に S1000D と S シリーズの覚書を結んでいますが、公的機関の採用を示す公式の発表は見つかりませんでした。
-- 仕様本文と同梱ファイルの食い違い（BREX のアセンブリコード、Issue 7 のテンプレートの参照先など）のどちらが正しいか。詳しくは付録にまとめています。
+- 仕様本文と同梱ファイルの食い違い（BREX のアセンブリコード、Issue 7 のテンプレートの参照先など）のどちらが正しいか。詳しくは[付録](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/package-notes)にまとめています。
 - 特定の CSDB 製品、編集ソフト、ビューアの良し悪し。
 
 ## 作業を始める前に確認すること

@@ -38,7 +38,7 @@ SNS は、システム、サブシステム、サブサブシステム、アセ�
 
 **情報に関する部分**は、その位置について何を書いた情報かを表します。情報コード（information code）、そのバリアント、アイテムロケーションコード（item location code）が入ります。同じブレーキでも、「どう作られているかの説明」と「取り外しの手順」は、情報コードが違う別の DM になります。
 
-Issue 4.1 以降のスキーマでは、これらの値は `dmCode` 要素の属性として書きます。属性名は、`modelIdentCode`、`systemDiffCode`、`systemCode`、`subSystemCode`、`subSubSystemCode`、`assyCode`、`disassyCode`、`disassyCodeVariant`、`infoCode`、`infoCodeVariant`、`itemLocationCode` です。Issue 4.2、Issue 6、Issue 7 の既定 BREX と自転車サンプルも、同じ属性名を使っています。Issue 3.0 以前では、同じ内容を属性ではなく子要素で書きます。この違いは第11章で説明します。
+Issue 4.1 以降のスキーマでは、これらの値は `dmCode` 要素の属性として書きます。属性名は、`modelIdentCode`、`systemDiffCode`、`systemCode`、`subSystemCode`、`subSubSystemCode`、`assyCode`、`disassyCode`、`disassyCodeVariant`、`infoCode`、`infoCodeVariant`、`itemLocationCode` です。Issue 4.2、Issue 6、Issue 7 の既定 BREX と自転車サンプルも、同じ属性名を使っています。Issue 3.0 以前では、同じ内容を属性ではなく子要素で書きます。この違いは[第11章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)で説明します。
 
 ### 訓練用の DM の区画
 
@@ -116,11 +116,11 @@ SNS は、`systemCode` から `assyCode` までの四つの属性で、図の `D
 
 同じ Issue 7 のサンプルには、システムコードが `DA1` の記述 DM（`S1000DBIKE-AAA-DA1-00-00-00AA-041A-A`）もあります。`techName` は “Brake system”、`infoName` は自転車全体の DM と同じ “Description of how it is made” です。情報コードが同じでも、SNS の階層が違えば別の DM になります。
 
-サンプルには、モデル識別コードが `BRAKE` の記述 DM もあります。`S1000DBIKE` の中のブレーキ系統と、`BRAKE` という別の製品は、別の DM です。Issue 6 のサンプルにも、同じ DMC の DM があります。各ファイルの発行番号は、付録にまとめています。
+サンプルには、モデル識別コードが `BRAKE` の記述 DM もあります。`S1000DBIKE` の中のブレーキ系統と、`BRAKE` という別の製品は、別の DM です。Issue 6 のサンプルにも、同じ DMC の DM があります。各ファイルの発行番号は、[付録](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/package-notes)にまとめています。
 
 ## 同じ概念でも桁数が違う例
 
-Issue 7 の既定 BREX（第8章で説明します）の DMC は、次のとおりです。
+Issue 7 の既定 BREX（[第8章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/brex)で説明します）の DMC は、次のとおりです。
 
 ```text
 S1000D-J-04-10-0301-00A-022A-D
@@ -142,7 +142,7 @@ S1000D-J-04-10-0301-00A-022A-D
 | --- | --- |
 | `041` | Issue 6 と Issue 7 の自転車サンプルで、“Description of how it is made” という `infoName` が付いた記述の DM |
 | `022` | BREX の DM。Issue 6 と Issue 7 の第4.10.2.4章と、同梱の既定 BREX に書かれている。Issue 4.2 の複製も同じ値を検査している |
-| `024` | 人が読むビジネスルールの DM。Issue 6 と Issue 7 のビジネスルールのテンプレートで確認した。第8章で説明する |
+| `024` | 人が読むビジネスルールの DM。Issue 6 と Issue 7 のビジネスルールのテンプレートで確認した。[第8章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/brex)で説明する |
 
 情報コードの全体の表（先頭の文字ごとの意味など）は、各版の第8.4章と既定 BREX にあります。表をすべて覚えてからサンプルを読む必要はありません。サンプルの DM を一つ開き、その情報コードを表で引く、という順で十分です。
 
