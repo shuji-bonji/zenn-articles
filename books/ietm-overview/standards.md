@@ -19,7 +19,7 @@ flowchart TB
 S1000D は、共通ソースデータベース（Common Source Data Base、CSDB）を使って技術出版物を作るための国際仕様です。公式サイトでの正式な名称も「共通ソースデータベースを用いる技術出版物のための国際仕様」です。欧州航空宇宙防衛工業会（Aerospace, Security and Defence Industries Association of Europe、ASD）、米国航空宇宙工業会（Aerospace Industries Association of America、AIA）、ATA e-Business Program の 3 団体が共同で発行しています。仕様書、スキーマ、サンプルは、公式サイトから無料でダウンロードできます。
 
 :::message alert
-S1000D は ISO 規格ではありません。公式サイトの利点のページに “International standard, ISO 8879” とありますが、ISO 8879 は SGML の国際規格の番号です。S1000D が ISO 規格であることを示すものではありません。
+S1000D は ISO 規格ではありません。公式サイトの[利点のページ](https://s1000d.org/?page_id=57)に “International standard, ISO 8879” とありますが、ISO 8879 は SGML の国際規格の番号です。S1000D が ISO 規格であることを示すものではありません。
 :::
 
 公式サイトによると、S1000D は 1980 年代前半に、ASD の前身である AECMA の航空宇宙向けの標準として始まりました。Issue 2 から、対象が陸と海の装備にも広がっています。
@@ -28,7 +28,7 @@ S1000D は ISO 規格ではありません。公式サイトの利点のペー�
 - 1980 年代前半、ASD の前身の AECMA で、航空宇宙向けの標準として検討が始まりました。当時、民間航空機の事業の多くは ATA 100 に従い、軍の事業は各国の仕様に従っていました。
 - AECMA の Customer and Product Support Committee は Documentation Working Group を設け、ATA 100 をもとに民間と軍の文書を統一する方針をとりました。軍の代表を加えた Augmented Documentation Working Group は、のちに Technical Publications Specification Maintenance Group となり、さらに S1000D Steering Committee に引き継がれました。
 - 現在は ASD、AIA、ATA e-Business Program が共同で発行しています。3 団体の覚書に基づいて S1000D Council が置かれ、仕様の開発全体を管理しています。Steering Committee は、変更提案（Change Proposal Form、CPF）を審議し、新しい版を発行します。
-- Issue 2 から、対象が陸と海の装備にも広がりました。公式の概要ページは、軍と民間の装備、出版物、建設、方針や手順、法務文書、組織の文書などにも使えると述べています。トップページでは、現在の用途として、防衛（陸・海・空）、民間航空、建設、船舶を挙げています。
+- Issue 2 から、対象が陸と海の装備にも広がりました。[公式の概要ページ](https://s1000d.org/?page_id=101)は、軍と民間の装備、出版物、建設、方針や手順、法務文書、組織の文書などにも使えると述べています。トップページでは、現在の用途として、防衛（陸・海・空）、民間航空、建設、船舶を挙げています。
 :::
 
 ### 版番号の読み方
@@ -45,7 +45,7 @@ S1000D の版番号の付け方は、ダウンロードページで次のよう�
 2026 年 10 月時点で、公式のダウンロード一覧には Issue 7 が、Issue 6 や Issue 5.0 と並んで掲載されています。Issue 7 の仕様書の表紙の日付は 2026-07-16 です。オンラインデータ辞書のページにある 2026-08-27 は辞書のページの日付で、発行日ではありません。使う版は、契約と公式サイトの最新の一覧で確認してください。
 :::
 
-後の版では、仕様の本体は XML スキーマとして提供されています。データモジュールや CSDB の具体的な内容は、「S1000D の基本」と「Data Module の種類と構造」の章で説明します。
+後の版では、仕様の本体は XML スキーマとして提供されています。データモジュールや CSDB の具体的な内容は、[「S1000D の基本」](https://zenn.dev/shuji_bonji/books/ietm-overview/viewer/s1000d-basics)と[「Data Module の種類と構造」](https://zenn.dev/shuji_bonji/books/ietm-overview/viewer/data-modules)の章で説明します。
 
 ## 米国の MIL 規格
 
@@ -59,10 +59,10 @@ S1000D の版番号の付け方は、ダウンロードページで次のよう�
 
 | 文書 | 内容 |
 | --- | --- |
-| MIL-PRF-87268A（1995-10-01） | MIL-M-87268（1992-11-20）を置き換えた仕様。IETM の内容、スタイル、形式、利用者とのやり取りを定める。IETM を、電子表示装置で整備技術者や操作者に対話的に表示するデジタル形式のマニュアルと規定している |
+| [MIL-PRF-87268A](https://www.navsea.navy.mil/Portals/103/Documents/NSWC_Carderock/s87268a.pdf)（1995-10-01） | MIL-M-87268（1992-11-20）を置き換えた仕様。IETM の内容、スタイル、形式、利用者とのやり取りを定める。IETM を、電子表示装置で整備技術者や操作者に対話的に表示するデジタル形式のマニュアルと規定している |
 | MIL-PRF-87269 | 改訂可能な IETM データベースの性能仕様。公開されている仕様の目録には、MIL-DTL-87269C に置き換えられたと書かれている。現在も有効かは ASSIST で確認する |
 | MIL-Q-87270 | Fuller の 1997 年の説明資料によると、廃止された |
-| MIL-HDBK-511 | IETM の相互運用のためのハンドブック。利用者が市販の表示装置を使って、作成元やデータ形式にかかわらず技術情報を閲覧し、リンク先の別の ETM や IETM に移れるようにすることを目標にしている。5 つのクラスすべてを対象としている |
+| [MIL-HDBK-511](https://apps.dtic.mil/sti/tr/pdf/ADA445614.pdf) | IETM の相互運用のためのハンドブック。利用者が市販の表示装置を使って、作成元やデータ形式にかかわらず技術情報を閲覧し、リンク先の別の ETM や IETM に移れるようにすることを目標にしている。5 つのクラスすべてを対象としている |
 | MIL-STD-40051-1B | 陸軍の規格。線形と非線形の IETM の技術内容、スタイル、形式、機能を定める。機能は附属書 A の機能マトリックスで指定する |
 | MIL-STD-3048 系 | 空軍が S1000D で技術出版物を作るときのビジネスルール。紙、ページ型、画面表示の IETM を対象にする。IETM と IETP の関係は前の章で説明した |
 

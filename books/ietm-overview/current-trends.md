@@ -41,7 +41,7 @@ ASD、AIA、ATA e-Business Program、オーストラリア、オーストリア�
 
 防衛省、海上自衛隊、防衛装備庁の公開ページを、「IETM」「S1000D」「対話型電子技術マニュアル」で検索した範囲では、IETM や S1000D についての調査研究の報告書は見つかりませんでした。公開されている資料では確認できなかった、という意味で、報告書が存在しないということではありません。
 
-インドの JSG 0852 や、各国の装備での採用状況も、この章では動向としてまとめていません。JSG 0852 については、インドのガイドであることまでを「主要な標準の概要」の章で確認しています。
+インドの JSG 0852 や、各国の装備での採用状況も、この章では動向としてまとめていません。JSG 0852 については、インドのガイドであることまでを[「主要な標準の概要」](https://zenn.dev/shuji_bonji/books/ietm-overview/viewer/standards)の章で確認しています。
 
 ## 確認すべき一次資料
 
@@ -49,17 +49,17 @@ ASD、AIA、ATA e-Business Program、オーストラリア、オーストリア�
 
 | 知りたいこと | 確認する資料 |
 | --- | --- |
-| S1000D の定義、版、スキーマ、既定の BREX | https://s1000d.org/ と https://users.s1000d.org/ |
-| S1000D の運営団体と連絡先 | https://s1000d.org/?page_id=61 と https://s1000d.org/?page_id=507 |
-| S シリーズの一覧 | https://www.aia-aerospace.org/standards/s-series-ips/ と https://www.s-series.org/ |
-| DoD のクラスの定義 | Jorgensen, *The Interactive Electronic Technical Manual Overview*。https://www.navsea.navy.mil/Portals/103/Documents/NSWC_Carderock/Cals94j.pdf |
-| 初期のフィールド試験の結果 | Fuller, *IETMs: From Research to Reality*。https://www.navsea.navy.mil/Portals/103/Documents/NSWC_Carderock/CALS94F.pdf |
-| IETM の内容と対話の要求（1995 年の性能仕様） | MIL-PRF-87268A。https://www.navsea.navy.mil/Portals/103/Documents/NSWC_Carderock/s87268a.pdf |
+| S1000D の定義、版、スキーマ、既定の BREX | [S1000D 公式サイト](https://s1000d.org/)、[ダウンロードサイト](https://users.s1000d.org/) |
+| S1000D の運営団体と連絡先 | [組織のページ](https://s1000d.org/?page_id=61)、[連絡先のページ](https://s1000d.org/?page_id=507) |
+| S シリーズの一覧 | [AIA の S シリーズのページ](https://www.aia-aerospace.org/standards/s-series-ips/)、[S シリーズのサイト](https://www.s-series.org/) |
+| DoD のクラスの定義 | Jorgensen, [*The Interactive Electronic Technical Manual Overview*](https://www.navsea.navy.mil/Portals/103/Documents/NSWC_Carderock/Cals94j.pdf) |
+| 初期のフィールド試験の結果 | Fuller, [*IETMs: From Research to Reality*](https://www.navsea.navy.mil/Portals/103/Documents/NSWC_Carderock/CALS94F.pdf) |
+| IETM の内容と対話の要求（1995 年の性能仕様） | [MIL-PRF-87268A](https://www.navsea.navy.mil/Portals/103/Documents/NSWC_Carderock/s87268a.pdf) |
 | 陸軍の機能マトリックス | MIL-STD-40051 の現行版の附属書 A。ASSIST で確認する |
 | 空軍の S1000D のルールと、IETM／IETP の定義 | MIL-STD-3048 の現行版。ASSIST で確認する |
-| ブラウザを入口にした IETM の相互運用 | MIL-HDBK-511。https://apps.dtic.mil/sti/tr/pdf/ADA445614.pdf |
-| 米国の規格が現在も有効か、廃止されたか | ASSIST。https://assist.dla.mil/ |
-| 日本の航空宇宙産業の団体の公開情報 | https://www.sjac.or.jp/ |
+| ブラウザを入口にした IETM の相互運用 | [MIL-HDBK-511](https://apps.dtic.mil/sti/tr/pdf/ADA445614.pdf) |
+| 米国の規格が現在も有効か、廃止されたか | [ASSIST](https://assist.dla.mil/) |
+| 日本の航空宇宙産業の団体の公開情報 | [日本航空宇宙工業会（SJAC）](https://www.sjac.or.jp/) |
 
 ## 出典
 

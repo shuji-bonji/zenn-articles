@@ -109,7 +109,7 @@ Fuller は、1994 年の時点で三軍の新しい装備が Tri-Service の仕�
 - 国際的には、NATO の NH-90 と European Fighter Aircraft に IETM が提案されていた。
 - AECMA の 1000D 委員会と DoD の仕様をすり合わせることが議題になっていた。
 
-AECMA は、のちに S1000D を維持する欧州の団体（現在の ASD）の前身です。S1000D の経緯は、「主要な標準の概要」と「S1000D の基本」の章で、公式サイトの説明に沿って扱います。
+AECMA は、のちに S1000D を維持する欧州の団体（現在の ASD）の前身です。S1000D の経緯は、[「主要な標準の概要」](https://zenn.dev/shuji_bonji/books/ietm-overview/viewer/standards)と[「S1000D の基本」](https://zenn.dev/shuji_bonji/books/ietm-overview/viewer/s1000d-basics)の章で、公式サイトの説明に沿って扱います。
 
 ## 出典
 

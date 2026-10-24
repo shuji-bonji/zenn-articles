@@ -12,7 +12,7 @@ IETM（Interactive Electronic Technical Manual、対話型電子技術マニュ�
 
 ## 米空軍の規格による定義
 
-MIL-STD-3048A(USAF) は、IETM と IETP を次のように定義しています。要点を表にまとめ、定義の詳しい内容は折りたたみの中に載せます。
+[MIL-STD-3048A](https://everyspec.com/MIL-STD/MIL-STD-3000-9999/download.php?spec=MIL-STD-3048A.054327.pdf)(USAF) は、IETM と IETP を次のように定義しています。要点を表にまとめ、定義の詳しい内容は折りたたみの中に載せます。
 
 | 語 | 定義の要点 |
 | --- | --- |
@@ -81,7 +81,7 @@ flowchart TB
 - S1000D は、画面向けの対話的な出版物を IETP と呼びます。S1000D は欧州の AECMA（現在の ASD）で作られ、現在は ASD、AIA、ATA e-Business Program が共同で発行しています。詳しくは次の章で説明します。
 - 米空軍の S1000D 採用のように両方の語を使う事業では、MIL-STD-3048 のように両方を定義して、対応関係を示しています。
 
-インドの Joint Services Guide（JSG）0852 も、標題に IETM を使っています。これは米国の MIL 仕様ではなく、インド国防省のガイドです。内容は「主要な標準の概要」の章で触れる範囲にとどめます。
+インドの Joint Services Guide（JSG）0852 も、標題に IETM を使っています。これは米国の MIL 仕様ではなく、インド国防省のガイドです。内容は[「主要な標準の概要」](https://zenn.dev/shuji_bonji/books/ietm-overview/viewer/standards)の章で触れる範囲にとどめます。
 
 実務では、S1000D を使う相手には IETP、米国の契約の話をする相手には IETM と言うと伝わりやすい傾向があります。ただし、言葉が通じることと、検収の条件が一致することは別の問題です。
 

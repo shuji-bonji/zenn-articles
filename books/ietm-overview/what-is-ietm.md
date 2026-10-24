@@ -4,7 +4,7 @@ title: "IETM とは何か"
 
 IETM（Interactive Electronic Technical Manual、対話型電子技術マニュアル）は、装備の運用や整備に必要な技術情報を、技術者の作業や入力に合わせて画面に出し分ける電子マニュアルです。著者があらかじめ質問と分岐を情報の中に組み込んでおき、技術者の答えに応じて、次に表示する手順を変えます。紙のマニュアルをスキャンしたり PDF にしたりしただけのものは、IETM には入りません。
 
-IETM という語は、米国国防総省（Department of Defense、DoD）が 1970 年代後半から研究し、1992 年に仕様としてまとめたものに由来します。同じ考え方は、のちに国際仕様の S1000D を通じて、民間航空、船舶、建設などの分野にも広がりました。S1000D では、画面向けの対話的な成果物を IETP（Interactive Electronic Technical Publication）と呼びます。両者の関係は「IETM と IETP の関係」の章で説明します。
+IETM という語は、米国国防総省（Department of Defense、DoD）が 1970 年代後半から研究し、1992 年に仕様としてまとめたものに由来します。同じ考え方は、のちに国際仕様の S1000D を通じて、民間航空、船舶、建設などの分野にも広がりました。S1000D では、画面向けの対話的な成果物を IETP（Interactive Electronic Technical Publication）と呼びます。両者の関係は[「IETM と IETP の関係」](https://zenn.dev/shuji_bonji/books/ietm-overview/viewer/ietm-vs-ietp)の章で説明します。
 
 この章では、IETM の定義を米国の仕様と論文で確かめ、紙のマニュアルや PDF との違いを整理します。
 
@@ -14,7 +14,7 @@ IETM という語は、米国国防総省（Department of Defense、DoD）が 19
 
 ## 仕様と論文による定義
 
-1995 年 10 月 1 日に発行された MIL-PRF-87268A は、IETM を次のように規定しています。IETM はデジタル形式の技術マニュアルで、電子表示装置（Electronic Display System、EDS）を使って、整備技術者またはシステムの操作者に対話的に表示するよう設計されたものです。この仕様は、IETM の内容、スタイル、形式、利用者とのやり取りについて、共通の要求を定めています。
+1995 年 10 月 1 日に発行された [MIL-PRF-87268A](https://www.navsea.navy.mil/Portals/103/Documents/NSWC_Carderock/s87268a.pdf) は、IETM を次のように規定しています。IETM はデジタル形式の技術マニュアルで、電子表示装置（Electronic Display System、EDS）を使って、整備技術者またはシステムの操作者に対話的に表示するよう設計されたものです。この仕様は、IETM の内容、スタイル、形式、利用者とのやり取りについて、共通の要求を定めています。
 
 同じ時期に、米海軍水上戦センター（Naval Surface Warfare Center、NSWC）Carderock 部門の Eric L. Jorgensen は、IETM を「紙の技術マニュアルと同じ機能を持ち、多くの場合は紙を完全に置き換えるもの」と説明しています。紙と違うのは、電子表示装置に表示する前提で作り直してあること、画面に合わせた体裁であること、利用者と対話できることの 3 点です。
 
@@ -52,7 +52,7 @@ flowchart TB
 - **構成による出し分け**：同じ製品でも派生型や搭載装備が違う場合に、当てはまらない情報を表示しません。この出し分けの条件を、データの側に適用情報（applicability）として持たせるのが、後の章で扱う S1000D の方法です。DoD の対話の仕様では、質問への答えから状況を判断し、条件に合う手順を表示します。
 - **故障による出し分け**：症状やテスト結果を入力すると、次に確認すべき箇所へ進みます。Jorgensen は、技術情報を構造化する例として、トラブルシューティングの故障モードを挙げています。
 
-ここで大事なのは、質問も分岐も、著者があらかじめ情報の中に組み込んでいることです。これが、電子技術マニュアル（Electronic Technical Manual、ETM）のうちどれを IETM と呼ぶかを分ける条件になります。詳しくは「クラスと Functionality Matrix」の章で説明します。索引を付けただけのページ画像は、電子化されていても IETM ではありません。
+ここで大事なのは、質問も分岐も、著者があらかじめ情報の中に組み込んでいることです。これが、電子技術マニュアル（Electronic Technical Manual、ETM）のうちどれを IETM と呼ぶかを分ける条件になります。詳しくは[「クラスと Functionality Matrix」](https://zenn.dev/shuji_bonji/books/ietm-overview/viewer/classes)の章で説明します。索引を付けただけのページ画像は、電子化されていても IETM ではありません。
 
 ## 更新の単位
 
