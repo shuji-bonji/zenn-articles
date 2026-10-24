@@ -40,6 +40,7 @@ flowchart TB
   CSDB -- "保管する" --> PM
   CSDB -- "保管する" --> FIG
   DMC -. "一つの DM を特定する" .-> DM
+  CSDB -- "DMC を鍵にして DM を取り出す" --> DMC
   ICN -. "一つの図を特定する" .-> FIG
   PM -- "DMC で参照する" --> DM
   DM -- "ICN で参照する" --> FIG
@@ -50,6 +51,7 @@ flowchart TB
 | --- | --- |
 | CSDB と DM、PM、図 | CSDB は、DM だけでなく、PM と図のファイルも保管します。一つの CSDB に、多数の DM が入ります |
 | DMC と DM | DMC は、一つの DM を特定する識別子です。DMC は DM の外にある管理番号ではなく、DM 自身の識別・状態の部分に書かれています |
+| CSDB と DMC | 公式の概要ページの定義では、DM は DMC を識別子として CSDB に保管し、取り出します。CSDB は、DMC を鍵にして DM を出し入れします |
 | PM と DM | PM は、DMC を使って DM を参照します。一つの PM は多数の DM を参照し、一つの DM は複数の PM から参照されます |
 | DM と DM | DM の本文から、ほかの DM を DMC で参照できます。たとえば手順の DM から、説明の DM を参照します |
 | DM と図 | DM は、図を ICN で参照します。一つの図を、複数の DM から参照できます |
@@ -62,7 +64,11 @@ flowchart TB
 DM と DMC の関係は、特に混同しやすいので、図にまとめます。
 
 ```mermaid
-flowchart TB
+flowchart LR
+  subgraph USE["DMC を使う側"]
+    CSDB[("CSDB")]
+    REF["PM、ほかの DM"]
+  end
   subgraph FILE["DM のファイル（ある発行の、ある言語）"]
     subgraph ID["識別・状態の部分"]
       DMC["DMC<br/>どの DM か"]
@@ -72,7 +78,8 @@ flowchart TB
     end
     BODY["内容の部分<br/>本文"]
   end
-  REF["PM、ほかの DM"] -- "DMC で参照する" --> DMC
+  CSDB -- "DMC を鍵にして取り出す" --> DMC
+  REF -- "DMC で参照する" --> DMC
 ```
 
 - **DMC は DM の中にある**：DMC は、DM の識別・状態の部分に書かれた識別子です。CSDB は、この DMC を使って DM を取り出します。
