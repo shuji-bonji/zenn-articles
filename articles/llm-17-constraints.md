@@ -14,7 +14,7 @@ published: true
 
 この記事は、LLM を業務やコーディングエージェントで使っている開発者が、「LLM はなぜこう失敗するのか」と「その失敗を設定でどこまで抑えられるか」を一続きで確認するための整理です。
 
-以前、筆者のサイト「[Understanding LLM through Claude Code](https://shuji-bonji.github.io/understanding-llm-through-claude-code/ja/)」では、LLM の構造的な制約を 8 つに分けて説明しました。その後、エージェントにファイルの編集やコマンドの実行を任せる場面が増え、8 つでは説明しきれない失敗が目立つようになりました。そこでこの記事では、制約を 17 個に広げ、5 つの分類にまとめ直しています。
+筆者は以前、LLM の構造的な制約を 8 つに分けて整理しました。そのうち 3 つ（Context Rot、Instruction Decay、Sycophancy）は、Zenn の記事「[CLAUDE.mdがなくても戦える — LLMの構造的制約を踏まえたプロンプト駆動開発](https://zenn.dev/shuji_bonji/articles/c9d325f1fd7646)」でも取り上げています。その後、エージェントにファイルの編集やコマンドの実行を任せる場面が増え、8 つでは説明しきれない失敗が目立つようになりました。そこでこの記事では、制約を 17 個に広げ、5 つの分類にまとめ直しています。
 
 :::message
 **この記事の主張**
@@ -42,7 +42,7 @@ Claude Code の設定やハーネスの仕組み（CLAUDE.md、Hooks、サブエ
 
 LLM の制約の数え方に、決まった基準はありません。この記事では「利用者から見て、異なる失敗として現れるもの」を 1 つと数えています。原因の単位で数えると 9 個程度になり、仕組みの単位まで分けると 30 個以上になります。17 は、対策を選ぶときに区別する必要がある単位として選んだ数です。
 
-以前のサイトの 8 つは、すべてこの 17 に含まれています。
+筆者が以前整理した 8 つは、すべてこの 17 に含まれています。以前の整理を読んでいない方は、この表を読み飛ばしても本文の理解に支障はありません。
 
 | 以前の 8 つ | この記事での番号 | 分類 |
 |---|---|---|
@@ -410,6 +410,7 @@ LLM に読ませる指示（CLAUDE.md、rules、Skills）は、守られない�
 - Choose a permission mode. https://code.claude.com/docs/en/permission-modes
 - Sandboxing. https://code.claude.com/docs/en/sandboxing
 
-### 関連する筆者のサイト
+### 関連する筆者の記事
 
-- Understanding LLM through Claude Code（8 つの構造的問題、ハーネスと LLM の制約、問題・対策マップ）. https://shuji-bonji.github.io/understanding-llm-through-claude-code/ja/
+- CLAUDE.mdがなくても戦える — LLMの構造的制約を踏まえたプロンプト駆動開発（Zenn）. 制約を踏まえて、作業をステップに分け、成果物をファイルに残しながら進める方法を、Claude Code に限らない形で説明しています。この記事の ④ 時間の対策（作業を短く分ける、成果物をファイルに残す）を実践する手順にあたります。 https://zenn.dev/shuji_bonji/articles/c9d325f1fd7646
+- Understanding LLM through Claude Code（以前の 8 つの制約の整理と、Claude Code の機能との対応）. https://shuji-bonji.github.io/understanding-llm-through-claude-code/ja/
