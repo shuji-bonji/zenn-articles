@@ -121,7 +121,7 @@ flowchart LR
 
 #### 4. Context Window の上限
 
-モデルが一度に受け取れる長さには上限があり、それを超える入力は受け取れません。Context Rot は上限より手前で品質が下がる問題で、こちらは上限そのものの問題です。Claude Code では、Fable 系、Sonnet 5 以降、Haiku 5.5、Opus 4.6 以降、Sonnet 4.6 が 100 万トークンのコンテキストウィンドウに対応しています（[公式ドキュメント「Explore the context window」](https://code.claude.com/docs/en/context-window)による）。ただし、ウィンドウが大きくなっても Context Rot は残ります。
+モデルが一度に受け取れる長さには上限があり、それを超える入力は受け取れません。Context Rot は上限より手前で品質が下がる問題で、こちらは上限そのものの問題です。Claude Code では、Fable 系、Sonnet 5 以降、Haiku 5.5、Opus 4.6 以降、Sonnet 4.6 が 100 万トークンのコンテキストウィンドウに対応しています（[公式ドキュメント「Explore the context window」](https://code.claude.com/docs/en/context-window)による）。ただし、使えるかどうかは契約しているプランによって異なり、モデルによっては名前に `[1m]` の付いた版を選ぶ必要があります。ただし、ウィンドウが大きくなっても Context Rot は残ります。
 
 ### ② 信頼性 — 生成した内容が正しいか
 
