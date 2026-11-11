@@ -3,7 +3,7 @@ title: "今更聞けない LLM の 17 の制約 — ハーネスと Claude Code 
 emoji: "🧭"
 type: "tech"
 topics: ["llm", "claudecode", "ai", "agent", "harness"]
-published: true
+published: false
 ---
 
 :::message
@@ -270,27 +270,107 @@ Self-Evaluation Bias、Sycophancy、Miscalibration、CoT Unfaithfulnessの 4 つ
 
 Claude Code の機能は、どれだけ確実に効くかで 2 つに分かれます。
 
+```html-embed
+<div class="cmp">
+  <div class="col ins">
+    <div class="hd"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span><span class="tt">指示として LLM に<br class="pc">読ませる機能</span></div>
+    <div class="chips"><span>CLAUDE.md</span><span>.claude/rules/</span><span>Skills</span></div>
+    <p class="key">LLM が読んで従う必要がある</p>
+    <ul>
+      <li><b class="mk">!</b>入力が増えたり会話が長くなったりすると、守られにくくなる</li>
+    </ul>
+  </div>
+  <div class="vs" aria-hidden="true">VS</div>
+  <div class="col out">
+    <div class="hd"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg></span><span class="tt">LLM の外側で<br class="pc">動く機能</span></div>
+    <div class="chips"><span>Hooks</span><span>権限ルール</span><span>サンドボックス</span></div>
+    <p class="key">LLM の判断に頼らずに動く</p>
+    <ul>
+      <li><b class="mk">✓</b>会話が長くなっても効き方は同じ</li>
+      <li><b class="mk">✓</b>必ず守らせたいことはこちらに置く</li>
+    </ul>
+  </div>
+</div>
+<style>
+  .cmp { --bg:#ffffff; --fg:#1a1f36; --sub:#5a6178; --line:#d6d9e0; --chip:#eef0f4;
+         --ins:#1a1f36; --out:#1d4fd8; --outbg:#f3f6fe;
+         display:flex; align-items:stretch; gap:12px; padding:14px; background:var(--bg); color:var(--fg);
+         font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif; }
+  [data-theme="dark"] .cmp { --bg:#1b1f2a; --fg:#e8eaf0; --sub:#a9afc0; --line:#3a4052; --chip:#2a3040;
+         --ins:#c9cedb; --out:#7aa2ff; --outbg:#1f2740; }
+  .col { flex:1; border:2px solid var(--line); border-radius:12px; padding:14px 16px; }
+  .out { border-color:var(--out); background:var(--outbg); }
+  .hd { display:flex; align-items:center; gap:10px; padding-bottom:10px; border-bottom:2px solid currentColor; }
+  .ins .hd { color:var(--ins); } .out .hd { color:var(--out); }
+  .ic { width:34px; height:34px; border-radius:50%; background:currentColor; display:flex; align-items:center; justify-content:center; flex:none; }
+  .ic svg { width:19px; height:19px; fill:none; stroke:var(--bg); stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+  .tt { font-size:16px; font-weight:800; line-height:1.35; color:var(--fg); }
+  .chips { display:flex; flex-wrap:wrap; gap:6px; margin:12px 0 10px; }
+  .chips span { font-size:14px; font-weight:700; padding:4px 10px; border-radius:999px; background:var(--chip); }
+  .out .chips span { background:var(--bg); border:1px solid var(--out); }
+  .key { margin:0 0 6px; font-size:15px; font-weight:800; }
+  ul { list-style:none; margin:0; padding:0; }
+  li { display:flex; gap:8px; font-size:14px; line-height:1.55; color:var(--sub); margin-top:4px; }
+  .mk { flex:none; width:18px; height:18px; margin-top:2px; border-radius:50%; font-size:12px; color:var(--bg);
+        display:flex; align-items:center; justify-content:center; }
+  .ins .mk { background:var(--ins); } .out .mk { background:var(--out); }
+  .vs { align-self:center; flex:none; width:38px; height:38px; border-radius:50%; border:2px solid var(--line);
+        display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:var(--sub); background:var(--bg); }
+  @media (max-width: 640px) {
+    .pc { display:none; }
+    .cmp { flex-direction:column; gap:8px; padding:10px; }
+    .vs { width:32px; height:32px; font-size:12px; }
+    .col { padding:10px 12px; }
+    .hd { padding-bottom:8px; }
+    .chips { margin:8px 0 6px; }
+    .ic { width:30px; height:30px; }
+  }
+</style>
+```
+
+:::details 表で見る
 | 種類 | 機能 | 確実さ |
 |---|---|---|
 | 指示として LLM に読ませる機能 | CLAUDE.md、`.claude/rules/`、Skills | LLM が読んで従う必要があるため、① 空間と ④ 時間の制約を受けます。守られない場合があります |
 | LLM の外側で動く機能 | Hooks、権限ルール、サンドボックス | LLM の判断に頼らずに動くため、会話が長くなっても効き方が変わりません |
+:::
 
 必ず守らせたいことは、後者に置くのが基本です。以下の表も、この区別を前提に読んでください。
 
-### 主な機能の役割
+### ハーネスの 4 要素ごとの機能
 
-| 機能 | ハーネスの要素 | 何をするか |
-|---|---|---|
-| CLAUDE.md | Context | 毎回のセッションの開始時に読み込まれる指示ファイル。公式ドキュメントは 200 行以内を目安としています。プロジェクト直下の CLAUDE.md は、コンパクション後もディスクから読み直されます |
-| `.claude/rules/` | Context | 話題ごとに分けた指示ファイル。`paths` を指定すると、一致するファイルを扱うときだけ読み込まれます |
-| Skills | Context / Orchestration | 起動時には説明文だけが読み込まれ、必要になったときに本文が読み込まれる手順書 |
-| サブエージェント | Orchestration / Guardrails | 独立したコンテキストウィンドウで動き、要約だけを返す。使えるツールや使うモデルを個別に指定できる |
-| Hooks | Guardrails | `PreToolUse`（ツール実行前、止められる）、`PostToolUse`（ツール実行後）、`Stop`（応答の終了時、終了を止めて作業を続けさせられる）などのタイミングで、コマンドを実行する。Hooks のコマンドはコンテキストの外で実行され、LLM に返す出力だけがコンテキストに入ります |
-| MCP | Action | 外部のツールやサービスにつなぐ |
-| 権限ルール・権限モード | Guardrails | ツールの呼び出しを allow / ask / deny で制御する。plan モードでは、計画を承認するまで編集を止める |
-| サンドボックス | Guardrails | Bash などのシェルコマンドについて、OS のレベルでファイルとネットワークへのアクセスを制限する |
-| `/compact`・`/clear`・`/autocompact`・`/context` | Context | 会話の要約、会話の消去、自動コンパクションを始める量の設定、コンテキストの使用量の確認 |
-| `/rewind`・Git のコミット | Orchestration | 作業を前の状態に戻す |
+Claude Code の主な機能を、ハーネスの 4 要素に分けます。2 つの要素にまたがる機能は、主な役割のほうに置き、もう一方の役割を説明に書いています。
+
+#### Action（ツール連携）
+
+| 機能 | 何をするか |
+|---|---|
+| MCP | 外部のツールやサービスにつなぐ。ライブラリーの最新の仕様など、学習データにない情報を取りに行くときにも使う |
+| Bash・WebFetch などの組み込みツール | コマンドの実行や Web ページの取得を行う。文字数や計算のように LLM が誤りやすい処理を、コードの実行に任せられる |
+
+#### Context（記憶）
+
+| 機能 | 何をするか |
+|---|---|
+| CLAUDE.md | 毎回のセッションの開始時に読み込まれる指示ファイル。公式ドキュメントは 200 行以内を目安としています。プロジェクト直下の CLAUDE.md は、コンパクション後もディスクから読み直されます |
+| `.claude/rules/` | 話題ごとに分けた指示ファイル。`paths` を指定すると、一致するファイルを扱うときだけ読み込まれます |
+| Skills | 起動時には説明文だけが読み込まれ、必要になったときに本文が読み込まれる手順書。繰り返す作業の手順を固定する点では、Orchestration の役割も持ちます |
+| `/compact`・`/clear`・`/autocompact`・`/context` | 会話の要約、会話の消去、自動コンパクションを始める量の設定、コンテキストの使用量の確認 |
+
+#### Guardrails（安全制御）
+
+| 機能 | 何をするか |
+|---|---|
+| Hooks | `PreToolUse`（ツール実行前、止められる）、`PostToolUse`（ツール実行後）、`Stop`（応答の終了時、終了を止めて作業を続けさせられる）などのタイミングで、コマンドを実行する。Hooks のコマンドはコンテキストの外で実行され、LLM に返す出力だけがコンテキストに入ります |
+| 権限ルール・権限モード | ツールの呼び出しを allow / ask / deny で制御する。plan モードでは、計画を承認するまで編集を止める |
+| サンドボックス | Bash などのシェルコマンドについて、OS のレベルでファイルとネットワークへのアクセスを制限する |
+
+#### Orchestration（ループ制御）
+
+| 機能 | 何をするか |
+|---|---|
+| サブエージェント | 独立したコンテキストウィンドウで動き、要約だけを返す。使えるツールや使うモデルを個別に指定できる。作業したセッションとは別のコンテキストでレビューさせる点では、Guardrails の役割も持ちます |
+| `/rewind`・Git のコミット | 作業を前の状態に戻す。作業を小さく分けて、ステップごとに確定させる |
 
 ### 17 の制約 × Claude Code の機能
 
