@@ -3,7 +3,7 @@ title: "今更聞けない LLM の 17 の制約 — ハーネスと Claude Code 
 emoji: "🧭"
 type: "tech"
 topics: ["llm", "claudecode", "ai", "agent", "harness"]
-published: false
+published: true
 ---
 
 :::message
@@ -75,14 +75,49 @@ LLM の制約の数え方に、決まった基準はありません。この記�
 
 エージェントに特有の失敗としては、ほかに、存在しないツールや引数を使おうとする、計画した手順と実際の操作がずれる、といったものもあります。この記事では、これらを Hallucination（5）や Compounding Errors（15）がエージェントの操作の中で現れたものとして扱い、独立した制約としては数えていません。
 
-```mermaid
-flowchart LR
-  R["17 の制約"]
-  R --> A["① 空間<br/>1 Context Rot<br/>2 Lost in the Middle<br/>3 Priority Saturation<br/>4 Context Window Limit"]
-  R --> B["② 信頼性<br/>5 Hallucination<br/>6 Sycophancy<br/>7 Knowledge Boundary<br/>8 Miscalibration<br/>9 CoT Unfaithfulness<br/>10 Self-Evaluation Bias"]
-  R --> C["③ 入力<br/>11 Prompt Sensitivity<br/>12 Non-determinism<br/>13 Tokenization Limits"]
-  R --> D["④ 時間<br/>14 Instruction Decay<br/>15 Compounding Errors"]
-  R --> E["⑤ 行為<br/>16 Prompt Injection<br/>17 Reward Hacking"]
+```html-embed
+<div class="c17">
+  <div class="card sp"><div class="lb"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 21 7v10l-9 5-9-5V7z"/><path d="M3 7l9 5 9-5M12 12v10"/></svg></span><span class="nm">① 空間<small>入力が増えるほど悪化する</small></span></div>
+    <ol start="1"><li>Context Rot</li><li>Lost in the Middle</li><li>Priority Saturation</li><li>Context Window Limit</li></ol></div>
+  <div class="card rl"><div class="lb"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><span class="nm">② 信頼性<small>生成した内容が正しいか</small></span></div>
+    <ol start="5"><li>Hallucination</li><li>Sycophancy</li><li>Knowledge Boundary</li><li>Miscalibration</li><li>CoT Unfaithfulness</li><li>Self-Evaluation Bias</li></ol></div>
+  <div class="card ip"><div class="lb"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span><span class="nm">③ 入力<small>書き方と処理の単位に左右される</small></span></div>
+    <ol start="11"><li>Prompt Sensitivity</li><li>Non-determinism</li><li>Tokenization Limits</li></ol></div>
+  <div class="card tm"><div class="lb"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span><span class="nm">④ 時間<small>会話や手順が長くなるほど悪化する</small></span></div>
+    <ol start="14"><li>Instruction Decay</li><li>Compounding Errors</li></ol></div>
+  <div class="card ac"><div class="lb"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></span><span class="nm">⑤ 行為<small>エージェントが外部を操作するとき</small></span></div>
+    <ol start="16"><li>Prompt Injection</li><li>Reward Hacking</li></ol></div>
+</div>
+<style>
+  .c17 { --bg:#ffffff; --fg:#1a1f36; --sub:#5a6178;
+         display:flex; flex-direction:column; gap:8px; padding:12px; background:var(--bg); color:var(--fg);
+         font-family:-apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif; }
+  .sp { --c:#1d4fd8; --t:#f3f6fe; } .rl { --c:#c2570a; --t:#fff8f1; } .ip { --c:#1f7a37; --t:#f2faf4; }
+  .tm { --c:#6d35c9; --t:#f8f4fe; } .ac { --c:#c62828; --t:#fef4f4; }
+  [data-theme="dark"] .c17 { --bg:#1b1f2a; --fg:#e8eaf0; --sub:#a9afc0; }
+  [data-theme="dark"] .sp { --c:#7aa2ff; --t:#1d2540; } [data-theme="dark"] .rl { --c:#ffa45c; --t:#33261a; }
+  [data-theme="dark"] .ip { --c:#6fd28a; --t:#1a2e22; } [data-theme="dark"] .tm { --c:#b794ff; --t:#2a2140; }
+  [data-theme="dark"] .ac { --c:#ff7b7b; --t:#3a1e22; }
+  .card { display:flex; align-items:center; border:2px solid var(--c); background:var(--t); border-radius:10px; padding:7px 12px; }
+  .lb { width:240px; flex:none; display:flex; align-items:center; gap:10px; padding-right:10px; border-right:2px dotted var(--c); align-self:stretch; }
+  .ic { width:34px; height:34px; flex:none; border-radius:50%; border:2px solid var(--c); display:flex; align-items:center; justify-content:center; }
+  .ic svg { width:18px; height:18px; fill:none; stroke:var(--c); stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+  .nm { font-size:16px; font-weight:800; color:var(--c); line-height:1.3; }
+  .nm small { display:block; font-size:12px; font-weight:500; color:var(--sub); }
+  ol { flex:1; margin:0; padding:0 0 0 14px; list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:1px 10px; }
+  li { font-size:13px; font-weight:600; line-height:1.55; white-space:nowrap; }
+  li::before { content:counter(list-item) ". "; color:var(--c); font-weight:800; }
+  @media (max-width: 640px) {
+    .c17 { padding:8px; gap:6px; }
+    .card { flex-direction:column; align-items:stretch; padding:6px 10px; }
+    .lb { width:auto; border-right:none; border-bottom:2px dotted var(--c); padding:0 0 4px; gap:8px; }
+    .ic { width:24px; height:24px; } .ic svg { width:13px; height:13px; }
+    .nm { font-size:14px; display:flex; align-items:baseline; gap:6px; }
+    .nm small { display:inline; font-size:11.5px; }
+    ol { padding:4px 0 0; gap:0 8px; }
+    li { font-size:12px; line-height:1.5; white-space:normal; }
+  }
+</style>
 ```
 
 ## 制約を生む原因
@@ -495,4 +530,4 @@ LLM に読ませる指示（CLAUDE.md、rules、Skills）は、守られない�
 ### 関連する筆者の記事
 
 - CLAUDE.mdがなくても戦える — LLMの構造的制約を踏まえたプロンプト駆動開発（Zenn）. 制約を踏まえて、作業をステップに分け、成果物をファイルに残しながら進める方法を、Claude Code に限らない形で説明しています。この記事の ④ 時間の対策（作業を短く分ける、成果物をファイルに残す）を実践する手順にあたります。 https://zenn.dev/shuji_bonji/articles/c9d325f1fd7646
-- Understanding LLM through Claude Code（以前の 8 つの制約の整理と、Claude Code の機能との対応）. https://shuji-bonji.github.io/understanding-llm-through-claude-code/ja/
+- Understanding LLM through Claude Code（以前の 8 つの制約の整理と、Claude Code の機能との対応）. https://shuji-bonji.github.io/understanding-llm-through-claude-code/ja/　
