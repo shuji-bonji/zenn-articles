@@ -370,7 +370,11 @@ Claude Code の機能は、どれだけ確実に効くかで 2 つに分かれ�
 | LLM の外側で動く機能 | Hooks、権限ルール、サンドボックス | LLM の判断に頼らずに動くため、会話が長くなっても効き方が変わりません |
 :::
 
-必ず守らせたいことは、後者に置くのが基本です。以下の表も、この区別を前提に読んでください。
+:::message alert
+**必ず守らせたいことは、LLM の外側で動く機能（Hooks・権限ルール・サンドボックス）に置くのが基本です。**
+:::
+
+以下の表も、この区別を前提に読んでください。
 
 ### ハーネスの 4 要素ごとの機能
 
@@ -530,4 +534,4 @@ LLM に読ませる指示（CLAUDE.md、rules、Skills）は、守られない�
 ### 関連する筆者の記事
 
 - CLAUDE.mdがなくても戦える — LLMの構造的制約を踏まえたプロンプト駆動開発（Zenn）. 制約を踏まえて、作業をステップに分け、成果物をファイルに残しながら進める方法を、Claude Code に限らない形で説明しています。この記事の ④ 時間の対策（作業を短く分ける、成果物をファイルに残す）を実践する手順にあたります。 https://zenn.dev/shuji_bonji/articles/c9d325f1fd7646
-- Understanding LLM through Claude Code（以前の 8 つの制約の整理と、Claude Code の機能との対応）. https://shuji-bonji.github.io/understanding-llm-through-claude-code/ja/　
+- Understanding LLM through Claude Code（以前の 8 つの制約の整理と、Claude Code の機能との対応）. https://shuji-bonji.github.io/understanding-llm-through-claude-code/ja/
