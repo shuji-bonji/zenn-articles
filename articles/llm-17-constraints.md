@@ -48,14 +48,14 @@ LLM の制約の数え方に、決まった基準はありません。この記�
 
 | 以前の 8 つ | この記事での番号 | 分類 |
 |---|---|---|
-| Context Rot | 1 | ① 空間 |
-| Lost in the Middle | 2 | ① 空間 |
-| Priority Saturation | 3 | ① 空間 |
-| Hallucination | 5 | ② 信頼性 |
-| Sycophancy | 6 | ② 信頼性 |
-| Knowledge Boundary | 7 | ② 信頼性 |
-| Prompt Sensitivity | 11 | ③ 入力 |
-| Instruction Decay | 14 | ④ 時間 |
+| [Context Rot][c1] | 1 | ① 空間 |
+| [Lost in the Middle][c2] | 2 | ① 空間 |
+| [Priority Saturation][c3] | 3 | ① 空間 |
+| [Hallucination][c5] | 5 | ② 信頼性 |
+| [Sycophancy][c6] | 6 | ② 信頼性 |
+| [Knowledge Boundary][c7] | 7 | ② 信頼性 |
+| [Prompt Sensitivity][c11] | 11 | ③ 入力 |
+| [Instruction Decay][c14] | 14 | ④ 時間 |
 
 新しく加えたのは、4（Context Window Limit）、8（Miscalibration）、9（CoT Unfaithfulness）、10（Self-Evaluation Bias）、12（Non-determinism）、13（Tokenization Limits）、15（Compounding Errors）、16（Prompt Injection）、17（Reward Hacking）の 9 つです。
 
@@ -65,11 +65,13 @@ LLM の制約の数え方に、決まった基準はありません。この記�
 
 | 分類 | 現れる場面 | 制約 |
 |---|---|---|
-| ① 空間 | 入力が増えるほど悪化する | 1. Context Rot、2. Lost in the Middle、3. Priority Saturation、4. Context Window Limit |
-| ② 信頼性 | 生成した内容が正しいか | 5. Hallucination、6. Sycophancy、7. Knowledge Boundary、8. Miscalibration、9. CoT Unfaithfulness、10. Self-Evaluation Bias |
-| ③ 入力 | 書き方と処理の単位に左右される | 11. Prompt Sensitivity、12. Non-determinism、13. Tokenization Limits |
-| ④ 時間 | 会話や手順が長くなるほど悪化する | 14. Instruction Decay、15. Compounding Errors |
-| ⑤ 行為 | エージェントが外部のデータを読み、操作するとき | 16. Prompt Injection、17. Reward Hacking |
+| ① 空間 | 入力が増えるほど悪化する | [1. Context Rot][c1]、[2. Lost in the Middle][c2]、[3. Priority Saturation][c3]、[4. Context Window Limit][c4] |
+| ② 信頼性 | 生成した内容が正しいか | [5. Hallucination][c5]、[6. Sycophancy][c6]、[7. Knowledge Boundary][c7]、[8. Miscalibration][c8]、[9. CoT Unfaithfulness][c9]、[10. Self-Evaluation Bias][c10] |
+| ③ 入力 | 書き方と処理の単位に左右される | [11. Prompt Sensitivity][c11]、[12. Non-determinism][c12]、[13. Tokenization Limits][c13] |
+| ④ 時間 | 会話や手順が長くなるほど悪化する | [14. Instruction Decay][c14]、[15. Compounding Errors][c15] |
+| ⑤ 行為 | エージェントが外部のデータを読み、操作するとき | [16. Prompt Injection][c16]、[17. Reward Hacking][c17] |
+
+表の制約の名前を選ぶと、その制約の説明に移動します。この表と、後半の「17 の制約 × Claude Code の機能」の表は、用語集の目次としても使えます。
 
 ①〜④ は、以前の 8 つの制約の分類（コンテキスト系・出力系・入力感受性系・時間軸系）を広げたものです。⑤ は今回新しく立てた分類です。Prompt Injection と Reward Hacking は、チャットで質問に答えるだけなら被害が小さく、エージェントがファイルを書き換えたりコマンドを実行したりするときに初めて大きな問題になります。
 
@@ -286,12 +288,12 @@ Self-Evaluation Bias、Sycophancy、Miscalibration、CoT Unfaithfulnessの 4 つ
 
 | 制約 | 残る理由 |
 |---|---|
-| Hallucination | 外部の検証で誤りを止めることはできますが、生成そのものをなくすことはできません。検証できない種類の誤り（テストのない部分、文章の内容など）は残ります |
-| Sycophancy | 別モデルでのレビューで抑えられますが、レビューするモデルにも同じ傾向があります |
-| Prompt Sensitivity | 直接の処方はありません。書き方を固定して、ぶれを小さくすることしかできません |
-| Non-determinism | 推論サーバー側の問題のため、利用者の側からは止められません。出力が変わる前提で、結果を検証で判定します |
-| Prompt Injection | 権限とサンドボックスで被害を限ることはできますが、命令文の混入そのものは防げません |
-| Reward Hacking | テストの書き換えは止められても、テストが確認していない入力でだけ誤る実装を機械的に見つけることは難しく、人によるレビューが残ります |
+| [Hallucination][c5] | 外部の検証で誤りを止めることはできますが、生成そのものをなくすことはできません。検証できない種類の誤り（テストのない部分、文章の内容など）は残ります |
+| [Sycophancy][c6] | 別モデルでのレビューで抑えられますが、レビューするモデルにも同じ傾向があります |
+| [Prompt Sensitivity][c11] | 直接の処方はありません。書き方を固定して、ぶれを小さくすることしかできません |
+| [Non-determinism][c12] | 推論サーバー側の問題のため、利用者の側からは止められません。出力が変わる前提で、結果を検証で判定します |
+| [Prompt Injection][c16] | 権限とサンドボックスで被害を限ることはできますが、命令文の混入そのものは防げません |
+| [Reward Hacking][c17] | テストの書き換えは止められても、テストが確認していない入力でだけ誤る実装を機械的に見つけることは難しく、人によるレビューが残ります |
 
 そのため、どの制約についても、最終的な受け入れの判断は、テストの結果と、人による差分の確認を組み合わせて行います。
 
@@ -419,23 +421,23 @@ Claude Code の主な機能を、ハーネスの 4 要素に分けます。2 つ
 
 | 制約 | Claude Code での対策 |
 |---|---|
-| 1. Context Rot | 関係のない作業に移るときは `/clear` を実行する。長い作業の途中で `/compact` を実行し、要約に残す内容を指示する（例: `/compact focus on the auth bug fix`）。多くのファイルを読む調査はサブエージェントに任せ、要約だけを受け取る |
-| 2. Lost in the Middle | 毎回守らせたい指示は CLAUDE.md に書く（コンパクション後も読み直される）。Skills の本文は、コンパクション後に上限を超えると末尾が切り詰められ、先頭が残るため、重要な指示を SKILL.md の先頭に書く |
-| 3. Priority Saturation | CLAUDE.md を 200 行以内に保ち、特定のファイルにだけ関係する規則は `paths` 付きの rules に、ときどき必要な手順は Skills に移す。必ず実行させたい処理は、指示ではなく Hooks にする |
-| 4. Context Window Limit | 自動コンパクションに任せるか、`/autocompact` で早めに要約させる。必要なら 100 万トークン対応のモデルを選ぶ。それでも Context Rot は残るため、1 の対策と組み合わせる |
-| 5. Hallucination | `PostToolUse` や `Stop` の Hooks で、テスト・型検査・lint を実行し、失敗したら作業を続けさせる。ライブラリーの仕様は MCP や Web の公式ドキュメントで確かめさせる |
-| 6. Sycophancy | レビュー専用のサブエージェントを作り、作業したセッションとは別のコンテキストでレビューさせる。CLAUDE.md に「根拠がなければ同意しない」と書くことは補助的な対策にとどまる |
-| 7. Knowledge Boundary | 使っているライブラリーのバージョンを CLAUDE.md に明記する。最新の仕様は MCP や WebFetch で取得させる |
-| 8. Miscalibration | Claude の「完了しました」という報告ではなく、テストの結果やコマンドの出力で完了を判断する。`Stop` の Hooks で、テストが通るまで終了させない |
-| 9. CoT Unfaithfulness | 説明ではなく、差分とテスト結果で判断する。思考過程は、問題の手がかりとしては使えるが、正しさの証明にはならない |
-| 10. Self-Evaluation Bias | レビューは別のサブエージェントで行う。サブエージェントは親の会話履歴を受け取らないため、作業中のやり取りを前提にせずにレビューできる。サブエージェントの `model` フィールドで、作業したモデルとは別のモデルも指定できる |
-| 11. Prompt Sensitivity | 繰り返す作業は Skills やカスタムコマンドにし、毎回同じ文面で指示する。Skills の `description` の書き方で、読み込まれるかどうかが変わる点にも注意する |
-| 12. Non-determinism | 同じ出力が返る前提で手順を組まない。受け入れの判定はテストで行う |
-| 13. Tokenization Limits | 文字数・計算・並べ替えは、Bash でコードを実行させて求める |
-| 14. Instruction Decay | 作業の区切りごとに `/clear` を実行し、新しいセッションで始める。守らせたい規則は会話ではなく CLAUDE.md に書く（会話で伝えた指示はコンパクションで要約される）。Hooks は会話の長さに影響されない |
-| 15. Compounding Errors | 作業を小さく分け、ステップごとにテストを実行してコミットする。誤りに気づいたら、誤りを含む会話を続けず、`/rewind` で戻すか新しいセッションでやり直す |
-| 16. Prompt Injection | 権限ルールの deny と ask で、危険なコマンドや外部への送信を止める。サンドボックスで、ネットワークの接続先を許可したドメインだけに限る。信頼できないリポジトリーでは、その `.mcp.json` や Hooks がどう扱われるかを確認してから開く |
-| 17. Reward Hacking | 権限ルールの deny や ask、`PreToolUse` の Hooks で、判定に関わるファイルの書き換えを止める。対象の例は、テストのディレクトリー、テストや lint の設定ファイル、`package.json` のスクリプト、CI の設定、Hooks のスクリプト、`.claude/settings.json`。Hooks のスクリプトや設定を書き換えられると、Hooks による検証そのものが効かなくなる。完了の判定は Claude の報告ではなくテストの実際の出力で行い、これらのファイルを変更した差分は人が確認する |
+| [1. Context Rot][c1] | 関係のない作業に移るときは `/clear` を実行する。長い作業の途中で `/compact` を実行し、要約に残す内容を指示する（例: `/compact focus on the auth bug fix`）。多くのファイルを読む調査はサブエージェントに任せ、要約だけを受け取る |
+| [2. Lost in the Middle][c2] | 毎回守らせたい指示は CLAUDE.md に書く（コンパクション後も読み直される）。Skills の本文は、コンパクション後に上限を超えると末尾が切り詰められ、先頭が残るため、重要な指示を SKILL.md の先頭に書く |
+| [3. Priority Saturation][c3] | CLAUDE.md を 200 行以内に保ち、特定のファイルにだけ関係する規則は `paths` 付きの rules に、ときどき必要な手順は Skills に移す。必ず実行させたい処理は、指示ではなく Hooks にする |
+| [4. Context Window Limit][c4] | 自動コンパクションに任せるか、`/autocompact` で早めに要約させる。必要なら 100 万トークン対応のモデルを選ぶ。それでも Context Rot は残るため、1 の対策と組み合わせる |
+| [5. Hallucination][c5] | `PostToolUse` や `Stop` の Hooks で、テスト・型検査・lint を実行し、失敗したら作業を続けさせる。ライブラリーの仕様は MCP や Web の公式ドキュメントで確かめさせる |
+| [6. Sycophancy][c6] | レビュー専用のサブエージェントを作り、作業したセッションとは別のコンテキストでレビューさせる。CLAUDE.md に「根拠がなければ同意しない」と書くことは補助的な対策にとどまる |
+| [7. Knowledge Boundary][c7] | 使っているライブラリーのバージョンを CLAUDE.md に明記する。最新の仕様は MCP や WebFetch で取得させる |
+| [8. Miscalibration][c8] | Claude の「完了しました」という報告ではなく、テストの結果やコマンドの出力で完了を判断する。`Stop` の Hooks で、テストが通るまで終了させない |
+| [9. CoT Unfaithfulness][c9] | 説明ではなく、差分とテスト結果で判断する。思考過程は、問題の手がかりとしては使えるが、正しさの証明にはならない |
+| [10. Self-Evaluation Bias][c10] | レビューは別のサブエージェントで行う。サブエージェントは親の会話履歴を受け取らないため、作業中のやり取りを前提にせずにレビューできる。サブエージェントの `model` フィールドで、作業したモデルとは別のモデルも指定できる |
+| [11. Prompt Sensitivity][c11] | 繰り返す作業は Skills やカスタムコマンドにし、毎回同じ文面で指示する。Skills の `description` の書き方で、読み込まれるかどうかが変わる点にも注意する |
+| [12. Non-determinism][c12] | 同じ出力が返る前提で手順を組まない。受け入れの判定はテストで行う |
+| [13. Tokenization Limits][c13] | 文字数・計算・並べ替えは、Bash でコードを実行させて求める |
+| [14. Instruction Decay][c14] | 作業の区切りごとに `/clear` を実行し、新しいセッションで始める。守らせたい規則は会話ではなく CLAUDE.md に書く（会話で伝えた指示はコンパクションで要約される）。Hooks は会話の長さに影響されない |
+| [15. Compounding Errors][c15] | 作業を小さく分け、ステップごとにテストを実行してコミットする。誤りに気づいたら、誤りを含む会話を続けず、`/rewind` で戻すか新しいセッションでやり直す |
+| [16. Prompt Injection][c16] | 権限ルールの deny と ask で、危険なコマンドや外部への送信を止める。サンドボックスで、ネットワークの接続先を許可したドメインだけに限る。信頼できないリポジトリーでは、その `.mcp.json` や Hooks がどう扱われるかを確認してから開く |
+| [17. Reward Hacking][c17] | 権限ルールの deny や ask、`PreToolUse` の Hooks で、判定に関わるファイルの書き換えを止める。対象の例は、テストのディレクトリー、テストや lint の設定ファイル、`package.json` のスクリプト、CI の設定、Hooks のスクリプト、`.claude/settings.json`。Hooks のスクリプトや設定を書き換えられると、Hooks による検証そのものが効かなくなる。完了の判定は Claude の報告ではなくテストの実際の出力で行い、これらのファイルを変更した差分は人が確認する |
 
 ### 機能の組み合わせ方
 
@@ -565,3 +567,21 @@ LLM に読ませる指示（CLAUDE.md、rules、Skills）は、守られない�
 
 - CLAUDE.mdがなくても戦える — LLMの構造的制約を踏まえたプロンプト駆動開発（Zenn）. 制約を踏まえて、作業をステップに分け、成果物をファイルに残しながら進める方法を、Claude Code に限らない形で説明しています。この記事の ④ 時間の対策（作業を短く分ける、成果物をファイルに残す）を実践する手順にあたります。 https://zenn.dev/shuji_bonji/articles/c9d325f1fd7646
 - Understanding LLM through Claude Code（以前の 8 つの制約の整理と、Claude Code の機能との対応）. https://shuji-bonji.github.io/understanding-llm-through-claude-code/ja/
+
+[c1]: #1.-context-rot（入力が長いほど品質が下がる）
+[c2]: #2.-lost-in-the-middle（中間の情報が使われにくい）
+[c3]: #3.-priority-saturation（指示が多いほど守られにくい）
+[c4]: #4.-context-window-limit（一度に受け取れる長さの上限）
+[c5]: #5.-hallucination（事実と異なる内容を生成する）
+[c6]: #6.-sycophancy（利用者に同調して正確さを損なう）
+[c7]: #7.-knowledge-boundary（知らないことを知らないと言えない）
+[c8]: #8.-miscalibration（確信度と正しさが一致しない）
+[c9]: #9.-cot-unfaithfulness（思考過程が実際の判断と一致しない）
+[c10]: #10.-self-evaluation-bias（自分の誤りを自分で見つけにくい）
+[c11]: #11.-prompt-sensitivity（書き方で結果が変わる）
+[c12]: #12.-non-determinism（同じ入力でも出力が変わる）
+[c13]: #13.-tokenization-limits（文字単位の処理を誤る）
+[c14]: #14.-instruction-decay（長い会話で最初の指示が守られなくなる）
+[c15]: #15.-compounding-errors（手順が多いほど誤りが積み重なる）
+[c16]: #16.-prompt-injection（読み込んだデータの命令文を実行してしまう）
+[c17]: #17.-reward-hacking（目的ではなく評価基準を満たそうとする）
