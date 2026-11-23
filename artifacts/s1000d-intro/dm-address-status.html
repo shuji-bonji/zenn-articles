@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>DM の識別・状態の部分：dmAddress と dmStatus</title>
+<style>
+  :root {
+    --addr: #2563eb;
+    --addr-bg: #eff6ff;
+    --stat: #d97706;
+    --stat-bg: #fffbeb;
+    --cont: #6b7280;
+    --cont-bg: #f9fafb;
+    --ink: #1f2937;
+    --tag: #9333ea;
+    --attr: #0f766e;
+    --val: #b91c1c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 28px;
+    background: #ffffff;
+    color: var(--ink);
+    font-family: "Noto Sans CJK JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+  }
+  .figure { width: 1040px; }
+  .title { font-size: 20px; font-weight: 700; margin: 0 0 4px; }
+  .caption { font-size: 13px; color: #4b5563; margin: 0 0 18px; }
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    align-items: center;
+    min-height: 24px;
+  }
+  code, .code {
+    font-family: "DejaVu Sans Mono", "SFMono-Regular", Menlo, monospace;
+    font-size: 14px;
+    white-space: pre;
+  }
+  .note { font-size: 13px; color: #374151; padding-left: 14px; border-left: 1px dashed #d1d5db; }
+  .t { color: var(--tag); }
+  .a { color: var(--attr); }
+  .v { color: var(--val); }
+  .x { color: #9ca3af; }
+  .box {
+    position: relative;
+    border: 2px solid;
+    border-radius: 8px;
+    padding: 22px 10px 8px;
+    margin: 8px 0 8px 28px;
+  }
+  .box > .label {
+    position: absolute;
+    top: -12px;
+    left: 12px;
+    padding: 1px 10px;
+    border-radius: 999px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .addr { border-color: var(--addr); background: var(--addr-bg); }
+  .addr > .label { background: var(--addr); }
+  .stat { border-color: var(--stat); background: var(--stat-bg); }
+  .stat > .label { background: var(--stat); }
+  .cont { border-color: var(--cont); background: var(--cont-bg); margin-left: 0; }
+  .cont > .label { background: var(--cont); }
+  .ind1 { padding-left: 2ch; } .ind2 { padding-left: 4ch; } .ind3 { padding-left: 6ch; }
+  .source { font-size: 12px; color: #6b7280; margin-top: 14px; }
+</style>
+</head>
+<body>
+<div class="figure">
+  <p class="title">識別・状態の部分は「どの DM か」と「今どういう状態か」に分かれる</p>
+  <p class="caption">Issue 7 の自転車サンプル DMC-S1000DBIKE-AAA-D00-00-00-00AA-041A-A_013-00_EN-US.XML から、主な要素を抜き出したもの（値と下位の要素の一部を省略）</p>
+
+  <div class="row"><span class="code"><span class="t">&lt;dmodule&gt;</span></span><span class="note"></span></div>
+  <div class="row"><span class="code ind1"><span class="t">&lt;identAndStatusSection&gt;</span></span><span class="note">識別・状態の部分</span></div>
+
+  <div class="box addr">
+    <span class="label">dmAddress：どの DM か</span>
+    <div class="row"><span class="code ind1"><span class="t">&lt;dmAddress&gt;</span></span><span class="note"></span></div>
+    <div class="row"><span class="code ind2"><span class="t">&lt;dmIdent&gt;</span></span><span class="note">ファイルを一つに決める組み合わせ</span></div>
+    <div class="row"><span class="code ind3"><span class="t">&lt;dmCode</span> <span class="a">modelIdentCode</span>=<span class="v">"S1000DBIKE"</span> <span class="x">…</span> <span class="a">infoCode</span>=<span class="v">"041"</span> <span class="x">…</span><span class="t">/&gt;</span></span><span class="note">識別子（DMC）</span></div>
+    <div class="row"><span class="code ind3"><span class="t">&lt;language</span> <span class="a">languageIsoCode</span>=<span class="v">"en"</span> <span class="a">countryIsoCode</span>=<span class="v">"US"</span><span class="t">/&gt;</span></span><span class="note">言語</span></div>
+    <div class="row"><span class="code ind3"><span class="t">&lt;issueInfo</span> <span class="a">issueNumber</span>=<span class="v">"013"</span> <span class="a">inWork</span>=<span class="v">"00"</span><span class="t">/&gt;</span></span><span class="note">発行情報（発行番号、作業中番号）</span></div>
+    <div class="row"><span class="code ind2"><span class="t">&lt;/dmIdent&gt;</span></span><span class="note"></span></div>
+    <div class="row"><span class="code ind2"><span class="t">&lt;dmAddressItems&gt;</span></span><span class="note"></span></div>
+    <div class="row"><span class="code ind3"><span class="t">&lt;issueDate</span> <span class="a">year</span>=<span class="v">"2026"</span> <span class="a">month</span>=<span class="v">"07"</span> <span class="a">day</span>=<span class="v">"16"</span><span class="t">/&gt;</span></span><span class="note">発行日</span></div>
+    <div class="row"><span class="code ind3"><span class="t">&lt;dmTitle&gt;</span></span><span class="note">題名</span></div>
+    <div class="row"><span class="code ind3">  <span class="t">&lt;techName&gt;</span>Bicycle<span class="t">&lt;/techName&gt;</span></span><span class="note">対象の名前</span></div>
+    <div class="row"><span class="code ind3">  <span class="t">&lt;infoName&gt;</span>Description of how it is made<span class="t">&lt;/infoName&gt;</span></span><span class="note">情報の名前</span></div>
+    <div class="row"><span class="code ind3"><span class="t">&lt;/dmTitle&gt;</span></span><span class="note"></span></div>
+    <div class="row"><span class="code ind2"><span class="t">&lt;/dmAddressItems&gt;</span></span><span class="note"></span></div>
+    <div class="row"><span class="code ind1"><span class="t">&lt;/dmAddress&gt;</span></span><span class="note"></span></div>
+  </div>
+
+  <div class="box stat">
+    <span class="label">dmStatus：その DM が今どういう状態か</span>
+    <div class="row"><span class="code ind1"><span class="t">&lt;dmStatus</span> <span class="a">issueType</span>=<span class="v">"changed"</span><span class="t">&gt;</span></span><span class="note">発行の種類</span></div>
+    <div class="row"><span class="code ind2"><span class="t">&lt;security</span> <span class="a">securityClassification</span>=<span class="v">"01"</span> <span class="x">…</span><span class="t">/&gt;</span></span><span class="note">取り出しの制御（区分）</span></div>
+    <div class="row"><span class="code ind2"><span class="t">&lt;dataRestrictions&gt;</span><span class="x">…</span><span class="t">&lt;/dataRestrictions&gt;</span></span><span class="note">取り出しの制御（配布、輸出管理など）</span></div>
+    <div class="row"><span class="code ind2"><span class="t">&lt;responsiblePartnerCompany</span> <span class="a">enterpriseCode</span>=<span class="v">"B6865"</span><span class="t">&gt;</span><span class="x">…</span></span><span class="note">責任を持つ組織</span></div>
+    <div class="row"><span class="code ind2"><span class="t">&lt;originator</span> <span class="a">enterpriseCode</span>=<span class="v">"B6865"</span><span class="t">&gt;</span><span class="x">…</span></span><span class="note">作成した組織</span></div>
+    <div class="row"><span class="code ind2"><span class="t">&lt;applic&gt;</span><span class="x">…</span><span class="t">&lt;/applic&gt;</span></span><span class="note">適用（DM 全体）</span></div>
+    <div class="row"><span class="code ind2"><span class="t">&lt;brexDmRef&gt;</span><span class="x">…</span><span class="t">&lt;/brexDmRef&gt;</span></span><span class="note">従う BREX</span></div>
+    <div class="row"><span class="code ind2"><span class="t">&lt;qualityAssurance&gt;</span><span class="x">…</span><span class="t">&lt;/qualityAssurance&gt;</span></span><span class="note">品質保証</span></div>
+    <div class="row"><span class="code ind2"><span class="t">&lt;reasonForUpdate&gt;</span><span class="x">…</span><span class="t">&lt;/reasonForUpdate&gt;</span></span><span class="note">改訂の理由</span></div>
+    <div class="row"><span class="code ind1"><span class="t">&lt;/dmStatus&gt;</span></span><span class="note"></span></div>
+  </div>
+
+  <div class="row"><span class="code ind1"><span class="t">&lt;/identAndStatusSection&gt;</span></span><span class="note"></span></div>
+
+  <div class="box cont">
+    <span class="label">content：内容の部分</span>
+    <div class="row"><span class="code ind1"><span class="t">&lt;content&gt;</span></span><span class="note"></span></div>
+    <div class="row"><span class="code ind2"><span class="t">&lt;description&gt;</span><span class="x">…</span><span class="t">&lt;/description&gt;</span></span><span class="note">DM の種類ごとに形が違う</span></div>
+    <div class="row"><span class="code ind1"><span class="t">&lt;/content&gt;</span></span><span class="note"></span></div>
+  </div>
+
+  <div class="row"><span class="code"><span class="t">&lt;/dmodule&gt;</span></span><span class="note"></span></div>
+
+  <p class="source">出典：S1000D Issue 7 の自転車サンプル。dmStatus の下には、このほかに techStandard、systemBreakdownCode、skillLevel などの要素がある。</p>
+</div>
+</body>
+</html>

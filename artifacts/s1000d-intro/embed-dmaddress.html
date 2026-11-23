@@ -1,0 +1,31 @@
+<div class="dmx">
+<span class="lb">dmAddress：どの DM か</span>
+<div class="r"><span class="c"><span class="t">&lt;dmAddress&gt;</span></span><span></span></div>
+<div class="r"><span class="c">  <span class="t">&lt;dmIdent&gt;</span></span><span class="n">以下の 3 つでファイルが決まる</span></div>
+<div class="r"><span class="c">    <span class="t">&lt;dmCode</span> <span class="a">modelIdentCode</span>=<span class="v">"S1000DBIKE"</span> <span class="x">…</span> <span class="a">infoCode</span>=<span class="v">"041"</span> <span class="x">…</span><span class="t">/&gt;</span></span><span class="n">識別子（DMC）</span></div>
+<div class="r"><span class="c">    <span class="t">&lt;language</span> <span class="a">languageIsoCode</span>=<span class="v">"en"</span> <span class="a">countryIsoCode</span>=<span class="v">"US"</span><span class="t">/&gt;</span></span><span class="n">言語</span></div>
+<div class="r"><span class="c">    <span class="t">&lt;issueInfo</span> <span class="a">issueNumber</span>=<span class="v">"013"</span> <span class="a">inWork</span>=<span class="v">"00"</span><span class="t">/&gt;</span></span><span class="n">発行情報</span></div>
+<div class="r"><span class="c">  <span class="t">&lt;/dmIdent&gt;</span></span><span></span></div>
+<div class="r"><span class="c">  <span class="t">&lt;dmAddressItems&gt;</span></span><span></span></div>
+<div class="r"><span class="c">    <span class="t">&lt;issueDate</span> <span class="a">year</span>=<span class="v">"2026"</span> <span class="a">month</span>=<span class="v">"07"</span> <span class="a">day</span>=<span class="v">"16"</span><span class="t">/&gt;</span></span><span class="n">発行日</span></div>
+<div class="r"><span class="c">    <span class="t">&lt;dmTitle&gt;</span></span><span class="n">題名</span></div>
+<div class="r"><span class="c">      <span class="t">&lt;techName&gt;</span>Bicycle<span class="t">&lt;/techName&gt;</span></span><span class="n">対象の名前</span></div>
+<div class="r"><span class="c">      <span class="t">&lt;infoName&gt;</span>Description of how it is made<span class="t">&lt;/infoName&gt;</span></span><span class="n">情報の名前</span></div>
+<div class="r"><span class="c">    <span class="t">&lt;/dmTitle&gt;</span></span><span></span></div>
+<div class="r"><span class="c">  <span class="t">&lt;/dmAddressItems&gt;</span></span><span></span></div>
+<div class="r"><span class="c"><span class="t">&lt;/dmAddress&gt;</span></span><span></span></div>
+</div>
+<style>
+.dmx { --c:#2563eb; --bg:#eff6ff; --ink:#1f2937; --tag:#9333ea; --att:#0f766e; --val:#b91c1c; --dim:#9ca3af; --note:#374151; --rule:#d1d5db;
+  border:2px solid var(--c); background:var(--bg); border-radius:8px; padding:12px 12px 10px; color:var(--ink);
+  font-family:"Hiragino Sans","Noto Sans CJK JP","Yu Gothic",sans-serif; }
+.dmx.st { --c:#d97706; --bg:#fffbeb; }
+[data-theme="dark"] .dmx { --bg:#172554; --ink:#e5e7eb; --tag:#d8b4fe; --att:#5eead4; --val:#fca5a5; --dim:#6b7280; --note:#d1d5db; --rule:#4b5563; --c:#60a5fa; }
+[data-theme="dark"] .dmx.st { --bg:#3b2506; --c:#fbbf24; }
+.dmx .lb { display:inline-block; background:var(--c); color:#fff; font-weight:700; font-size:13px; padding:2px 10px; border-radius:999px; margin-bottom:8px; }
+[data-theme="dark"] .dmx .lb { color:#111827; }
+.dmx .r { display:grid; grid-template-columns:1fr 190px; align-items:center; min-height:22px; }
+.dmx .c { font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,"DejaVu Sans Mono",monospace; font-size:12px; white-space:pre; }
+.dmx .n { font-size:12px; color:var(--note); padding-left:10px; border-left:1px dashed var(--rule); }
+.dmx .t { color:var(--tag); } .dmx .a { color:var(--att); } .dmx .v { color:var(--val); } .dmx .x { color:var(--dim); }
+</style>

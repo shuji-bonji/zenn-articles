@@ -1,0 +1,27 @@
+<div class="dmx st">
+<span class="lb">dmStatus：その DM が今どういう状態か</span>
+<div class="r"><span class="c"><span class="t">&lt;dmStatus</span> <span class="a">issueType</span>=<span class="v">"changed"</span><span class="t">&gt;</span></span><span class="n">発行の種類</span></div>
+<div class="r"><span class="c">  <span class="t">&lt;security</span> <span class="a">securityClassification</span>=<span class="v">"01"</span> <span class="x">…</span><span class="t">/&gt;</span></span><span class="n">取り出しの制御（区分）</span></div>
+<div class="r"><span class="c">  <span class="t">&lt;dataRestrictions&gt;</span><span class="x">…</span><span class="t">&lt;/dataRestrictions&gt;</span></span><span class="n">取り出しの制御（配布など）</span></div>
+<div class="r"><span class="c">  <span class="t">&lt;responsiblePartnerCompany</span> <span class="a">enterpriseCode</span>=<span class="v">"B6865"</span><span class="t">&gt;</span><span class="x">…</span></span><span class="n">責任を持つ組織</span></div>
+<div class="r"><span class="c">  <span class="t">&lt;originator</span> <span class="a">enterpriseCode</span>=<span class="v">"B6865"</span><span class="t">&gt;</span><span class="x">…</span></span><span class="n">作成した組織</span></div>
+<div class="r"><span class="c">  <span class="t">&lt;applic&gt;</span><span class="x">…</span><span class="t">&lt;/applic&gt;</span></span><span class="n">適用（DM 全体）</span></div>
+<div class="r"><span class="c">  <span class="t">&lt;brexDmRef&gt;</span><span class="x">…</span><span class="t">&lt;/brexDmRef&gt;</span></span><span class="n">従う BREX</span></div>
+<div class="r"><span class="c">  <span class="t">&lt;qualityAssurance&gt;</span><span class="x">…</span><span class="t">&lt;/qualityAssurance&gt;</span></span><span class="n">品質保証</span></div>
+<div class="r"><span class="c">  <span class="t">&lt;reasonForUpdate&gt;</span><span class="x">…</span><span class="t">&lt;/reasonForUpdate&gt;</span></span><span class="n">改訂の理由</span></div>
+<div class="r"><span class="c"><span class="t">&lt;/dmStatus&gt;</span></span><span></span></div>
+</div>
+<style>
+.dmx { --c:#2563eb; --bg:#eff6ff; --ink:#1f2937; --tag:#9333ea; --att:#0f766e; --val:#b91c1c; --dim:#9ca3af; --note:#374151; --rule:#d1d5db;
+  border:2px solid var(--c); background:var(--bg); border-radius:8px; padding:12px 12px 10px; color:var(--ink);
+  font-family:"Hiragino Sans","Noto Sans CJK JP","Yu Gothic",sans-serif; }
+.dmx.st { --c:#d97706; --bg:#fffbeb; }
+[data-theme="dark"] .dmx { --bg:#172554; --ink:#e5e7eb; --tag:#d8b4fe; --att:#5eead4; --val:#fca5a5; --dim:#6b7280; --note:#d1d5db; --rule:#4b5563; --c:#60a5fa; }
+[data-theme="dark"] .dmx.st { --bg:#3b2506; --c:#fbbf24; }
+.dmx .lb { display:inline-block; background:var(--c); color:#fff; font-weight:700; font-size:13px; padding:2px 10px; border-radius:999px; margin-bottom:8px; }
+[data-theme="dark"] .dmx .lb { color:#111827; }
+.dmx .r { display:grid; grid-template-columns:1fr 190px; align-items:center; min-height:22px; }
+.dmx .c { font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,"DejaVu Sans Mono",monospace; font-size:12px; white-space:pre; }
+.dmx .n { font-size:12px; color:var(--note); padding-left:10px; border-left:1px dashed var(--rule); }
+.dmx .t { color:var(--tag); } .dmx .a { color:var(--att); } .dmx .v { color:var(--val); } .dmx .x { color:var(--dim); }
+</style>
