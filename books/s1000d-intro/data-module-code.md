@@ -74,40 +74,50 @@ Issue 7 の第4.3章によると、DMC の中のハイフンは区切りを見�
 
 文字列を左から読むと、`S1000DBIKE`、`AAA`、`D00`、`00`、`00`、`00AA`、`041A`、`A` です。4 番目の `00` はサブシステム `0` とサブサブシステム `0`、5 番目の `00` はアセンブリ、`00AA` は分解コードとそのバリアント、`041A` は情報コードとそのバリアントです。SNS を続けて書くと `D000000`（`D00` + `0` + `0` + `00`）になります。
 
-次の図は、同じ文字列の区切りと属性の対応です。左は文字列を先頭から順に区切ったもの、右は対応する属性です。
+次の図は、同じ文字列の区切りと属性の対応です。上の段は文字列を先頭から順に区切ったもの、その下は対応する属性と値です。
 
-```mermaid
-flowchart LR
-  subgraph STR["文字列の区切り"]
-    S1["S1000DBIKE"]
-    S2["AAA"]
-    S3["D00"]
-    S4["00"]
-    S5["00"]
-    S6["00AA"]
-    S7["041A"]
-    S8["A"]
-  end
-  subgraph INFO["情報に関する部分：どんな種類の情報か"]
-    B1["infoCode = 041<br/>infoCodeVariant = A"]
-    B2["itemLocationCode = A"]
-  end
-  subgraph SYS["システムに関する部分：どの製品の、どの部分か"]
-    A1["modelIdentCode = S1000DBIKE"]
-    A2["systemDiffCode = AAA"]
-    A3["systemCode = D00"]
-    A4["subSystemCode = 0<br/>subSubSystemCode = 0"]
-    A5["assyCode = 00"]
-    A6["disassyCode = 00<br/>disassyCodeVariant = AA"]
-  end
-  S1 --> A1
-  S2 --> A2
-  S3 --> A3
-  S4 --> A4
-  S5 --> A5
-  S6 --> A6
-  S7 --> B1
-  S8 --> B2
+```html-embed
+<div class="dmc">
+<div class="part sys" style="grid-column:1/7">システムに関する部分：どの製品の、どの部分か</div>
+<div class="part inf" style="grid-column:7/9">情報に関する部分：<br>どんな種類の情報か</div>
+<div class="chip sys" style="grid-column:1">S1000DBIKE</div>
+<div class="chip sys" style="grid-column:2">AAA</div>
+<div class="chip sys" style="grid-column:3">D00</div>
+<div class="chip sys" style="grid-column:4">00</div>
+<div class="chip sys" style="grid-column:5">00</div>
+<div class="chip sys" style="grid-column:6">00AA</div>
+<div class="chip inf" style="grid-column:7">041A</div>
+<div class="chip inf last" style="grid-column:8">A</div>
+<div class="attrs sys" style="grid-column:1"><div class="at"><span class="an">model<wbr>Ident<wbr>Code</span><span class="av">= S1000DBIKE</span></div></div>
+<div class="attrs sys" style="grid-column:2"><div class="at"><span class="an">system<wbr>Diff<wbr>Code</span><span class="av">= AAA</span></div></div>
+<div class="attrs sys" style="grid-column:3"><div class="at"><span class="an">system<wbr>Code</span><span class="av">= D00</span></div></div>
+<div class="attrs sys" style="grid-column:4"><div class="at"><span class="an">sub<wbr>System<wbr>Code</span><span class="av">= 0</span></div><div class="at"><span class="an">sub<wbr>Sub<wbr>System<wbr>Code</span><span class="av">= 0</span></div></div>
+<div class="attrs sys" style="grid-column:5"><div class="at"><span class="an">assy<wbr>Code</span><span class="av">= 00</span></div></div>
+<div class="attrs sys" style="grid-column:6"><div class="at"><span class="an">disassy<wbr>Code</span><span class="av">= 00</span></div><div class="at"><span class="an">disassy<wbr>Code<wbr>Variant</span><span class="av">= AA</span></div></div>
+<div class="attrs inf" style="grid-column:7"><div class="at"><span class="an">info<wbr>Code</span><span class="av">= 041</span></div><div class="at"><span class="an">info<wbr>Code<wbr>Variant</span><span class="av">= A</span></div></div>
+<div class="attrs inf" style="grid-column:8"><div class="at"><span class="an">item<wbr>Location<wbr>Code</span><span class="av">= A</span></div></div>
+<div class="sns" style="grid-column:3/6">SNS：D00 + 0 + 0 + 00 → D000000</div>
+</div>
+<style>
+.dmc { --sys:#2563eb; --sysbg:#eff6ff; --inf:#059669; --infbg:#ecfdf5; --ink:#1f2937; --sub:#4b5563; --sep:#9ca3af;
+  display:grid; grid-template-columns:1.95fr 1fr .9fr 1.25fr .85fr 1.3fr 1.15fr 1.15fr; column-gap:14px; row-gap:8px;
+  min-width:660px; padding:12px 8px; color:var(--ink); font-family:"Hiragino Sans","Noto Sans CJK JP","Yu Gothic",sans-serif; }
+[data-theme="dark"] .dmc { --sys:#60a5fa; --sysbg:#172554; --inf:#34d399; --infbg:#052e22; --ink:#e5e7eb; --sub:#cbd5e1; --sep:#6b7280; }
+.dmc .part { display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; text-align:center; padding:4px 6px; border-radius:6px; color:#fff; }
+.dmc .part.sys { background:var(--sys); } .dmc .part.inf { background:var(--inf); }
+[data-theme="dark"] .dmc .part { color:#0b1220; }
+.dmc .chip { position:relative; text-align:center; font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,"DejaVu Sans Mono",monospace;
+  font-size:15px; font-weight:700; padding:6px 0; border:2px solid; border-radius:6px; }
+.dmc .chip.sys { border-color:var(--sys); background:var(--sysbg); color:var(--sys); }
+.dmc .chip.inf { border-color:var(--inf); background:var(--infbg); color:var(--inf); }
+.dmc .chip:not(.last)::after { content:"-"; position:absolute; right:-12px; top:50%; transform:translateY(-50%); color:var(--sep); font-weight:700; }
+.dmc .attrs { border-top:2px solid; padding-top:6px; }
+.dmc .attrs.sys { border-color:var(--sys); } .dmc .attrs.inf { border-color:var(--inf); }
+.dmc .at { margin-bottom:6px; line-height:1.25; }
+.dmc .an { display:block; font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,"DejaVu Sans Mono",monospace; font-size:11px; color:var(--ink); }
+.dmc .av { display:block; font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,"DejaVu Sans Mono",monospace; font-size:11px; color:var(--sub); }
+.dmc .sns { font-size:12px; text-align:center; color:var(--sys); border:2px dashed var(--sys); border-top:none; border-radius:0 0 8px 8px; padding:4px; }
+</style>
 ```
 
 SNS は、`systemCode` から `assyCode` までの四つの属性で、図の `D00`、`00`、`00` の三つの区切りにまたがっています。
