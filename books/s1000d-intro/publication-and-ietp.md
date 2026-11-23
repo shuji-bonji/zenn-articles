@@ -16,20 +16,26 @@ title: "Publication Module と IETP"
 - Issue 7 の第4.9.1章は、PM の要素として `identAndStatusSection`、`pmAddress`、`pmIdent`、`pmEntry` を挙げています。Issue 6 の第4.9.1章も `pmEntry` を挙げ、出版物の各項目が、DM、出版物、S1000D 以外の出版物、ほかの項目への参照を含むと書いています。
 - Issue 4.2 の既定 BREX は、やり取りする XML の最上位の要素の一つに `pm` を挙げ（Chap 1.4.2）、出版物の項目の種類を表す属性 `pmEntryType` を検査しています（Chap 3.9.6.1）。
 
-手順の本文と、情報管理番号（Information Control Number、ICN）の付いた図は、DM の側にあります。PM が決めるのは、階層と順序だけです。そのため、同じ DM を別の PM から参照できます。[第3章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/core-concepts)で説明した「情報を中心にした管理」を、出版物の側から見た仕組みです。
+Issue 7 の `pm.xsd` では、`pmEntry` の中に、項目の題名（`pmEntryTitle`）、DM の参照（`dmRef`）、PM の参照（`pmRef`）、S1000D の外の出版物の参照（`externalPubRef`）、入れ子の `pmEntry` を置けます。項目の並び順が出版物の順序になり、`pmEntry` の入れ子が章や節の階層になります。
 
 ```mermaid
 flowchart TB
-  PM["PM<br/>内容と構造"]
-  PM --> F["前付けの DM"]
-  PM --> D1["記述の DM"]
-  PM --> D2["手順の DM"]
-  PM --> SUB["別の PM"]
-  D1 --> FIG["ICN の図"]
-  D2 --> FIG
-  PM --> PAGE["ページ型の出力<br/>紙、PDF"]
-  PM --> IETP["IETP<br/>画面での対話的な出力"]
+  PM["pm"] --> E1["pmEntry<br/>第1章"]
+  PM --> E2["pmEntry<br/>第2章"]
+  E1 --> T1["pmEntryTitle<br/>項目の題名"]
+  E1 --> R1["dmRef"] --> D1["前付けの DM"]
+  E1 --> E11["pmEntry<br/>第1.1節"]
+  E11 --> R2["dmRef"] --> D2["記述の DM"]
+  E11 --> R3["dmRef"] --> D3["手順の DM"]
+  E2 --> R4["pmRef"] --> P2["別の PM"]
+  E2 --> R5["externalPubRef"] --> X["S1000D の外の出版物"]
+  D2 -. "ICN で参照" .-> FIG["図"]
+  D3 -. "ICN で参照" .-> FIG
 ```
+
+章と節の名前は、説明のための例です。図では、`pm` と `pmEntry` の間にある内容の部分（`content`）と、識別・状態の部分（`identAndStatusSection`）を省いています。
+
+手順の本文と、情報管理番号（Information Control Number、ICN）の付いた図は、DM の側にあります。PM が決めるのは、階層と順序だけです。そのため、同じ DM を別の PM から参照できます。[第3章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/core-concepts)で説明した「情報を中心にした管理」を、出版物の側から見た仕組みです。
 
 ## パブリケーションモジュールコード
 
@@ -48,7 +54,7 @@ PM にも、DMC に当たる識別子があります。パブリケーション�
 <pmCode modelIdentCode="S1000DBIKE" pmIssuer="B6865" pmNumber="EPWG1" pmVolume="00"/>
 ```
 
-DMC と PMC で共通しているのは、先頭のモデル識別コードだけです。PMC には、SNS も情報コードもありません。DMC が「何についての情報か」を表すのに対し、PMC は「どの発行者の、どの出版物の何巻目か」を表します。区切りの構成と長さは版によって決まるので、ほかの版ではその版の仕様で確認してください。
+PMC には、SNS も情報コードもありません。DMC との違いは、[第3章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/core-concepts)の比較表にまとめています。区切りの構成と長さは版によって決まるので、ほかの版ではその版の仕様で確認してください。
 
 ## 出力の種類
 

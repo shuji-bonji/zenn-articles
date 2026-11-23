@@ -31,7 +31,7 @@ flowchart TB
 
 DMC だけでは、「どの発行の、どの言語の DM か」は決まりません。そのため、識別・状態の部分には、DMC を表す `dmCode` と並んで、言語（`language`）と発行情報（`issueInfo`）があります。`issueInfo` は、発行番号（issue number）と作業中番号（inwork）を持ちます。この要素名は、Issue 4.1、Issue 4.2、Issue 6、Issue 7 のサンプルで確認したものです。それより前の版では、同じ情報を別の要素名で持ちます。
 
-ファイル名では、DMC の後ろに `_001-00_EN-US` のように付きます。`001` が発行番号、`00` が作業中番号、`EN-US` が言語です。これらは DMC の一部ではなく、「同じ DMC の、ある発行の、ある言語のファイル」を指すための情報です。たとえば Issue 7 の自転車サンプル `DMC-S1000DBIKE-AAA-D00-00-00-00AA-041A-A_013-00_EN-US.XML` は、言語が `en` / `US`、発行番号が `013`、作業中番号が `00` です。
+発行情報と言語は DMC の一部ではなく、「同じ DMC の、ある発行の、ある言語のファイル」を指すための情報です。ファイル名での表れ方は、[第3章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/core-concepts)で説明します。
 
 ### 適用（applicability）
 

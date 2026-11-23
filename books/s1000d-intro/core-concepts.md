@@ -44,7 +44,7 @@ flowchart LR
 
 | 用語 | 役割 | 定義している資料 |
 | --- | --- | --- |
-| データモジュール（Data Module、DM） | 独立した情報の単位。プラットフォーム、システム、構成品についての説明、手順、運用のデータを含む | 公式の概要ページ、Issue 7 の第1.2章と第4.2章 |
+| データモジュール（Data Module、DM） | 独立した情報の単位。プラットフォーム、システム、構成品についての説明、手順、運用のデータを含む | 公式の概要ページ、Issue 7 の第1.2章と第4.2章。定義の文は[第4章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/data-module-structure)で説明します |
 | パブリケーションモジュール（Publication Module、PM） | 出版物の内容と構造を定義するもの。技術情報の本文は持たず、DM などを参照して出版物を組み立てる | Issue 7 の第4.9章 |
 | データモジュールコード（Data Module Code、DMC） | DM の識別子。どの製品の、どの部分の、どんな種類の情報かを表す | 公式の概要ページ、Issue 7 の第4.3章 |
 | パブリケーションモジュールコード（Publication Module Code、PMC） | PM の識別子。どの発行者の、どの出版物の、何巻目かを表す | Issue 7 の第4.9.2章 |
@@ -52,13 +52,6 @@ flowchart LR
 | 共通ソースデータベース（Common Source Data Base、CSDB） | DM、PM、図などを保管し、管理する場所。仕様はその機能を定めていない | 公式の概要ページ、Issue 7 の第4.2章 |
 
 公式の概要ページが扱っているのは、DM、DMC、CSDB です。PM と PMC は、概要ページには出てきません。本書では、PM と PMC を Issue 7 の第4.9章と第4.9.2章をもとに説明します。
-
-DM の定義には、二つの言い方があります。本書では、両方を併記します。
-
-| 資料 | DM の定義 |
-| --- | --- |
-| 公式の概要ページ | プラットフォーム、システム、構成品についての説明、手順、運用のデータを含む、独立した情報の単位 |
-| Issue 7 の第1.2章と第4.2章 | “the smallest self-contained information unit within a technical publication”（技術刊行物の中で、それだけで完結する最小の情報の単位） |
 
 ## 識別子
 
@@ -152,21 +145,7 @@ CSDB の中の DM、PM、図は、お互いを識別子で参照します。参�
 | DM | ほかの DM | DMC | 本文から、ほかの DM を参照します。たとえば手順の DM から、説明の DM を参照します |
 | DM | 図 | ICN | 本文の中に図を表示します。一つの図を、複数の DM から参照できます |
 
-PM は、この参照を、出版物の項目（Issue 7 では `pmEntry` 要素）の中に書きます。Issue 7 の `pm.xsd` では、`pmEntry` の中に、項目の題名（`pmEntryTitle`）、DM の参照（`dmRef`）、PM の参照（`pmRef`）、S1000D の外の出版物の参照（`externalPubRef`）、入れ子の `pmEntry` を置けます。項目の並び順が出版物の順序になり、`pmEntry` の入れ子が章や節の階層になります。
-
-```mermaid
-flowchart TB
-  PM["pm"] --> E1["pmEntry<br/>第1章"]
-  PM --> E2["pmEntry<br/>第2章"]
-  E1 --> T1["pmEntryTitle"]
-  E1 --> R1["dmRef<br/>DM の参照"]
-  E1 --> E11["pmEntry<br/>第1.1節"]
-  E11 --> R2["dmRef<br/>DM の参照"]
-  E2 --> R3["pmRef<br/>ほかの PM の参照"]
-  E2 --> R4["externalPubRef<br/>S1000D の外の出版物の参照"]
-```
-
-章と節の名前は、説明のための例です。図では、`pm` と `pmEntry` の間にある内容の部分（`content`）と、識別・状態の部分（`identAndStatusSection`）を省いています。
+PM は、この参照を出版物の項目（Issue 7 では `pmEntry` 要素）の中に書き、項目の並び順と入れ子で、出版物の順序と階層を定義します。項目の中に置けるものは、[第7章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/publication-and-ietp)で説明します。
 
 次の図は、参照の関係を、架空の DM と図で示したものです。
 
@@ -192,11 +171,7 @@ flowchart TB
   PM2 -- "組み立てる" --> OUT2["出版物：教育用の資料"]
 ```
 
-この図から、次の三点が読み取れます。
-
-- DM、図、PM は、どれも CSDB の中に別々に保管されます。データが DM から PM へ順に流れていくわけではありません。
-- PM は技術情報の本文を持たず、DMC で DM を参照します。同じ DM（ブレーキの説明）を、二つの PM が参照できます。
-- 図は DM の本文に埋め込まず、ICN で参照します。同じ図を、複数の DM が参照できます。
+DM、図、PM は、どれも CSDB の中に別々に保管され、識別子でつながっています。データが DM から PM へ順に流れていくわけではありません。
 
 出版物を作るときは、PM の項目の順序と階層に沿って、参照している DM を CSDB から取り出し、紙、PDF、IETP の形にします。出力の種類は[第7章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/publication-and-ietp)で説明します。
 
@@ -226,7 +201,7 @@ flowchart TB
 - Issue 4.2 の既定 BREX として公開されているファイル（スキーマの位置は `http://www.s1000d.org/S1000D_4-2/xml_schema_flat/brex.xsd`。公式パッケージの複製）. https://github.com/kibook/S1000D/blob/master/csdb/DMC-S1000D-F-04-10-0301-00A-022A-D_001-00_EN-US.XML
 - 著者が入手した S1000D の仕様パッケージ。入手先は https://users.s1000d.org/
   - Issue 4.0：XML スキーマパッケージの `pm.xsd`（`pmCode`）
-  - Issue 7：第1.2章、第4.2章、第4.3章、第4.9章、第4.9.2章、XML スキーマパッケージの `pm.xsd`（`pmEntry` に置ける要素）、自転車サンプルの DM と PM。表紙の日付は 2026-07-16
+  - Issue 7：第1.2章、第4.2章、第4.3章、第4.9章、第4.9.2章、自転車サンプルの DM と PM。表紙の日付は 2026-07-16
 
 ## この章のポイント
 

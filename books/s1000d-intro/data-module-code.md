@@ -38,7 +38,7 @@ SNS は、システム、サブシステム、サブサブシステム、アセ�
 
 **情報に関する部分**は、その位置について何を書いた情報かを表します。情報コード（information code）、そのバリアント、アイテムロケーションコード（item location code）が入ります。同じブレーキでも、「どう作られているかの説明」と「取り外しの手順」は、情報コードが違う別の DM になります。
 
-Issue 4.1 以降のスキーマでは、これらの値は `dmCode` 要素の属性として書きます。属性名は、`modelIdentCode`、`systemDiffCode`、`systemCode`、`subSystemCode`、`subSubSystemCode`、`assyCode`、`disassyCode`、`disassyCodeVariant`、`infoCode`、`infoCodeVariant`、`itemLocationCode` です。Issue 4.2、Issue 6、Issue 7 の既定 BREX と自転車サンプルも、同じ属性名を使っています。Issue 3.0 以前では、同じ内容を属性ではなく子要素で書きます。この違いは[第11章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)で説明します。
+Issue 4.0 以降のスキーマでは、これらの値は `dmCode` 要素の属性として書きます。属性名は、`modelIdentCode`、`systemDiffCode`、`systemCode`、`subSystemCode`、`subSubSystemCode`、`assyCode`、`disassyCode`、`disassyCodeVariant`、`infoCode`、`infoCodeVariant`、`itemLocationCode` です。Issue 4.2、Issue 6、Issue 7 の既定 BREX と自転車サンプルも、同じ属性名を使っています。Issue 3.0 以前では、同じ内容を属性ではなく子要素で書きます。この違いは[第11章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)で説明します。
 
 ### 訓練用の DM の区画
 
@@ -168,7 +168,7 @@ CSDB の中のファイル名は、DMC より長いことがあります。Issue
 DMC-S1000D-J-04-10-0301-00A-022A-D_001-00_EN-US.XML
 ```
 
-先頭の `DMC-` は接頭辞、アンダースコアの後ろの `001-00` は発行番号と作業中番号、`EN-US` は言語です。DMC は、アンダースコアより前の `S1000D-J-04-10-0301-00A-022A-D` の部分です。発行が進んでも、言語が増えても、DMC は変わりません。変わるのは発行番号と言語の部分です。
+先頭の `DMC-` は接頭辞、アンダースコアの後ろの `001-00` は発行番号と作業中番号、`EN-US` は言語です。DMC は、アンダースコアより前の `S1000D-J-04-10-0301-00A-022A-D` の部分です。識別子、発行情報、言語の組み合わせでファイルが一つに決まる仕組みは、[第3章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/core-concepts)で説明しています。
 
 なお、ファイル名の発行番号と、XML の中の `issueInfo` が一致しないファイルもあります（付録を参照）。識別には、ファイル名ではなく XML の中の識別子を使ってください。
 
@@ -180,6 +180,7 @@ DMC-S1000D-J-04-10-0301-00A-022A-D_001-00_EN-US.XML
 - Issue 4.1 のスキーマを参照する公開テンプレート（`dmCode` の属性名）. https://github.com/oxygenxml/S1000D/blob/master/templates/Data%20Module.xml
 - Issue 4.2 の既定 BREX. https://github.com/kibook/S1000D/blob/master/csdb/DMC-S1000D-F-04-10-0301-00A-022A-D_001-00_EN-US.XML
 - 著者が入手した S1000D の仕様パッケージ。入手先は https://users.s1000d.org/
+  - Issue 4.0：XML スキーマパッケージの `descript.xsd`（`dmCode` の属性）
   - Issue 6：第4.10.2.4章、既定 BREX、自転車サンプル、情報コード `024` のテンプレート
   - Issue 7：第4.3章、第4.3.8章、第4.10.2.4章、既定 BREX、自転車サンプル
 - 自転車サンプルのコードと標題が印刷されている公開の出版物（Docuneering 社による印刷）. https://www.docuneering.com/s1000d/demo/pdf/PMC-S1000DBIKE-C3002-LOAP1-00_000-02_EN-US.pdf
