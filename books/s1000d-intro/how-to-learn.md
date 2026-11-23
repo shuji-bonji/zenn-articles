@@ -73,12 +73,12 @@ S シリーズの公式サイトは、2024 年の出来事として、日本の�
 - S1000D. https://s1000d.org/
 - S1000D. *About S1000D*. https://s1000d.org/?page_id=101
 - S1000D. Downloads. https://users.s1000d.org/
+  - 著者が入手した Issue 6 のパッケージ：表紙は Issue No. 6、日付は 2024-06-19
+  - 著者が入手した Issue 7 のパッケージ：表紙は Issue No. 7、日付は 2026-07-16
 - S1000D. Product list. https://users.s1000d.org/ProductList.aspx
 - S1000D. Issue 4.1 の説明. https://users.s1000d.org/ProductDescription.aspx?ProductID=16
 - S1000D. Issue 5.0 の説明. https://users.s1000d.org/ProductDescription.aspx?ProductID=34
 - S1000D. *S1000D Data Dictionaries*. https://s1000d.org/?page_id=1003
-- 著者が入手した S1000D Issue 6 のパッケージ（表紙は Issue No. 6、日付は 2024-06-19）。入手先は https://users.s1000d.org/
-- 著者が入手した S1000D Issue 7 のパッケージ（表紙は Issue No. 7、日付は 2026-07-16）。入手先は https://users.s1000d.org/
 - S1000D. *Change Proposals*. https://s1000d.org/?page_id=37
 - S1000D. *External Links*（ASD-STE100）. https://s1000d.org/?page_id=44
 - S-Series. *Global adoption*（日本、SJAC との覚書）. https://www.s-series.org/our-specifications/global-adoption/

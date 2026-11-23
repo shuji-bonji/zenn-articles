@@ -107,11 +107,12 @@ DM の外側の形は共通でも、内容の部分を検証するスキーマ�
 - S1000D. *Benefits*. https://s1000d.org/?page_id=57
 - Issue 4.1 のスキーマを `xsi:noNamespaceSchemaLocation` で参照している公開テンプレート（`identAndStatusSection`、`dmCode`、`language`、`issueInfo`）. https://github.com/oxygenxml/S1000D/blob/master/templates/Data%20Module.xml
 - Issue 4.2 の既定 BREX（ファイル名とスキーマの位置、内容の部分の要素に付く `applicRefId` を検査するルール）. https://github.com/kibook/S1000D/blob/master/csdb/DMC-S1000D-F-04-10-0301-00A-022A-D_001-00_EN-US.XML
-- 著者が入手した S1000D Issue 3.0 のパッケージ（XML スキーマの `appliccrossreftable.xsd`、`condcrossreftable.xsd`、`prdcrossreftable.xsd`）。入手先は https://users.s1000d.org/
-- 著者が入手した S1000D Issue 4.0 のパッケージ（XML スキーマパッケージの `xml_schema_flat` の種類ごとのファイルと、ACT、CCT、PCT のスキーマ）。入手先は https://users.s1000d.org/
+- 著者が入手した S1000D の仕様パッケージ。入手先は https://users.s1000d.org/
+  - Issue 3.0：XML スキーマの `appliccrossreftable.xsd`、`condcrossreftable.xsd`、`prdcrossreftable.xsd`
+  - Issue 4.0：XML スキーマパッケージの `xml_schema_flat` の種類ごとのファイルと、ACT、CCT、PCT のスキーマ
+  - Issue 6：XML スキーマパッケージ、自転車サンプルの記述 DM
+  - Issue 7：第1.2章、第3.2章、第4.2章、第4.4章、XML スキーマパッケージ、自転車サンプルの記述 DM と、`applicRefId` を使う DM
 - Naval Surface Warfare Center Carderock Division. *NAVSEA S1000D Tool Acquisition and Guidance*（適用の注釈、`applicRefId`、ACT、CCT、PCT）. https://www.navsea.navy.mil/portals/103/documents/nswc_carderock/navsea%20s1000d%20taag.pdf
-- 著者が入手した S1000D Issue 6 のパッケージ（XML スキーマパッケージ、自転車サンプルの記述 DM）。入手先は https://users.s1000d.org/
-- 著者が入手した S1000D Issue 7 のパッケージ（第1.2章、第3.2章、第4.2章、第4.4章、XML スキーマパッケージ、自転車サンプルの記述 DM と、`applicRefId` を使う DM）。入手先は https://users.s1000d.org/
 
 ## この章のポイント
 

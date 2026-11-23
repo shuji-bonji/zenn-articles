@@ -87,16 +87,16 @@ Wikipedia などの二次資料は、Issue 3.0 までは SGML の DTD と XML �
 ## 出典
 
 - S1000D. Downloads（メジャー、マイナー、パッチの説明）. https://users.s1000d.org/
+  - 著者が入手した Issue 3.0 のパッケージ：自転車サンプル `DMC-S1000DBIKE-AAA-D00-00-00-00AA-121A-A_005-00.XML` の `dmaddres/dmc/avee` と `brexref`、SGML と XML の DTD、XML スキーマ
+  - 著者が入手した Issue 4.0 と Issue 4.1 のパッケージ：Issue 4.0 の自転車サンプルの `brexDmRef` と `pm.xsd`、Issue 4.1 の自転車サンプルの PM
+  - 著者が入手した Issue 6 のパッケージ：表紙は Issue No. 6、日付は 2024-06-19。第7.3.1.4章、サンプルの要素名、スキーマパッケージ、`Patch 6.0.A`
+  - 著者が入手した Issue 7 のパッケージ：表紙は Issue No. 7、日付は 2026-07-16。第7.3.1.4章、サンプルの要素名、スキーマパッケージ
 - S1000D. Product list（Issue 6、Issue 7 を含む一覧）. https://users.s1000d.org/ProductList.aspx
 - S1000D. Issue 5.0 の説明（パッチ 5.0.A、5.0.B の内容）. https://users.s1000d.org/ProductDescription.aspx?ProductID=34
 - Issue 2.3 の自転車サンプル出版物の印刷（`dmaddres/dmc/avee/modelic` などのパス。Docuneering 社による印刷）. https://www.docuneering.com/s1000d/demo/pdf/s1000d-issue-2.3/PMC-S1000DBIKE-X1234-00023-00_002-00_EN-US.pdf
 - Issue 4.1 のスキーマを参照する公開テンプレート. https://github.com/oxygenxml/S1000D/blob/master/templates/Data%20Module.xml
 - Issue 4.2 の既定 BREX. https://github.com/kibook/S1000D/blob/master/csdb/DMC-S1000D-F-04-10-0301-00A-022A-D_001-00_EN-US.XML
-- 著者が入手した S1000D Issue 3.0 のパッケージ（自転車サンプル `DMC-S1000DBIKE-AAA-D00-00-00-00AA-121A-A_005-00.XML` の `dmaddres/dmc/avee` と `brexref`、SGML と XML の DTD、XML スキーマ）。入手先は https://users.s1000d.org/
-- 著者が入手した S1000D Issue 4.0 と Issue 4.1 のパッケージ（Issue 4.0 の自転車サンプルの `brexDmRef` と `pm.xsd`、Issue 4.1 の自転車サンプルの PM）。入手先は https://users.s1000d.org/
 - Wikipedia. *S1000D*（マークアップの世代の二次的なまとめ）. https://en.wikipedia.org/wiki/S1000D
-- 著者が入手した S1000D Issue 6 のパッケージ（表紙は Issue No. 6、日付は 2024-06-19。第7.3.1.4章、サンプルの要素名、スキーマパッケージ、`Patch 6.0.A`）。入手先は https://users.s1000d.org/
-- 著者が入手した S1000D Issue 7 のパッケージ（表紙は Issue No. 7、日付は 2026-07-16。第7.3.1.4章、サンプルの要素名、スキーマパッケージ）。入手先は https://users.s1000d.org/
 
 ## この章のポイント
 

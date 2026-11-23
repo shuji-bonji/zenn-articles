@@ -61,9 +61,9 @@ S1000D を読むときは、最初に次の四つを分けて考えると混乱�
 - S1000D. *Benefits*. https://s1000d.org/?page_id=57
 - S1000D. *S1000D Organizational Structure*. https://s1000d.org/?page_id=61
 - S1000D. Downloads（標題と用途の案内）. https://users.s1000d.org/
+  - 著者が入手した Issue 6 のパッケージ：表紙は Issue No. 6、日付は 2024-06-19
+  - 著者が入手した Issue 7 のパッケージ：表紙は Issue No. 7、日付は 2026-07-16。第1.1章、第1.2章
 - S1000D. Product list（無償提供と、掲載されている Issue の一覧）. https://users.s1000d.org/ProductList.aspx
-- 著者が入手した S1000D Issue 6 のパッケージ（表紙は Issue No. 6、日付は 2024-06-19）。入手先は https://users.s1000d.org/
-- 著者が入手した S1000D Issue 7 のパッケージ（表紙は Issue No. 7、日付は 2026-07-16。第1.1章、第1.2章）。入手先は https://users.s1000d.org/
 - IETM のクラス分け. https://zenn.dev/shuji_bonji/books/ietm-overview
 
 ## この章のポイント

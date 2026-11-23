@@ -106,9 +106,10 @@ BREX の仕組みの範囲は、BREX をやり取りし、参照し、検査に�
 - S1000D. Issue 4.1 のダウンロード説明（Default BREX、Business Rule Decision Point index）. https://users.s1000d.org/ProductDescription.aspx?ProductID=16
 - S1000D. Issue 5.0 のダウンロード説明（Default BREX、Project Decision Point Index）. https://users.s1000d.org/ProductDescription.aspx?ProductID=34
 - Issue 4.2 の既定 BREX（標題、情報コード `022`、Chap 4.10.2.4、`systemDiffCode` は `F`）. https://github.com/kibook/S1000D/blob/master/csdb/DMC-S1000D-F-04-10-0301-00A-022A-D_001-00_EN-US.XML
-- 著者が入手した S1000D Issue 6 のパッケージ（第4.10.2.4章、既定 BREX、ビジネスルールのテンプレート、自転車サンプルのプロジェクト用 BREX、BRDP の索引）。入手先は https://users.s1000d.org/
-- 著者が入手した S1000D Issue 7 のパッケージ（第2.5.1章、第4.10.2.4章、第4.10.3章、既定 BREX、ビジネスルールのテンプレート、自転車サンプルのプロジェクト用 BREX、BRDP の索引）。入手先は https://users.s1000d.org/
-- 著者が入手した S1000D Issue 3.0、Issue 4.0、Issue 4.1 のパッケージ（自転車サンプルの `brexref` と `brexDmRef`、Issue 4.0 の `pm.xsd`、Issue 4.1 の PM のサンプル `PMC-S1000DBIKE-C3002-EPWG1-00_000-01_EN-US.XML`）。入手先は https://users.s1000d.org/
+- 著者が入手した S1000D の仕様パッケージ。入手先は https://users.s1000d.org/
+  - Issue 3.0、Issue 4.0、Issue 4.1：自転車サンプルの `brexref` と `brexDmRef`、Issue 4.0 の `pm.xsd`、Issue 4.1 の PM のサンプル `PMC-S1000DBIKE-C3002-EPWG1-00_000-01_EN-US.XML`
+  - Issue 6：第4.10.2.4章、既定 BREX、ビジネスルールのテンプレート、自転車サンプルのプロジェクト用 BREX、BRDP の索引
+  - Issue 7：第2.5.1章、第4.10.2.4章、第4.10.3章、既定 BREX、ビジネスルールのテンプレート、自転車サンプルのプロジェクト用 BREX、BRDP の索引
 
 ## この章のポイント
 

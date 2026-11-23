@@ -92,9 +92,10 @@ flowchart LR
 - S1000D. *About S1000D*（情報の種類の例示）. https://s1000d.org/?page_id=101
 - S1000D. Issue 4.1 のダウンロード説明（Bike sample に Descriptive、Procedural、BREX の例があると記載）. https://users.s1000d.org/ProductDescription.aspx?ProductID=16
 - Adobe FrameMaker 10, *Data module types*（Issue 4.0 の Schedule の説明）. https://help.adobe.com/en_US/framemaker/s1000d/WS9ad62b8fb4f8a997-4a02f1412e146f7d2a-8000.html
-- 著者が入手した S1000D Issue 4.0 のパッケージ（XML スキーマパッケージの `xml_schema_flat`）。入手先は https://users.s1000d.org/
-- 著者が入手した S1000D Issue 6 のパッケージ（自転車サンプルの `041`、`121`、`258`、スキーマパッケージの `descript.xsd` と `proced.xsd`）。入手先は https://users.s1000d.org/
-- 著者が入手した S1000D Issue 7 のパッケージ（自転車サンプルの `041`、`121`、`258`、スキーマパッケージの `descript.xsd` と `proced.xsd`）。入手先は https://users.s1000d.org/
+- 著者が入手した S1000D の仕様パッケージ。入手先は https://users.s1000d.org/
+  - Issue 4.0：XML スキーマパッケージの `xml_schema_flat`
+  - Issue 6：自転車サンプルの `041`、`121`、`258`、スキーマパッケージの `descript.xsd` と `proced.xsd`
+  - Issue 7：自転車サンプルの `041`、`121`、`258`、スキーマパッケージの `descript.xsd` と `proced.xsd`
 - 自転車サンプルの標題と DMC が印刷されている公開の出版物. https://www.docuneering.com/s1000d/demo/pdf/PMC-S1000DBIKE-C3002-LOAP1-00_000-02_EN-US.pdf
 
 ## この章のポイント

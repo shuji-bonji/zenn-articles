@@ -177,9 +177,9 @@ Issue 4.1 と Issue 5.0 の説明ページは、自転車サンプルを、架�
 
 ## 出典
 
-- 著者が入手した S1000D Issue 6 のパッケージ（上の 12 ファイル。仕様書の第4.10.2.4章、第7.3.1.4章、既定 BREX、ビジネスルールのテンプレート、自転車サンプル、`Patch 6.0.A`）。入手先は https://users.s1000d.org/
-- 著者が入手した S1000D Issue 7 のパッケージ（上の 11 ファイル。仕様書の第4.2章、第4.10.2.4章、第7.3.1.4章、既定 BREX、ビジネスルールのテンプレート、自転車サンプル）。入手先は https://users.s1000d.org/
 - S1000D. Issue 4.1 の説明. https://users.s1000d.org/ProductDescription.aspx?ProductID=16
 - S1000D. Issue 5.0 の説明. https://users.s1000d.org/ProductDescription.aspx?ProductID=34
 - S1000D. Downloads（メジャー、マイナー、パッチの説明）. https://users.s1000d.org/
+  - 著者が入手した Issue 6 のパッケージ：上の 12 ファイル。仕様書の第4.10.2.4章、第7.3.1.4章、既定 BREX、ビジネスルールのテンプレート、自転車サンプル、`Patch 6.0.A`
+  - 著者が入手した Issue 7 のパッケージ：上の 11 ファイル。仕様書の第4.2章、第4.10.2.4章、第7.3.1.4章、既定 BREX、ビジネスルールのテンプレート、自転車サンプル
 - Issue 4.2 の既定 BREX（公式パッケージの複製）. https://github.com/kibook/S1000D/blob/master/csdb/DMC-S1000D-F-04-10-0301-00A-022A-D_001-00_EN-US.XML

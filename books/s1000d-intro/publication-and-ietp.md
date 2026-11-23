@@ -93,10 +93,11 @@ Issue 6 と Issue 7 のスキーマパッケージには `process.xsd` があり
 ## 出典
 
 - S1000D. *About S1000D*（DM と CSDB の定義。PM の定義はここにはない）. https://s1000d.org/?page_id=101
-- 著者が入手した S1000D Issue 4.0 のパッケージ（XML スキーマパッケージの `xml_schema_flat` の `pm.xsd`）。入手先は https://users.s1000d.org/
+- 著者が入手した S1000D の仕様パッケージ。入手先は https://users.s1000d.org/
+  - Issue 4.0：XML スキーマパッケージの `xml_schema_flat` の `pm.xsd`
+  - Issue 6：第4.9.1章、`pm.xsd`、`process.xsd`、機能マトリックス `S1000D Functionality Matrix.xls`
+  - Issue 7：第4.9章、第4.9.1章、第4.11章、第6.3章、`pm.xsd`、`process.xsd` に定義された要素名、機能マトリックス `S1000D Issue 7 Functionality Matrix.xls`
 - Issue 4.2 の既定 BREX（最上位の要素としての `pm`、属性 `pmEntryType`）. https://github.com/kibook/S1000D/blob/master/csdb/DMC-S1000D-F-04-10-0301-00A-022A-D_001-00_EN-US.XML
-- 著者が入手した S1000D Issue 6 のパッケージ（第4.9.1章、`pm.xsd`、`process.xsd`、機能マトリックス `S1000D Functionality Matrix.xls`）。入手先は https://users.s1000d.org/
-- 著者が入手した S1000D Issue 7 のパッケージ（第4.9章、第4.9.1章、第4.11章、第6.3章、`pm.xsd`、`process.xsd` に定義された要素名、機能マトリックス `S1000D Issue 7 Functionality Matrix.xls`）。入手先は https://users.s1000d.org/
 - S1000D. Issue 4.1 のダウンロード説明（functionality matrix を同梱）. https://users.s1000d.org/ProductDescription.aspx?ProductID=16
 - S1000D. Issue 5.0 のダウンロード説明（functionality matrix を同梱）. https://users.s1000d.org/ProductDescription.aspx?ProductID=34
 - Department of Defense. MIL-STD-3048A(USAF). 用語 3.2.17（IETM）、3.2.18（IETP）. https://everyspec.com/MIL-STD/MIL-STD-3000-9999/download.php?spec=MIL-STD-3048A.054327.pdf

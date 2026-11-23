@@ -94,6 +94,7 @@ flowchart LR
 
 - S1000D. *About S1000D*（Issue 2 からの範囲、装備以外の文書への適用）. https://s1000d.org/?page_id=101
 - S1000D. Downloads（現在の用途）. https://users.s1000d.org/
+  - 著者が入手した Issue 7 のパッケージ：第1.1章、第1.2章、第2.3章、第3.9.2.5章、第6.4.1章、第7.3.3章
 - S1000D. *External Links*（ATA Spec 1000BR、DIG、Shipdex）. https://s1000d.org/?page_id=44
 - Aerospace Industries Association. *S-Series IPS Specifications*（海事、海中、鉄道、建設、農業への適用）. https://www.aia-aerospace.org/standards/s-series-ips/
 - S-Series. *Global adoption*（カナダ、オーストラリア、韓国、日本、NATO ALP-10、米国防総省、SJAC との覚書）. https://www.s-series.org/our-specifications/global-adoption/
@@ -101,7 +102,6 @@ flowchart LR
 - Department of Defense. MIL-STD-3048A(USAF). https://everyspec.com/MIL-STD/MIL-STD-3000-9999/download.php?spec=MIL-STD-3048A.054327.pdf
 - Bundeswehr. *S1000D International specification for technical publications*（契約で使える版）. https://www.bundeswehr.de/de/organisation/unterstuetzungsbereich/logistik/logistikkommando-der-bundeswehr-in-erfurt/einheitliche-materialkatalogisierung-im-logkdobw/s-1000d-international-en-specification-en-for-en-technical-en-publications-en-5707894
 - Australian Government, Defence. *Developing S1000D Interactive Electronic Technical Publications Standard*（DEF(AUST) IPS-5630）. https://defence.gov.au/business-industry/industry-governance/developing-s1000d-interactive-electronic-technical-publications-standard
-- 著者が入手した S1000D Issue 7 のパッケージ（第1.1章、第1.2章、第2.3章、第3.9.2.5章、第6.4.1章、第7.3.3章）。入手先は https://users.s1000d.org/
 - US10891798. *System and method for displaying an asset of an interactive electronic technical publication synchronously in a plurality of extended reality display devices*. https://patents.google.com/patent/US10891798
 
 ## この章のポイント

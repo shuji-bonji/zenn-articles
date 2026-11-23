@@ -179,8 +179,9 @@ DMC-S1000D-J-04-10-0301-00A-022A-D_001-00_EN-US.XML
 - S1000D. Issue 5.0 のダウンロード説明（Bike sample を同梱物として説明）. https://users.s1000d.org/ProductDescription.aspx?ProductID=34
 - Issue 4.1 のスキーマを参照する公開テンプレート（`dmCode` の属性名）. https://github.com/oxygenxml/S1000D/blob/master/templates/Data%20Module.xml
 - Issue 4.2 の既定 BREX. https://github.com/kibook/S1000D/blob/master/csdb/DMC-S1000D-F-04-10-0301-00A-022A-D_001-00_EN-US.XML
-- 著者が入手した S1000D Issue 6 のパッケージ（第4.10.2.4章、既定 BREX、自転車サンプル、情報コード `024` のテンプレート）。入手先は https://users.s1000d.org/
-- 著者が入手した S1000D Issue 7 のパッケージ（第4.3章、第4.3.8章、第4.10.2.4章、既定 BREX、自転車サンプル）。入手先は https://users.s1000d.org/
+- 著者が入手した S1000D の仕様パッケージ。入手先は https://users.s1000d.org/
+  - Issue 6：第4.10.2.4章、既定 BREX、自転車サンプル、情報コード `024` のテンプレート
+  - Issue 7：第4.3章、第4.3.8章、第4.10.2.4章、既定 BREX、自転車サンプル
 - 自転車サンプルのコードと標題が印刷されている公開の出版物（Docuneering 社による印刷）. https://www.docuneering.com/s1000d/demo/pdf/PMC-S1000DBIKE-C3002-LOAP1-00_000-02_EN-US.pdf
 
 ## この章のポイント
