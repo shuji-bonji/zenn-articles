@@ -24,19 +24,9 @@ Issue 6 と Issue 7 の仕様書の表紙にも、同じ英文の標題が書か
 
 ## 作っている組織と対象の範囲
 
-S1000D は、当初、欧州航空宇宙防衛工業会（Aerospace, Security and Defence Industries Association of Europe、ASD）が作りました。当時の名称は AECMA です。現在は、次の三つの組織と、その会員、顧客が共同で作っています。
+S1000D は、欧州航空宇宙防衛工業会（Aerospace, Security and Defence Industries Association of Europe、ASD）が作り始めました。現在は、ASD、米国航空宇宙工業会（Aerospace Industries Association of America、AIA）、ATA e-Business Program の三つの組織が、その会員や顧客とともに維持しています。始まりの経緯と、三つの組織が仕様を維持する仕組みは、[第2章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/history-and-organization)で説明します。
 
-- ASD
-- 米国航空宇宙工業会（Aerospace Industries Association of America、AIA）
-- ATA e-Business Program
-
-この三つの組織が、S1000D Council と S1000D Steering Committee を構成しています。それぞれの役割は[第2章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/history-and-organization)で説明します。
-
-なお、Issue 7 の第1.1章は、共同の作成者を Air Transport Association of America（ATA）と書いていますが、仕様書の表紙の発行者（Publishers）は ATA e-Business Program です。公式サイトはこの二つを別の組織として紹介しているので、本書でも区別して扱います。詳しくは[第2章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/history-and-organization)で説明します。
-
-対象の範囲について、公式の概要ページは、Issue 2 から陸上と海上の装備が加わったと書いています。その後も範囲は広がり、軍用と民用の装備のほか、建設、方針や手続き、法務文書、組織の文書などにも使えると列挙しています。ダウンロードサイトの案内も、現在の用途として、防衛（陸・海・空）、民間航空、建設、船舶を挙げています。Issue 7 の第1.1章も、Issue 2 から陸と海が加わったことを、概要ページと同じように書いています。
-
-つまり S1000D は、航空機の整備手順だけを扱う仕様ではありません。範囲が広がった経緯と、S1000D が今注目されている理由は、[第12章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/why-now)で説明します。一方で、建設や法務の文書を S1000D で作る具体的な手順は、本書の範囲外です。本書は、どの分野にも共通する中心概念を扱います。
+対象の範囲は、当初の航空から広がり、現在は陸・海の装備や建設などにも使われています。つまり S1000D は、航空機の整備手順だけを扱う仕様ではありません。現在の対象の範囲と、S1000D が今注目されている理由は、[第12章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/why-now)で説明します。一方で、建設や法務の文書を S1000D で作る具体的な手順は、本書の範囲外です。本書は、どの分野にも共通する中心概念を扱います。
 
 ## IETP と IETM
 
@@ -59,11 +49,9 @@ S1000D を読むときは、最初に次の四つを分けて考えると混乱�
 
 - S1000D. *About S1000D*. https://s1000d.org/?page_id=101
 - S1000D. *Benefits*. https://s1000d.org/?page_id=57
-- S1000D. *S1000D Organizational Structure*. https://s1000d.org/?page_id=61
-- S1000D. Downloads（標題と用途の案内）. https://users.s1000d.org/
+- S1000D. Downloads（標題の案内）. https://users.s1000d.org/
   - 著者が入手した Issue 6 のパッケージ：表紙は Issue No. 6、日付は 2024-06-19
   - 著者が入手した Issue 7 のパッケージ：表紙は Issue No. 7、日付は 2026-07-16。第1.1章、第1.2章
-- S1000D. Product list（無償提供と、掲載されている Issue の一覧）. https://users.s1000d.org/ProductList.aspx
 - IETM のクラス分け. https://zenn.dev/shuji_bonji/books/ietm-overview
 
 ## この章のポイント
