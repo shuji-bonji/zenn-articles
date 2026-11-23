@@ -4,7 +4,7 @@ title: "Publication Module と IETP"
 
 パブリケーションモジュール（Publication Module、PM）は、どのデータモジュール（DM）を、どの順序と階層で並べて一つの出版物にするかを書いたものです。本文は持たず、DM を参照するだけです。同じ DM と PM から、紙や PDF のようなページ型の出版物も、画面で対話的に読む IETP（Interactive Electronic Technical Publication）も作れます。
 
-この章では、PM の役割、出力の種類、IETP と IETM の関係、対話的な表示の流れを記述する Process データモジュールを説明します。
+この章では、PM の役割、PM の識別子、出力の種類、IETP と IETM の関係、対話的な表示の流れを記述する Process データモジュールを説明します。
 
 ## PM が持つもの
 
@@ -31,7 +31,24 @@ flowchart TB
   PM --> IETP["IETP<br/>画面での対話的な出力"]
 ```
 
-PM にも識別用のコードがあります。自転車サンプルの出版物には、`PMC-` で始まるコードが印刷されています。コードのフィールドの構成は版によって決まるので、DMC の読み方をそのまま当てはめないでください。
+## パブリケーションモジュールコード
+
+PM にも、DMC に当たる識別子があります。パブリケーションモジュールコード（Publication Module Code、PMC）です。PMC は PM 自身の識別・状態の部分に、`pmCode` 要素として書かれます。Issue 7 の第4.9.2章によると、PMC は英大文字と数字の 14 文字から 26 文字で、次の四つの区切りでできています。
+
+| 区切り | 属性名 | Issue 7 の第4.9.2章の範囲 |
+| --- | --- | --- |
+| モデル識別コード | `modelIdentCode` | 英大文字と数字 2 文字から 14 文字。DMC と同じ（第4.3.1章） |
+| 発行者 | `pmIssuer` | 英大文字と数字 5 文字。発行者の CAGE コード |
+| 出版物の番号 | `pmNumber` | 英大文字と数字 5 文字。発行者が付ける |
+| 巻 | `pmVolume` | 数字 2 文字 |
+
+`pmIssuer` の使い方は、プロジェクトの決定点 BRDP-S1-00365 です。Issue 7 の自転車サンプルのファイル `PMC-S1000DBIKE-B6865-EPWG1-00_006-00_EN-US.XML` では、次のように書かれています。DMC と同じく、`_006-00_EN-US` の部分は発行番号、作業中番号、言語で、PMC には含まれません。
+
+```xml
+<pmCode modelIdentCode="S1000DBIKE" pmIssuer="B6865" pmNumber="EPWG1" pmVolume="00"/>
+```
+
+DMC と PMC で共通しているのは、先頭のモデル識別コードだけです。PMC には、SNS も情報コードもありません。DMC が「何についての情報か」を表すのに対し、PMC は「どの発行者の、どの出版物の何巻目か」を表します。区切りの構成と長さは版によって決まるので、ほかの版ではその版の仕様で確認してください。
 
 ## 出力の種類
 
@@ -96,7 +113,7 @@ Issue 6 と Issue 7 のスキーマパッケージには `process.xsd` があり
 - 著者が入手した S1000D の仕様パッケージ。入手先は https://users.s1000d.org/
   - Issue 4.0：XML スキーマパッケージの `xml_schema_flat` の `pm.xsd`
   - Issue 6：第4.9.1章、`pm.xsd`、`process.xsd`、機能マトリックス `S1000D Functionality Matrix.xls`
-  - Issue 7：第4.9章、第4.9.1章、第4.11章、第6.3章、`pm.xsd`、`process.xsd` に定義された要素名、機能マトリックス `S1000D Issue 7 Functionality Matrix.xls`
+  - Issue 7：第4.9章、第4.9.1章、第4.9.2章、第4.11章、第6.3章、`pm.xsd`、`process.xsd` に定義された要素名、機能マトリックス `S1000D Issue 7 Functionality Matrix.xls`、自転車サンプルの PM `PMC-S1000DBIKE-B6865-EPWG1-00_006-00_EN-US.XML`
 - Issue 4.2 の既定 BREX（最上位の要素としての `pm`、属性 `pmEntryType`）. https://github.com/kibook/S1000D/blob/master/csdb/DMC-S1000D-F-04-10-0301-00A-022A-D_001-00_EN-US.XML
 - S1000D. Issue 4.1 のダウンロード説明（functionality matrix を同梱）. https://users.s1000d.org/ProductDescription.aspx?ProductID=16
 - S1000D. Issue 5.0 のダウンロード説明（functionality matrix を同梱）. https://users.s1000d.org/ProductDescription.aspx?ProductID=34
