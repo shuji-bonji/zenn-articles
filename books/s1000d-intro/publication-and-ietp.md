@@ -4,7 +4,7 @@ title: "Publication Module と IETP"
 
 パブリケーションモジュール（Publication Module、PM）は、どのデータモジュール（DM）を、どの順序と階層で並べて一つの出版物にするかを書いたものです。本文は持たず、DM を参照するだけです。同じ DM と PM から、紙や PDF のようなページ型の出版物も、画面で対話的に読む IETP（Interactive Electronic Technical Publication）も作れます。
 
-この章では、PM の役割、PM の識別子、出力の種類、IETP と IETM の関係、対話的な表示の流れを記述する Process データモジュールを説明します。
+この章では、PM の役割、PM の識別子（PMC）の読み方、PM から DM と PM を参照する方法、出力の種類、IETP と IETM の関係、対話的な表示の流れを記述する Process データモジュールを説明します。
 
 ## PM が持つもの
 
@@ -37,7 +37,7 @@ flowchart TB
 
 手順の本文と、情報管理番号（Information Control Number、ICN）の付いた図は、DM の側にあります。PM が決めるのは、階層と順序だけです。そのため、同じ DM を別の PM から参照できます。[第3章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/core-concepts)で説明した「情報を中心にした管理」を、出版物の側から見た仕組みです。
 
-## パブリケーションモジュールコード
+## Publication Module Code の読み方
 
 PM にも、DMC に当たる識別子があります。パブリケーションモジュールコード（Publication Module Code、PMC）です。PMC は PM 自身の識別・状態の部分に、`pmCode` 要素として書かれます。Issue 7 の第4.9.2章によると、PMC は英大文字と数字の 14 文字から 26 文字で、次の四つの区切りでできています。
 
@@ -54,7 +54,128 @@ PM にも、DMC に当たる識別子があります。パブリケーション�
 <pmCode modelIdentCode="S1000DBIKE" pmIssuer="B6865" pmNumber="EPWG1" pmVolume="00"/>
 ```
 
+コードの区切りと属性の対応は、次のとおりです。[第5章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/data-module-code)の DMC の図と同じく、上の段は文字列を先頭から順に区切ったもの、その下は対応する属性と値です。
+
+```html-embed
+<div class="pmc">
+<div class="part" style="grid-column:1/5">どの発行者の、どの出版物の、何巻目か</div>
+<div class="chip m" style="grid-column:1">S1000DBIKE</div>
+<div class="chip p" style="grid-column:2">B6865</div>
+<div class="chip p" style="grid-column:3">EPWG1</div>
+<div class="chip p last" style="grid-column:4">00</div>
+<div class="attrs m" style="grid-column:1"><div class="at"><span class="an">modelIdentCode</span><span class="av">= S1000DBIKE</span></div><div class="nt">モデル識別コード<br>DMC と共通</div></div>
+<div class="attrs p" style="grid-column:2"><div class="at"><span class="an">pmIssuer</span><span class="av">= B6865</span></div><div class="nt">発行者<br>CAGE コード</div></div>
+<div class="attrs p" style="grid-column:3"><div class="at"><span class="an">pmNumber</span><span class="av">= EPWG1</span></div><div class="nt">出版物の番号<br>発行者が付ける</div></div>
+<div class="attrs p" style="grid-column:4"><div class="at"><span class="an">pmVolume</span><span class="av">= 00</span></div><div class="nt">巻</div></div>
+</div>
+<style>
+.pmc { --m:#2563eb; --mbg:#eff6ff; --p:#7c3aed; --pbg:#f5f3ff; --ink:#1f2937; --sub:#4b5563; --sep:#9ca3af;
+  display:grid; grid-template-columns:1.6fr 1fr 1fr .8fr; column-gap:16px; row-gap:8px;
+  min-width:520px; max-width:640px; padding:12px 8px; color:var(--ink); font-family:"Hiragino Sans","Noto Sans CJK JP","Yu Gothic",sans-serif; }
+[data-theme="dark"] .pmc { --m:#60a5fa; --mbg:#172554; --p:#c4b5fd; --pbg:#2e1065; --ink:#e5e7eb; --sub:#cbd5e1; --sep:#6b7280; }
+.pmc .part { display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; padding:4px 6px; border-radius:6px; color:#fff; background:var(--p); }
+[data-theme="dark"] .pmc .part { color:#0b1220; }
+.pmc .chip { position:relative; text-align:center; font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,"DejaVu Sans Mono",monospace; font-size:15px; font-weight:700; padding:6px 0; border:2px solid; border-radius:6px; }
+.pmc .chip.m { border-color:var(--m); background:var(--mbg); color:var(--m); }
+.pmc .chip.p { border-color:var(--p); background:var(--pbg); color:var(--p); }
+.pmc .chip:not(.last)::after { content:"-"; position:absolute; right:-13px; top:50%; transform:translateY(-50%); color:var(--sep); font-weight:700; }
+.pmc .attrs { border-top:2px solid; padding-top:6px; }
+.pmc .attrs.m { border-color:var(--m); } .pmc .attrs.p { border-color:var(--p); }
+.pmc .an, .pmc .av { display:block; font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,"DejaVu Sans Mono",monospace; font-size:11px; line-height:1.3; }
+.pmc .av { color:var(--sub); }
+.pmc .nt { margin-top:6px; font-size:11px; color:var(--sub); line-height:1.4; }
+</style>
+```
+
 PMC には、SNS も情報コードもありません。DMC との違いは、[第3章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/core-concepts)の比較表にまとめています。区切りの構成と長さは版によって決まるので、ほかの版ではその版の仕様で確認してください。
+
+## PM から DM と PM を参照する
+
+### dmRef の中身
+
+`pmEntry` の中の `dmRef` は、参照先の DM を二つの部分で書きます。次の図は、Issue 7 の自転車サンプルの PM（`PMC-S1000DBIKE-B6865-EPWG1-00_006-00_EN-US.XML`）が、自転車全体の記述 DM を参照している `dmRef` です。
+
+```html-embed
+<div class="dmx out">
+<div class="r"><span class="c"><span class="t">&lt;pmEntry&gt;</span><span class="x">…</span></span><span class="n">出版物の項目</span></div><div class="r"><span class="c">  <span class="t">&lt;dmRef&gt;</span></span><span class="n">DM の参照 1 件</span></div>
+<div class="in"><div class="dmx"><span class="lb">dmRefIdent：参照先はどの DM の、どの発行・言語か</span>
+<div class="r"><span class="c"><span class="t">&lt;dmRefIdent&gt;</span></span><span></span></div>
+<div class="r"><span class="c">  <span class="t">&lt;dmCode</span> <span class="a">modelIdentCode</span>=<span class="v">"S1000DBIKE"</span> <span class="x">…</span> <span class="a">infoCode</span>=<span class="v">"041"</span> <span class="x">…</span><span class="t">/&gt;</span></span><span class="n">どの DM か（DMC）</span></div>
+<div class="r"><span class="c">  <span class="t">&lt;issueInfo</span> <span class="a">issueNumber</span>=<span class="v">"013"</span> <span class="a">inWork</span>=<span class="v">"00"</span><span class="t">/&gt;</span></span><span class="n">どの発行か</span></div>
+<div class="r"><span class="c">  <span class="t">&lt;language</span> <span class="a">languageIsoCode</span>=<span class="v">"en"</span> <span class="a">countryIsoCode</span>=<span class="v">"US"</span><span class="t">/&gt;</span></span><span class="n">どの言語か</span></div>
+<div class="r"><span class="c"><span class="t">&lt;/dmRefIdent&gt;</span></span><span></span></div>
+</div></div>
+<div class="in"><div class="dmx ad"><span class="lb">dmRefAddressItems：表示に使う情報</span>
+<div class="r"><span class="c"><span class="t">&lt;dmRefAddressItems&gt;</span></span><span></span></div>
+<div class="r"><span class="c">  <span class="t">&lt;dmTitle&gt;</span></span><span class="n">参照を表示するときの題名</span></div>
+<div class="r"><span class="c">    <span class="t">&lt;techName&gt;</span>Bicycle<span class="t">&lt;/techName&gt;</span></span><span></span></div>
+<div class="r"><span class="c">    <span class="t">&lt;infoName&gt;</span>Description of how it is made<span class="t">&lt;/infoName&gt;</span></span><span></span></div>
+<div class="r"><span class="c">  <span class="t">&lt;/dmTitle&gt;</span></span><span></span></div>
+<div class="r"><span class="c"><span class="t">&lt;/dmRefAddressItems&gt;</span></span><span></span></div>
+</div></div>
+<div class="r"><span class="c">  <span class="t">&lt;/dmRef&gt;</span></span><span></span></div><div class="r"><span class="c"><span class="x">…</span><span class="t">&lt;/pmEntry&gt;</span></span><span></span></div>
+</div>
+<style>
+.dmx { --c:#2563eb; --bg:#eff6ff; --ink:#1f2937; --tag:#9333ea; --att:#0f766e; --val:#b91c1c; --dim:#9ca3af; --note:#374151; --rule:#d1d5db;
+  border:2px solid var(--c); background:var(--bg); border-radius:8px; padding:12px 12px 10px; color:var(--ink);
+  font-family:"Hiragino Sans","Noto Sans CJK JP","Yu Gothic",sans-serif; }
+.dmx.st { --c:#d97706; --bg:#fffbeb; }
+[data-theme="dark"] .dmx { --bg:#172554; --ink:#e5e7eb; --tag:#d8b4fe; --att:#5eead4; --val:#fca5a5; --dim:#6b7280; --note:#d1d5db; --rule:#4b5563; --c:#60a5fa; }
+[data-theme="dark"] .dmx.st { --bg:#3b2506; --c:#fbbf24; }
+.dmx .lb { display:inline-block; background:var(--c); color:#fff; font-weight:700; font-size:13px; padding:2px 10px; border-radius:999px; margin-bottom:8px; }
+[data-theme="dark"] .dmx .lb { color:#111827; }
+.dmx .r { display:grid; grid-template-columns:1fr 190px; align-items:center; min-height:22px; }
+.dmx .c { font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,"DejaVu Sans Mono",monospace; font-size:12px; white-space:pre; }
+.dmx .n { font-size:12px; color:var(--note); padding-left:10px; border-left:1px dashed var(--rule); }
+.dmx .t { color:var(--tag); } .dmx .a { color:var(--att); } .dmx .v { color:var(--val); } .dmx .x { color:var(--dim); }
+.dmx.ad { --c:#0d9488; --bg:#f0fdfa; }
+[data-theme="dark"] .dmx.ad { --bg:#042f2e; --c:#2dd4bf; }
+.dmx.out { --c:#9ca3af; --bg:transparent; border-style:dashed; padding:8px 12px; }
+.dmx .in { margin:6px 0 6px 2ch; }
+</style>
+```
+
+`dmRefIdent` は、参照先がどの DM の、どの発行の、どの言語かを表します。`dmRefAddressItems` は、題名など、参照を画面や紙に表示するときに使う情報です。
+
+### 発行まで指定するかどうか
+
+Issue 7 の第3.9.5.2.1.2章によると、`dmRefIdent` の中の `issueInfo` は、参照先の DM の特定の発行を指すための情報です。同じ章は、参照先の DM が更新されたときに、発行番号、作業中番号、言語を参照に使うことがどう影響するかを、プロジェクトや組織が理解しておかなければならない、と書いています。
+
+| 参照の書き方 | DM を改訂したとき |
+| --- | --- |
+| DMC だけ（`dmCode`） | 参照の記述は変わりません。どの発行を出版物に使うかは、参照からは決まりません |
+| DMC、発行情報、言語（`dmCode`、`issueInfo`、`language`） | 参照も、新しい発行に書き換えます |
+
+Issue 7 の自転車サンプルの PM では、出版物の項目の中の `dmRef` は、すべて発行情報と言語まで書いています。`S1000DBIKE` の PM では 81 件、`BRAKE` の PM では 4 件、`S1000DLIGHTING` の PM では 22 件です。
+
+### DM を改訂したときの PM
+
+Issue 7 の第4.9.4章は、出版物を更新する必要が生じると、ふつうは対応する PM も更新すると書いています。理由として、項目が変わる場合と、参照している DM などが変わる場合の両方を挙げています。PM の発行情報（`pmIdent` の `issueInfo`）と発行の種類（`pmStatus` の `issueType`）は、DM と同じ規則で更新します。出版物の更新は、変更記録などの前付けの DM にも反映します。
+
+```mermaid
+flowchart LR
+  DM1["DM 041A<br/>発行 013"] -- "改訂" --> DM2["DM 041A<br/>発行 014"]
+  PM1["PM<br/>dmRef：041A 発行 013"] -- "参照を更新して PM も改訂" --> PM2["PM<br/>dmRef：041A 発行 014"]
+  PM1 -.-> DM1
+  PM2 -.-> DM2
+```
+
+図の発行番号 014 は、説明のための例です。
+
+### PM から PM を参照する
+
+PM は、`pmRef` でほかの PM を参照できます。Issue 7 の自転車サンプルの `PMC-S1000DBIKE-B6865-LOAP0-00_006-00_EN-US.XML`（List of Applicable Publications、適用される出版物の一覧）は、一つの `pmEntry` の中に `pmRef` を三つ持ち、`BRAKE`、`S1000DBIKE`、`S1000DLIGHTING` の三つの PM をまとめています。三つの `pmRef` は、どれも参照先の PM の発行情報まで書いています。
+
+```mermaid
+flowchart TB
+  L["PM：List of Applicable Publications<br/>S1000DBIKE-B6865-LOAP0-00"]
+  L -- "pmRef" --> P1["PM：BRAKE-B6865-EPWG1-00"]
+  L -- "pmRef" --> P2["PM：S1000DBIKE-B6865-EPWG1-00"]
+  L -- "pmRef" --> P3["PM：S1000DLIGHTING-B6865-EPWG1-00"]
+  P1 -- "dmRef × 4" --> D1["DM"]
+  P2 -- "dmRef × 81" --> D2["DM"]
+  P3 -- "dmRef × 22" --> D3["DM"]
+```
 
 ## 出力の種類
 
@@ -119,7 +240,7 @@ Issue 6 と Issue 7 のスキーマパッケージには `process.xsd` があり
 - 著者が入手した S1000D の仕様パッケージ。入手先は https://users.s1000d.org/
   - Issue 4.0：XML スキーマパッケージの `xml_schema_flat` の `pm.xsd`
   - Issue 6：第4.9.1章、`pm.xsd`、`process.xsd`、機能マトリックス `S1000D Functionality Matrix.xls`
-  - Issue 7：第4.9章、第4.9.1章、第4.9.2章、第4.11章、第6.3章、`pm.xsd`、`process.xsd` に定義された要素名、機能マトリックス `S1000D Issue 7 Functionality Matrix.xls`、自転車サンプルの PM `PMC-S1000DBIKE-B6865-EPWG1-00_006-00_EN-US.XML`
+  - Issue 7：第3.9.5.2.1.2章、第4.9章、第4.9.1章、第4.9.2章、第4.9.4章、第4.11章、第6.3章、`pm.xsd`、`process.xsd` に定義された要素名、機能マトリックス `S1000D Issue 7 Functionality Matrix.xls`、自転車サンプルの PM（`PMC-S1000DBIKE-B6865-EPWG1-00`、`PMC-BRAKE-B6865-EPWG1-00`、`PMC-S1000DLIGHTING-B6865-EPWG1-00`、`PMC-S1000DBIKE-B6865-LOAP0-00`。いずれも発行 006）
 - Issue 4.2 の既定 BREX（最上位の要素としての `pm`、属性 `pmEntryType`）. https://github.com/kibook/S1000D/blob/master/csdb/DMC-S1000D-F-04-10-0301-00A-022A-D_001-00_EN-US.XML
 - S1000D. Issue 4.1 のダウンロード説明（functionality matrix を同梱）. https://users.s1000d.org/ProductDescription.aspx?ProductID=16
 - S1000D. Issue 5.0 のダウンロード説明（functionality matrix を同梱）. https://users.s1000d.org/ProductDescription.aspx?ProductID=34
@@ -128,5 +249,6 @@ Issue 6 と Issue 7 のスキーマパッケージには `process.xsd` があり
 ## この章のポイント
 
 - PM は DM とは別のもので、DM への参照によって出版物の内容と構造を定義します。
+- PM は `dmRef` で DM を、`pmRef` でほかの PM を参照します。参照に発行情報まで書くかどうかはプロジェクトが決め、書く場合は DM を改訂すると PM の参照と PM の発行も更新します。
 - 紙や PDF と IETP は、同じ CSDB から作れる別の出力です。IETP の機能は、機能マトリックスとプロジェクトの要求で決まります。
 - IETP は S1000D の語、IETM は主に米国の語です。ほぼ同等でも、契約の要求は別に確認します。対話的な表示の流れは、Process データモジュールが記述します。
