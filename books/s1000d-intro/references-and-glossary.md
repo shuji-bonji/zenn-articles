@@ -33,6 +33,17 @@ S1000D の三つのスポンサーの一つで、民間航空の情報交換の�
 **ATA Spec 1000BR**
 S1000D を民間航空で使うためのビジネスルールです。S1000D そのものではありません。
 
+**属性（attribute）**
+XML の要素の開始タグの中に、`名前="値"` の形で書く情報です。Issue 4.0 以降の DMC は、`dmCode` 要素の属性として書きます。Issue 7 の自転車サンプルでは、次のとおりです。
+
+```xml
+<dmCode modelIdentCode="S1000DBIKE" systemDiffCode="AAA" systemCode="D00"
+  subSystemCode="0" subSubSystemCode="0" assyCode="00" disassyCode="00"
+  disassyCodeVariant="AA" infoCode="041" infoCodeVariant="A" itemLocationCode="A"/>
+```
+
+`modelIdentCode` が属性名、`S1000DBIKE` がその値です。Issue 3.0 以前のサンプルは、同じ情報を `modelic` などの子要素として書いています（[第11章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)）。
+
 **自転車サンプル（Bike sample data set）**
 仕様のパッケージに含まれる、自転車を題材にした XML の例です。Issue 4.1 と Issue 5.0 の説明ページは、架空の製品であり、適合性の試験集ではないと書いています。Issue 6 と Issue 7 のパッケージにも含まれています。
 
@@ -65,6 +76,9 @@ DM を取り出すための識別コードです。「どの製品のどの部�
 
 **DIG（Defense Interest Group）**
 防衛の顧客を代表する独立したグループです。スポンサーではありません。
+
+**要素（element）**
+XML の文書を組み立てる単位です。`<para>…</para>` のように開始タグと終了タグで囲み、その中に文字列やほかの要素（子要素）を入れます。中身のない要素は、`<dmCode … />` のように一つのタグで書きます。`identAndStatusSection`、`dmCode`、`para`、`proceduralStep` は、いずれも要素名です。使える要素名と、どの要素の中にどの要素を入れられるかは、その版のスキーマが定めます。
 
 **識別・状態の部分（identification and status section）**
 DM の二つの部分の一つで、CSDB での管理、適用、品質保証、取り出しの制御のための情報を持ちます。公式の概要ページの用語です。XML の要素名は版によって変わります。
