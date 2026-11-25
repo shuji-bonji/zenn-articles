@@ -27,6 +27,8 @@ title: "Data Module Code の読み方"
 
 DMC は、システムに関する部分と、情報に関する部分に分かれます。
 
+### システムに関する部分
+
 **システムに関する部分**は、製品と、その製品の中の位置を表します。次のコードが入ります。
 
 - モデル識別コード（model identification code）
@@ -36,9 +38,14 @@ DMC は、システムに関する部分と、情報に関する部分に分か�
 
 SNS は、システム、サブシステム、サブサブシステム、アセンブリという階層です。仕様が用意しているのは階層の枠だけで、どの番号の範囲をたとえばブレーキ系統と呼ぶかは、プロジェクトが SNS として定義します。
 
-**情報に関する部分**は、その位置について何を書いた情報かを表します。情報コード（information code）、そのバリアント、アイテムロケーションコード（item location code）が入ります。同じブレーキでも、「どう作られているかの説明」と「取り外しの手順」は、情報コードが違う別の DM になります。
+### 情報に関する部分
 
-Issue 4.0 以降のスキーマでは、これらの値は `dmCode` 要素の属性として書きます。属性名は、`modelIdentCode`、`systemDiffCode`、`systemCode`、`subSystemCode`、`subSubSystemCode`、`assyCode`、`disassyCode`、`disassyCodeVariant`、`infoCode`、`infoCodeVariant`、`itemLocationCode` です。Issue 4.2、Issue 6、Issue 7 の既定 BREX と自転車サンプルも、同じ属性名を使っています。Issue 3.0 以前では、同じ内容を属性ではなく子要素で書きます。この違いは[第11章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)で説明します。
+**情報に関する部分**は、その位置について何を書いた情報かを表します。
+情報コード（information code）、そのバリアント、アイテムロケーションコード（item location code）が入ります。同じブレーキでも、「どう作られているかの説明」と「取り外しの手順」は、情報コードが違う別の DM になります。
+
+### dmCode 要素の属性として書く
+
+Issue 4.0 以降のスキーマでは、これらシステムに関する部分と、情報に関する部分の値は `dmCode` 要素の属性として書きます。属性名は、`modelIdentCode`、`systemDiffCode`、`systemCode`、`subSystemCode`、`subSubSystemCode`、`assyCode`、`disassyCode`、`disassyCodeVariant`、`infoCode`、`infoCodeVariant`、`itemLocationCode` です。Issue 4.2、Issue 6、Issue 7 の既定 BREX と自転車サンプルも、同じ属性名を使っています。Issue 3.0 以前では、同じ内容を属性ではなく子要素で書きます。この違いは[第11章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)で説明します。
 
 ### 訓練用の DM の区画
 
