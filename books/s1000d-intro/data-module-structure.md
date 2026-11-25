@@ -2,7 +2,7 @@
 title: "Data Module の基本構造"
 ---
 
-データモジュール（Data Module、DM）には、説明や手順などいくつかの種類がありますが、外側の形はどの種類でも共通です。どの DM も、管理のための情報を入れる「識別・状態の部分」（identification and status section）と、利用者が読む情報を入れる「内容の部分」（contents section）の二つでできています。内容の部分の形は種類によって違いますが、識別・状態の部分の役割は変わりません。
+データモジュール（Data Module、DM）には、説明や手順などいくつかの種類があります。どの種類の DM も、「この DM が何で、どの版か」を表す識別の部分と、本文を入れる部分の 2 つからできています。種類によって違うのは、本文の部分の中身だけです。
 
 この二つの分け方は、[公式の概要ページ](https://s1000d.org/?page_id=101)が概念として説明している構造です。XML の要素名は版によって変わります。たとえば識別・状態の部分は、Issue 4.0 以降は `identAndStatusSection`、それより前の版では `idstatus` のような名前です。Issue 6 と Issue 7 の自転車サンプルと既定 BREX も `identAndStatusSection` を使っています。タグの名前で検索するときは、先に対象の版を決めてください。版ごとの名前の違いは[第11章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)で説明します。
 
@@ -29,13 +29,15 @@ flowchart LR
 
 識別・状態の部分は、`dmAddress` と `dmStatus` の二つに分かれます。`dmAddress` は「どの DM か」を、`dmStatus` は「その DM が今どういう状態か」を持ちます。`dmStatus` の下には、図に載せたもののほかにも、`techStandard`、`systemBreakdownCode`、`skillLevel` などの要素があります。
 
-同じ DM の XML を、`dmAddress` と `dmStatus` に色を分けて示すと、次のようになります。値と下位の要素の一部は省いています。`dmCode` の属性の読み方は[第5章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/data-module-code)で説明します。
+同じ DM の XML を、親要素の `identAndStatusSection` を含めて示し、`dmAddress` と `dmStatus` に色を分けると、次のようになります。値と下位の要素の一部は省いています。`dmCode` の属性の読み方は[第5章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/data-module-code)で説明します。
 
-<!-- ![識別・状態の部分の XML。dmAddress（どの DM か）を青、dmStatus（その DM が今どういう状態か）を橙、content（内容の部分）を灰色の枠で囲み、各要素の役割を右に書いた図](/images/s1000d-intro/dm-address-status.png) -->
+<!-- ![dmodule の XML。外側の灰色の破線の枠に dmodule、identAndStatusSection、content を示し、identAndStatusSection の中の dmAddress（どの DM か）を青、dmStatus（その DM が今どういう状態か）を橙の枠で囲み、各要素の役割を右に書いた図](/images/s1000d-intro/dm-address-status.png) -->
 
 ```html-embed
-<div class="dmx">
-<span class="lb">dmAddress：どの DM か</span>
+<div class="dmx out">
+<div class="r"><span class="c"><span class="t">&lt;dmodule&gt;</span></span><span class="n">DM 全体</span></div>
+<div class="r"><span class="c">  <span class="t">&lt;identAndStatusSection&gt;</span></span><span class="n">識別・状態の部分</span></div>
+<div class="in"><div class="dmx"><span class="lb">dmAddress：どの DM か</span>
 <div class="r"><span class="c"><span class="t">&lt;dmAddress&gt;</span></span><span></span></div>
 <div class="r"><span class="c">  <span class="t">&lt;dmIdent&gt;</span></span><span class="n">以下の 3 つでファイルが決まる</span></div>
 <div class="r"><span class="c">    <span class="t">&lt;dmCode</span> <span class="a">modelIdentCode</span>=<span class="v">"S1000DBIKE"</span> <span class="x">…</span> <span class="a">infoCode</span>=<span class="v">"041"</span> <span class="x">…</span><span class="t">/&gt;</span></span><span class="n">識別子（DMC）</span></div>
@@ -50,26 +52,8 @@ flowchart LR
 <div class="r"><span class="c">    <span class="t">&lt;/dmTitle&gt;</span></span><span></span></div>
 <div class="r"><span class="c">  <span class="t">&lt;/dmAddressItems&gt;</span></span><span></span></div>
 <div class="r"><span class="c"><span class="t">&lt;/dmAddress&gt;</span></span><span></span></div>
-</div>
-<style>
-.dmx { --c:#2563eb; --bg:#eff6ff; --ink:#1f2937; --tag:#9333ea; --att:#0f766e; --val:#b91c1c; --dim:#9ca3af; --note:#374151; --rule:#d1d5db;
-  border:2px solid var(--c); background:var(--bg); border-radius:8px; padding:12px 12px 10px; color:var(--ink);
-  font-family:"Hiragino Sans","Noto Sans CJK JP","Yu Gothic",sans-serif; }
-.dmx.st { --c:#d97706; --bg:#fffbeb; }
-[data-theme="dark"] .dmx { --bg:#172554; --ink:#e5e7eb; --tag:#d8b4fe; --att:#5eead4; --val:#fca5a5; --dim:#6b7280; --note:#d1d5db; --rule:#4b5563; --c:#60a5fa; }
-[data-theme="dark"] .dmx.st { --bg:#3b2506; --c:#fbbf24; }
-.dmx .lb { display:inline-block; background:var(--c); color:#fff; font-weight:700; font-size:13px; padding:2px 10px; border-radius:999px; margin-bottom:8px; }
-[data-theme="dark"] .dmx .lb { color:#111827; }
-.dmx .r { display:grid; grid-template-columns:1fr 190px; align-items:center; min-height:22px; }
-.dmx .c { font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,"DejaVu Sans Mono",monospace; font-size:12px; white-space:pre; }
-.dmx .n { font-size:12px; color:var(--note); padding-left:10px; border-left:1px dashed var(--rule); }
-.dmx .t { color:var(--tag); } .dmx .a { color:var(--att); } .dmx .v { color:var(--val); } .dmx .x { color:var(--dim); }
-</style>
-```
-
-```html-embed
-<div class="dmx st">
-<span class="lb">dmStatus：その DM が今どういう状態か</span>
+</div></div>
+<div class="in"><div class="dmx st"><span class="lb">dmStatus：その DM が今どういう状態か</span>
 <div class="r"><span class="c"><span class="t">&lt;dmStatus</span> <span class="a">issueType</span>=<span class="v">"changed"</span><span class="t">&gt;</span></span><span class="n">発行の種類</span></div>
 <div class="r"><span class="c">  <span class="t">&lt;security</span> <span class="a">securityClassification</span>=<span class="v">"01"</span> <span class="x">…</span><span class="t">/&gt;</span></span><span class="n">取り出しの制御（区分）</span></div>
 <div class="r"><span class="c">  <span class="t">&lt;dataRestrictions&gt;</span><span class="x">…</span><span class="t">&lt;/dataRestrictions&gt;</span></span><span class="n">取り出しの制御（配布など）</span></div>
@@ -80,6 +64,10 @@ flowchart LR
 <div class="r"><span class="c">  <span class="t">&lt;qualityAssurance&gt;</span><span class="x">…</span><span class="t">&lt;/qualityAssurance&gt;</span></span><span class="n">品質保証</span></div>
 <div class="r"><span class="c">  <span class="t">&lt;reasonForUpdate&gt;</span><span class="x">…</span><span class="t">&lt;/reasonForUpdate&gt;</span></span><span class="n">改訂の理由</span></div>
 <div class="r"><span class="c"><span class="t">&lt;/dmStatus&gt;</span></span><span></span></div>
+</div></div>
+<div class="r"><span class="c">  <span class="t">&lt;/identAndStatusSection&gt;</span></span><span></span></div>
+<div class="r"><span class="c">  <span class="t">&lt;content&gt;</span><span class="x">…</span><span class="t">&lt;/content&gt;</span></span><span class="n">内容の部分（省略）</span></div>
+<div class="r"><span class="c"><span class="t">&lt;/dmodule&gt;</span></span><span></span></div>
 </div>
 <style>
 .dmx { --c:#2563eb; --bg:#eff6ff; --ink:#1f2937; --tag:#9333ea; --att:#0f766e; --val:#b91c1c; --dim:#9ca3af; --note:#374151; --rule:#d1d5db;
@@ -94,10 +82,12 @@ flowchart LR
 .dmx .c { font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,"DejaVu Sans Mono",monospace; font-size:12px; white-space:pre; }
 .dmx .n { font-size:12px; color:var(--note); padding-left:10px; border-left:1px dashed var(--rule); }
 .dmx .t { color:var(--tag); } .dmx .a { color:var(--att); } .dmx .v { color:var(--val); } .dmx .x { color:var(--dim); }
+.dmx.out { --c:#9ca3af; --bg:transparent; border-style:dashed; padding:8px 12px; }
+.dmx .in { margin:6px 0 6px 2ch; }
 </style>
 ```
 
-内容の部分（`content`）は、上の構造図と次の「内容の部分」の節で示しているので、ここでは省いています。
+内容の部分（`content`）の中身は、次の「内容の部分」の節で示すので、ここでは省いています。
 
 ## 識別・状態の部分
 
