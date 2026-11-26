@@ -87,7 +87,7 @@ DM の二つの部分の一つで、CSDB での管理、適用、品質保証、
 S1000D で、画面に対話的に表示する出版物を指す語です。紙や PDF と並ぶ出力の一つです。どの機能を持たせるかは、機能マトリックスとプロジェクトの要求で決まります。
 
 **IETM（Interactive Electronic Technical Manual）**
-主に米国の文書で使われる語です。米空軍の [MIL-STD-3048A](https://everyspec.com/MIL-STD/MIL-STD-3000-9999/download.php?spec=MIL-STD-3048A.054327.pdf) は、S1000D の IETP とほぼ同等と定義していますが、契約で求められる範囲は、この定義だけでは決まりません。米国 DoD のクラス（Class 0 から 5。IETM と呼べるのは Class 3 以上）は、[『IETM入門 — 概念から S1000D まで』](https://zenn.dev/shuji_bonji/books/ietm-overview/viewer/classes)で説明しています。
+主に米国の文書で使われる語です。米空軍の [MIL-STD-3048A](https://everyspec.com/MIL-STD/MIL-STD-3000-9999/download.php?spec=MIL-STD-3048A.054327.pdf)（2016 年。その後 3048B、3048C に改訂）は、S1000D の IETP とほぼ同等と定義していますが、契約で求められる範囲は、この定義だけでは決まりません。米国 DoD のクラス（Class 0 から 5。IETM と呼べるのは Class 3 以上）は、[『IETM入門 — 概念から S1000D まで』](https://zenn.dev/shuji_bonji/books/ietm-overview/viewer/classes)で説明しています。
 
 **情報コード（information code）**
 DMC の情報の部分にある、情報の種類を表す 3 文字のコードです。自転車サンプルの `041` は記述の DM、`022` は BREX、`024` は人が読むビジネスルールの DM です。全体の表は、各版の情報コードの章にあります。

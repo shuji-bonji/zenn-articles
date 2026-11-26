@@ -143,7 +143,7 @@ flowchart TB
 | 条件相互参照表（Conditions Cross-reference Table、CCT） | 製品の属性以外の条件 |
 | 製品相互参照表（Products Cross-reference Table、PCT） | 個々の製品 |
 
-Issue 3.0、Issue 4.0、Issue 7 のスキーマパッケージには、それぞれに対応する `appliccrossreftable.xsd`、`condcrossreftable.xsd`、`prdcrossreftable.xsd` があります。米海軍の NAVSEA の S1000D ガイドも、この三つの表を Issue 3.0 以降について説明しています。どの単位で適用を書くか、どの属性を条件に使うかは、プロジェクトのルールと、対象の版のスキーマで決まります。
+Issue 3.0、Issue 4.0、Issue 7 のスキーマパッケージには、それぞれに対応する `appliccrossreftable.xsd`、`condcrossreftable.xsd`、`prdcrossreftable.xsd` があります。米海軍の NAVSEA が S1000D Issue 4.0.1 を対象にまとめた執筆の手引きも、この三つの表を説明しています。どの単位で適用を書くか、どの属性を条件に使うかは、プロジェクトのルールと、対象の版のスキーマで決まります。
 
 ## 内容の部分
 
@@ -209,7 +209,7 @@ DM の外側の形は共通でも、内容の部分を検証するスキーマ�
   - Issue 4.0：XML スキーマパッケージの `xml_schema_flat` の種類ごとのファイルと、ACT、CCT、PCT のスキーマ
   - Issue 6：XML スキーマパッケージ、自転車サンプルの記述 DM
   - Issue 7：第1.2章、第3.2章、第4.2章、第4.4章、XML スキーマパッケージ、自転車サンプルの記述 DM（`DMC-S1000DBIKE-AAA-D00-00-00-00AA-041A-A_013-00_EN-US.XML`）、手順 DM（`DMC-S1000DBIKE-AAA-D00-00-01-00AA-520A-A_005-00_EN-US.XML`）、`applicRefId` を使う DM
-- Naval Surface Warfare Center Carderock Division. *NAVSEA S1000D Tool Acquisition and Guidance*（適用の注釈、`applicRefId`、ACT、CCT、PCT）. https://www.navsea.navy.mil/portals/103/documents/nswc_carderock/navsea%20s1000d%20taag.pdf
+- Naval Surface Warfare Center Carderock Division. *S1000D Issue 4.0.1 Tagging and Authoring Guidelines for Standard NAVSEA Integrated Publishing Process (SNIPP)*（NSWCCD-80-TR-2014/043。適用の注釈、`applicRefId`、ACT、CCT、PCT）. https://www.navsea.navy.mil/portals/103/documents/nswc_carderock/navsea%20s1000d%20taag.pdf
 
 ## この章のポイント
 

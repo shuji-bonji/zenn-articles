@@ -195,7 +195,7 @@ Issue 7 の第6.3章は、IETP を、CSDB に DM として保管された前付�
 
 ## IETP と IETM
 
-S1000D では IETP という語を使い、米国の文書では IETM（Interactive Electronic Technical Manual）という語を使います。米空軍の [MIL-STD-3048A](https://everyspec.com/MIL-STD/MIL-STD-3000-9999/download.php?spec=MIL-STD-3048A.054327.pdf) は、二つの語を「ほぼ同等（roughly equivalent）」と定義しています。
+S1000D では IETP という語を使い、米国の文書では IETM（Interactive Electronic Technical Manual）という語を使います。米空軍の [MIL-STD-3048A](https://everyspec.com/MIL-STD/MIL-STD-3000-9999/download.php?spec=MIL-STD-3048A.054327.pdf)（2016 年）は、二つの語を「ほぼ同等（roughly equivalent）」と定義しています。MIL-STD-3048 は、その後 2018 年に 3048B、2023 年に 3048C に改訂されています。本書は 3048A の定義を引いています。3048B にも同じ趣旨の定義の文があることは確認しましたが、最新の 3048C の本文は確認していません。
 
 | 語 | MIL-STD-3048A の定義の要点 |
 | --- | --- |
@@ -245,6 +245,7 @@ Issue 6 と Issue 7 のスキーマパッケージには `process.xsd` があり
 - S1000D. Issue 4.1 のダウンロード説明（functionality matrix を同梱）. https://users.s1000d.org/ProductDescription.aspx?ProductID=16
 - S1000D. Issue 5.0 のダウンロード説明（functionality matrix を同梱）. https://users.s1000d.org/ProductDescription.aspx?ProductID=34
 - Department of Defense. MIL-STD-3048A(USAF). 用語 3.2.17（IETM）、3.2.18（IETP）. https://everyspec.com/MIL-STD/MIL-STD-3000-9999/download.php?spec=MIL-STD-3048A.054327.pdf
+- MIL-STD-3048 の改訂の履歴（3048B は 2018-09-20、3048C は 2023-05-15）. https://everyspec.com/MIL-STD/MIL-STD-3000-9999/MIL-STD-3048B_55821/ 、https://standards.globalspec.com/std/14604366/mil-std-3048c
 
 ## この章のポイント
 

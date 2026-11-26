@@ -12,7 +12,7 @@ S1000D は、技術マニュアルなどの技術刊行物を、「データモ�
 
 ## 公式の定義
 
-[ダウンロードサイト](https://users.s1000d.org/)が掲げている S1000D の標題は、次のとおりです。
+[公式サイト](https://s1000d.org/)のトップページが掲げている S1000D の標題は、次のとおりです。
 
 > International specification for technical publications using a common source database
 
@@ -49,7 +49,7 @@ S1000D を読むときは、最初に次の四つを分けて考えると混乱�
 
 - S1000D. *About S1000D*. https://s1000d.org/?page_id=101
 - S1000D. *Benefits*. https://s1000d.org/?page_id=57
-- S1000D. Downloads（標題の案内）. https://users.s1000d.org/
+- S1000D. 公式サイトのトップページ（Welcome の欄の標題）. https://s1000d.org/
   - 著者が入手した Issue 6 のパッケージ：表紙は Issue No. 6、日付は 2024-06-19
   - 著者が入手した Issue 7 のパッケージ：表紙は Issue No. 7、日付は 2026-07-16。第1.1章、第1.2章
 - IETM のクラス分け. https://zenn.dev/shuji_bonji/books/ietm-overview

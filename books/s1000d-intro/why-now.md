@@ -39,7 +39,7 @@ SJAC との覚書は二つあります。一つは S1000D についての覚書�
 
 | 国・組織 | 確認できた文書 |
 | --- | --- |
-| 米空軍 | S1000D で技術出版物を作るときのビジネスルール MIL-STD-3048 |
+| 米空軍 | S1000D で技術出版物を作るときのビジネスルール MIL-STD-3048（現在の版は 2023 年の 3048C） |
 | ドイツ軍 | 契約で使える S1000D の版を指定している |
 | オーストラリア国防省 | S1000D の IETP の標準 DEF(AUST) IPS-5630 |
 
@@ -100,6 +100,7 @@ flowchart LR
 - S-Series. *Global adoption*（カナダ、オーストラリア、韓国、日本、NATO ALP-10、米国防総省、SJAC との覚書）. https://www.s-series.org/our-specifications/global-adoption/
 - S-Series. *Aerospace cooperation boosted by new agreements on S1000D and S-Series specifications*（SJAC との二つの覚書）. https://www.s-series.org/news-and-events/news/aerospace-cooperation-boosted-by-new-agreements-on-s1000d-and-s-series-specifications/
 - Department of Defense. MIL-STD-3048A(USAF). https://everyspec.com/MIL-STD/MIL-STD-3000-9999/download.php?spec=MIL-STD-3048A.054327.pdf
+- MIL-STD-3048 の改訂の履歴（3048B は 2018-09-20、3048C は 2023-05-15）. https://everyspec.com/MIL-STD/MIL-STD-3000-9999/MIL-STD-3048B_55821/ 、https://standards.globalspec.com/std/14604366/mil-std-3048c
 - Bundeswehr. *S1000D International specification for technical publications*（契約で使える版）. https://www.bundeswehr.de/de/organisation/unterstuetzungsbereich/logistik/logistikkommando-der-bundeswehr-in-erfurt/einheitliche-materialkatalogisierung-im-logkdobw/s-1000d-international-en-specification-en-for-en-technical-en-publications-en-5707894
 - Australian Government, Defence. *Developing S1000D Interactive Electronic Technical Publications Standard*（DEF(AUST) IPS-5630）. https://defence.gov.au/business-industry/industry-governance/developing-s1000d-interactive-electronic-technical-publications-standard
 - US10891798. *System and method for displaying an asset of an interactive electronic technical publication synchronously in a plurality of extended reality display devices*. https://patents.google.com/patent/US10891798
