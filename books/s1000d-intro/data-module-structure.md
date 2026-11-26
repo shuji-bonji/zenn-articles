@@ -4,7 +4,7 @@ title: "Data Module の基本構造"
 
 データモジュール（Data Module、DM）には、説明や手順などいくつかの種類があります。どの種類の DM も、「この DM が何で、どの版か」を表す識別の部分と、本文を入れる部分の 2 つからできています。種類によって違うのは、本文の部分の中身だけです。
 
-この二つの分け方は、[公式の概要ページ](https://s1000d.org/?page_id=101)が概念として説明している構造です。XML の要素名は版によって変わります。たとえば識別・状態の部分は、Issue 4.0 以降は `identAndStatusSection`、それより前の版では `idstatus` のような名前です。Issue 6 と Issue 7 の自転車サンプルと既定 BREX も `identAndStatusSection` を使っています。タグの名前で検索するときは、先に対象の版を決めてください。版ごとの名前の違いは[第11章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)で説明します。
+この二つの分け方は、[公式の概要ページ](https://s1000d.org/?page_id=101)が概念として説明している構造です。XML の要素名は版によって変わります。たとえば識別・状態の部分は、Issue 4.0 以降は `identAndStatusSection`、それより前の版では `idstatus` のような名前です。Issue 6 と Issue 7 の自転車サンプルと既定 BREX も `identAndStatusSection` を使っています。タグの名前で検索するときは、先に対象の版を決めてください。版ごとの名前の違いは[第12章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)で説明します。
 
 ## 構造図
 
@@ -181,7 +181,7 @@ flowchart TB
 | ほかの DM への案内（「次のページへ」など） | 内容の部分には案内として書かない。必要なら DMC で参照する |
 | この DM の改訂の理由 | 識別・状態の部分の `reasonForUpdate` |
 
-図を別のファイルにすると、同じ図を複数の DM から参照できます。ICN の付け方について、Issue 7 の第4.4章は、CAGE コードを使う方法と、モデル識別コードを使う方法の二つを説明しています。
+図を別のファイルにすると、同じ図を複数の DM から参照できます。ICN の付け方について、Issue 7 の第4.4章は、CAGE コードを使う方法と、モデル識別コードを使う方法の二つを説明しています。二つの書式は、[第7章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/graphics-and-multimedia)で説明します。
 
 仕様が求めているのは「独立していること」までで、どこまでを一つの DM にするかは、情報コードと、プロジェクトのビジネスルールで具体的に決めます。
 

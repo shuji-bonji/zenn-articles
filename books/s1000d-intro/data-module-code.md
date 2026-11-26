@@ -4,7 +4,7 @@ title: "Data Module Code の読み方"
 
 データモジュールコード（Data Module Code、DMC）は、共通ソースデータベースからデータモジュールを一つに特定して取り出すためのコードです。DMC は、前半の「どの製品の、どの部分の情報か」と、後半の「その部分についての、どんな種類の情報か」の二つに分けて読みます。
 
-この章では、DMC の構成と、公式の自転車サンプルを使った読み方を説明します。パブリケーションモジュール（PM）の識別子であるパブリケーションモジュールコード（PMC）の読み方は、[第7章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/publication-and-ietp)で説明します。
+この章では、DMC の構成と、公式の自転車サンプルを使った読み方を説明します。パブリケーションモジュール（PM）の識別子であるパブリケーションモジュールコード（PMC）の読み方は、[第8章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/publication-and-ietp)で説明します。
 
 :::message
 フィールドの長さの範囲は版が定め、その範囲の中でどの長さを使うかはプロジェクトが決めます。Issue 7 の第4.3章では、使える文字は英大文字と数字で、範囲は次のとおりです。
@@ -45,7 +45,7 @@ SNS は、システム、サブシステム、サブサブシステム、アセ�
 
 ### dmCode 要素の属性として書く
 
-Issue 4.0 以降のスキーマでは、これらシステムに関する部分と、情報に関する部分の値は `dmCode` 要素の属性として書きます。属性名は、`modelIdentCode`、`systemDiffCode`、`systemCode`、`subSystemCode`、`subSubSystemCode`、`assyCode`、`disassyCode`、`disassyCodeVariant`、`infoCode`、`infoCodeVariant`、`itemLocationCode` です。Issue 4.2、Issue 6、Issue 7 の既定 BREX と自転車サンプルも、同じ属性名を使っています。Issue 3.0 以前では、同じ内容を属性ではなく子要素で書きます。この違いは[第11章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)で説明します。
+Issue 4.0 以降のスキーマでは、これらシステムに関する部分と、情報に関する部分の値は `dmCode` 要素の属性として書きます。属性名は、`modelIdentCode`、`systemDiffCode`、`systemCode`、`subSystemCode`、`subSubSystemCode`、`assyCode`、`disassyCode`、`disassyCodeVariant`、`infoCode`、`infoCodeVariant`、`itemLocationCode` です。Issue 4.2、Issue 6、Issue 7 の既定 BREX と自転車サンプルも、同じ属性名を使っています。Issue 3.0 以前では、同じ内容を属性ではなく子要素で書きます。この違いは[第12章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)で説明します。
 
 ### 訓練用の DM の区画
 
@@ -137,7 +137,7 @@ SNS は、`systemCode` から `assyCode` までの四つの属性で、図の `D
 
 ## 同じ概念でも桁数が違う例
 
-Issue 7 の既定 BREX（[第8章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/brex)で説明します）の DMC は、次のとおりです。
+Issue 7 の既定 BREX（[第9章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/brex)で説明します）の DMC は、次のとおりです。
 
 ```text
 S1000D-J-04-10-0301-00A-022A-D
@@ -159,7 +159,7 @@ S1000D-J-04-10-0301-00A-022A-D
 | --- | --- |
 | `041` | Issue 6 と Issue 7 の自転車サンプルで、“Description of how it is made” という `infoName` が付いた記述の DM |
 | `022` | BREX の DM。Issue 6 と Issue 7 の第4.10.2.4章と、同梱の既定 BREX に書かれている。Issue 4.2 の複製も同じ値を検査している |
-| `024` | 人が読むビジネスルールの DM。Issue 6 と Issue 7 のビジネスルールのテンプレートで確認した。[第8章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/brex)で説明する |
+| `024` | 人が読むビジネスルールの DM。Issue 6 と Issue 7 のビジネスルールのテンプレートで確認した。[第9章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/brex)で説明する |
 
 情報コードの全体の表（先頭の文字ごとの意味など）は、各版の第8.4章と既定 BREX にあります。表をすべて覚えてからサンプルを読む必要はありません。サンプルの DM を一つ開き、その情報コードを表で引く、という順で十分です。
 

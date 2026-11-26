@@ -42,7 +42,7 @@ XML の要素の開始タグの中に、`名前="値"` の形で書く情報で�
   disassyCodeVariant="AA" infoCode="041" infoCodeVariant="A" itemLocationCode="A"/>
 ```
 
-`modelIdentCode` が属性名、`S1000DBIKE` がその値です。Issue 3.0 以前のサンプルは、同じ情報を `modelic` などの子要素として書いています（[第11章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)）。
+`modelIdentCode` が属性名、`S1000DBIKE` がその値です。Issue 3.0 以前のサンプルは、同じ情報を `modelic` などの子要素として書いています（[第12章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)）。
 
 **自転車サンプル（Bike sample data set）**
 仕様のパッケージに含まれる、自転車を題材にした XML の例です。Issue 4.1 と Issue 5.0 の説明ページは、架空の製品であり、適合性の試験集ではないと書いています。Issue 6 と Issue 7 のパッケージにも含まれています。
@@ -146,7 +146,7 @@ CPF を審議し、仕様の新しい版を発行する、維持の責任者で�
 
 ## 出典
 
-- 各用語の出典は、第1章から第12章と付録の章末に URL で挙げています。この章は、それらの索引です。
+- 各用語の出典は、第1章から第13章と付録の章末に URL で挙げています。この章は、それらの索引です。
 - S1000D. *About S1000D*. https://s1000d.org/?page_id=101
 - S1000D. Downloads. https://users.s1000d.org/
 - S1000D. *External Links*. https://s1000d.org/?page_id=44

@@ -60,8 +60,8 @@ DM、PM、図には、それぞれ別の種類の識別子が付きます。
 | 対象 | 識別子 | 書かれている場所 | 構成の説明 |
 | --- | --- | --- | --- |
 | DM | DMC | DM 自身の識別・状態の部分（Issue 4.0 以降は `dmCode` 要素） | [第5章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/data-module-code) |
-| PM | PMC | PM 自身の識別・状態の部分（Issue 4.0 以降は `pmCode` 要素） | [第7章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/publication-and-ietp) |
-| 図、マルチメディア | ICN | 図のファイル名と、ICN メタデータファイル | 各版の仕様 |
+| PM | PMC | PM 自身の識別・状態の部分（Issue 4.0 以降は `pmCode` 要素） | [第8章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/publication-and-ietp) |
+| 図、マルチメディア | ICN | 図のファイル名と、ICN メタデータファイル | [第7章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/graphics-and-multimedia) |
 
 DMC と PMC は、どちらもモジュールの外にある管理番号ではなく、モジュール自身の中に書かれています。CSDB や、ほかのモジュールは、この識別子を読んでモジュールを特定します。
 
@@ -131,11 +131,11 @@ CSDB に保管するのは DM だけではありません。Issue 7 の第4.2章
 
 最上位の要素の列は、Issue 4.2 の既定 BREX が、やり取りする XML のファイルの最上位の要素として認めているものです（仕様の Chap 1.4.2 を根拠にした検査）。Issue 4.2 の一覧には、このほかに SCORM のコンテンツパッケージ（`scormContentPackage`）がありますが、Issue 7 の第4.2章の一覧にはありません。要素名は版によって変わることがあるので、ほかの版ではその版の仕様で確認してください。
 
-図は DM の本文に埋め込まず、ICN を付けて、CSDB の中の別のファイルとして保管します。ICN の桁の構成は版によって決まります。
+図は DM の本文に埋め込まず、ICN を付けて、CSDB の中の別のファイルとして保管します。ICN の桁の構成は版によって決まります。ICN の書式と、DM から図を参照する仕組みは、[第7章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/graphics-and-multimedia)で説明します。
 
 ## 参照と組み立て
 
-CSDB の中の DM、PM、図は、お互いを識別子で参照します。参照を DMC だけで書けば、DM を改訂しても PM の参照は変わりません。参照に発行番号と言語まで書く場合は、DM を改訂したときに PM の参照も更新します。どちらにするかはプロジェクトが決めます。詳しくは[第7章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/publication-and-ietp)で説明します。
+CSDB の中の DM、PM、図は、お互いを識別子で参照します。参照を DMC だけで書けば、DM を改訂しても PM の参照は変わりません。参照に発行番号と言語まで書く場合は、DM を改訂したときに PM の参照も更新します。どちらにするかはプロジェクトが決めます。詳しくは[第8章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/publication-and-ietp)で説明します。
 
 | 参照する側 | 参照される側 | 使う識別子 | 内容 |
 | --- | --- | --- | --- |
@@ -145,7 +145,7 @@ CSDB の中の DM、PM、図は、お互いを識別子で参照します。参�
 | DM | ほかの DM | DMC | 本文から、ほかの DM を参照します。たとえば手順の DM から、説明の DM を参照します |
 | DM | 図 | ICN | 本文の中に図を表示します。一つの図を、複数の DM から参照できます |
 
-PM は、この参照を出版物の項目（Issue 7 では `pmEntry` 要素）の中に書き、項目の並び順と入れ子で、出版物の順序と階層を定義します。項目の中に置けるものは、[第7章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/publication-and-ietp)で説明します。
+PM は、この参照を出版物の項目（Issue 7 では `pmEntry` 要素）の中に書き、項目の並び順と入れ子で、出版物の順序と階層を定義します。項目の中に置けるものは、[第8章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/publication-and-ietp)で説明します。
 
 次の図は、参照の関係を、架空の DM と図で示したものです。
 
@@ -173,7 +173,7 @@ flowchart TB
 
 DM、図、PM は、どれも CSDB の中に別々に保管され、識別子でつながっています。データが DM から PM へ順に流れていくわけではありません。
 
-出版物を作るときは、PM の項目の順序と階層に沿って、参照している DM を CSDB から取り出し、紙、PDF、IETP の形にします。出力の種類は[第7章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/publication-and-ietp)で説明します。
+出版物を作るときは、PM の項目の順序と階層に沿って、参照している DM を CSDB から取り出し、紙、PDF、IETP の形にします。出力の種類は[第8章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/publication-and-ietp)で説明します。
 
 ## 本から情報へ移ると何が変わるか
 

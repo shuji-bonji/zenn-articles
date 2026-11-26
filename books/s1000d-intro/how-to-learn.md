@@ -29,13 +29,13 @@ Issue 4.1 と Issue 5.0 のダウンロードの説明は、自転車サンプ�
 
 ## 学習の順序
 
-契約で版が指定されている場合は、その版を入手します。指定がない場合は、学習のために新しい版を読み、納品する版は決めずにおきます。学習に使った版を、そのまま納品の版にしないでください。版の間の互換性は、[第11章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)で説明します。
+契約で版が指定されている場合は、その版を入手します。指定がない場合は、学習のために新しい版を読み、納品する版は決めずにおきます。学習に使った版を、そのまま納品の版にしないでください。版の間の互換性は、[第12章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)で説明します。
 
 中心概念を確かめる順序は、次のとおりです。
 
 1. [公式の概要ページ](https://s1000d.org/?page_id=101)で、DM、DMC、CSDB の定義と、「本から情報への移行」の説明を読む。
 2. 入手した版の仕様書の冒頭で、その版の目的、用語、章立てを確認する。概要ページの概念と、その版の用語が同じものを指しているかを確かめる。
-3. その版の、DM の構造、DMC、CSDB、出版物の章を読む。本書の[第3章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/core-concepts)から[第7章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/publication-and-ietp)は、この範囲の案内図です。要素名は、読んでいる版のスキーマで確認する。
+3. その版の、DM の構造、DMC、CSDB、出版物の章を読む。本書の[第3章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/core-concepts)から[第8章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/publication-and-ietp)は、この範囲の案内図です。要素名は、読んでいる版のスキーマで確認する。
 4. 同じ版の自転車サンプルを開き、記述の DM と手順の DM を一つずつ読む。DMC を[第5章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/data-module-code)の方法で分解し、情報コードをその版の表で引く。
 5. 既定 BREX の DMC と、情報コード `022` の規則だけを見る。既定 BREX のシステム差分コードは版によって違う（Issue 6 は `H`、Issue 7 は `J`）。個々の検査の式は、必要になった要素について後から読む。
 6. ビジネスルールの章と、決めるべき点の一覧（BRDP の索引）で、プロジェクトが決めなければならない項目の範囲を知る。
@@ -48,15 +48,15 @@ Issue 4.1 と Issue 5.0 のダウンロードの説明は、自転車サンプ�
 中心概念を確かめる段階では、次のものは読まなくて構いません。
 
 - 特定の CSDB 製品の操作マニュアル。仕様は CSDB の機能を定めていません。
-- ほかの版の要素名の一覧。[第11章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)で説明するとおり、メジャー版の間で名前の体系が変わっているので、今読んでいる版には当てはまりません。
-- S シリーズのほかの仕様の全文。S1000D との境目は[第9章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/s-series)で分かります。必要になった仕様だけを、その版で入手します。
+- ほかの版の要素名の一覧。[第12章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)で説明するとおり、メジャー版の間で名前の体系が変わっているので、今読んでいる版には当てはまりません。
+- S シリーズのほかの仕様の全文。S1000D との境目は[第10章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/s-series)で分かります。必要になった仕様だけを、その版で入手します。
 - 英語の簡略化の規格 [ASD-STE100](http://www.asd-ste100.org/)。英語で本文を書く契約で参照されることはありますが、S1000D の構造を理解するための前提ではありません。
 
 [変更提案のページ](https://s1000d.org/?page_id=37)は、今の仕様を読むためではなく、仕様がどう変わっていくかを知るためのものです。学習の途中で「次の版で直るはずだ」と考える必要はありません。CPF は受け入れられてから仕様に入る、という[第2章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/history-and-organization)の説明を知っていれば十分です。
 
 ## 日本での公開情報
 
-S シリーズの公式サイトは、2024 年の出来事として、日本の業界団体である一般社団法人日本航空宇宙工業会（SJAC）と覚書を結んだことを挙げています。覚書は、S1000D について AIA、A4A、ASD、SJAC が結んだものと、S シリーズ全体について AIA、ASD、SJAC が結んだものの二つです。これにより SJAC は、主要な委員会と作業部会に参加できるようになりました。同じサイトは、最近 S シリーズに加わった国の一つとして日本を挙げています。詳しくは[第12章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/why-now)で説明します。
+S シリーズの公式サイトは、2024 年の出来事として、日本の業界団体である一般社団法人日本航空宇宙工業会（SJAC）と覚書を結んだことを挙げています。覚書は、S1000D について AIA、A4A、ASD、SJAC が結んだものと、S シリーズ全体について AIA、ASD、SJAC が結んだものの二つです。これにより SJAC は、主要な委員会と作業部会に参加できるようになりました。同じサイトは、最近 S シリーズに加わった国の一つとして日本を挙げています。詳しくは[第13章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/why-now)で説明します。
 
 一方、日本の公的機関が、S1000D を装備品の納品の仕様として採用したという公式の発表は、2026 年 10 月 23 日時点の公開情報では見つかりませんでした。
 

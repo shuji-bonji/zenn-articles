@@ -17,8 +17,8 @@ title: "代表的な Data Module の種類"
 | Illustrated Parts Data | 図解部品データ。この章で説明する |
 | Schedules | 整備計画の情報（点検の間隔や定期整備など）。名前の紹介にとどめる |
 | Wiring | 配線。この章で説明する |
-| Process Module | 対話的な表示の流れを記述する種類。[第7章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/publication-and-ietp)で説明する |
-| Business Rules Exchange | プロジェクトのルールをやり取りするための種類。[第8章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/brex)で説明する |
+| Process Module | 対話的な表示の流れを記述する種類。[第8章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/publication-and-ietp)で説明する |
+| Business Rules Exchange | プロジェクトのルールをやり取りするための種類。[第9章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/brex)で説明する |
 
 Schedules について、概要ページには名前しか書かれていません。Issue 4.0 を解説した公開の実装資料では、整備計画の情報（maintenance planning information）と説明されています。
 

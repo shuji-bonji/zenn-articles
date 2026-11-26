@@ -26,21 +26,21 @@ Issue 6 と Issue 7 の仕様書の表紙にも、同じ英文の標題が書か
 
 S1000D は、欧州航空宇宙防衛工業会（Aerospace, Security and Defence Industries Association of Europe、ASD）が作り始めました。現在は、ASD、米国航空宇宙工業会（Aerospace Industries Association of America、AIA）、ATA e-Business Program の三つの組織が、その会員や顧客とともに維持しています。始まりの経緯と、三つの組織が仕様を維持する仕組みは、[第2章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/history-and-organization)で説明します。
 
-対象の範囲は、当初の航空から広がり、現在は陸・海の装備や建設などにも使われています。つまり S1000D は、航空機の整備手順だけを扱う仕様ではありません。現在の対象の範囲と、S1000D が今注目されている理由は、[第12章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/why-now)で説明します。一方で、建設や法務の文書を S1000D で作る具体的な手順は、本書の範囲外です。本書は、どの分野にも共通する中心概念を扱います。
+対象の範囲は、当初の航空から広がり、現在は陸・海の装備や建設などにも使われています。つまり S1000D は、航空機の整備手順だけを扱う仕様ではありません。現在の対象の範囲と、S1000D が今注目されている理由は、[第13章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/why-now)で説明します。一方で、建設や法務の文書を S1000D で作る具体的な手順は、本書の範囲外です。本書は、どの分野にも共通する中心概念を扱います。
 
 ## IETP と IETM
 
 S1000D が定めているのは、情報の作り方、管理の仕方、出版物の作り方です。画面で対話的に表示する出版物は、紙や PDF と並ぶ出力の一つで、S1000D では対話型電子技術出版物（Interactive Electronic Technical Publication、IETP）と呼びます。
 
-米国の文書では、ほぼ同じものを対話型電子技術マニュアル（Interactive Electronic Technical Manual、IETM）と呼びます。ただし、二つの語が近いものを指していても、契約が同じものを納品物として求めているとは限りません。IETP と IETM の定義の対応と、IETP とパブリケーションモジュール（Publication Module、PM）の関係は、[第7章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/publication-and-ietp)で説明します。米国 DoD のクラス（Class 0 から 5。IETM と呼べるのは Class 3 以上）については、別の本[『IETM入門 — 概念から S1000D まで』](https://zenn.dev/shuji_bonji/books/ietm-overview/viewer/classes)で説明しています。
+米国の文書では、ほぼ同じものを対話型電子技術マニュアル（Interactive Electronic Technical Manual、IETM）と呼びます。ただし、二つの語が近いものを指していても、契約が同じものを納品物として求めているとは限りません。IETP と IETM の定義の対応と、IETP とパブリケーションモジュール（Publication Module、PM）の関係は、[第8章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/publication-and-ietp)で説明します。米国 DoD のクラス（Class 0 から 5。IETM と呼べるのは Class 3 以上）については、別の本[『IETM入門 — 概念から S1000D まで』](https://zenn.dev/shuji_bonji/books/ietm-overview/viewer/classes)で説明しています。
 
 ## この本の読み方
 
 S1000D を読むときは、最初に次の四つを分けて考えると混乱しません。
 
 1. **仕様が定めること**：データモジュールの考え方、識別のコード、共通ソースデータベースという保管の要求、出版物の組み立て方です。
-2. **版が定めること**：要素名と属性名（[第11章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)）、スキーマ（[第4章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/data-module-structure)）、情報コードの表とフィールドの桁数（[第5章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/data-module-code)）です。要素と属性が何かは、[第14章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/references-and-glossary)の用語集で説明します。メジャー版の間には後方互換がありません。版の違いは[第11章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)で説明します。
-3. **プロジェクトが定めること**：どの版で納品するか、標準番号体系の付け方、仕様が選択肢として残している項目のどれを選ぶかです。このうち機械で検査できる形にしたものが BREX（Business Rules Exchange）です。[第8章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/brex)で説明します。
+2. **版が定めること**：要素名と属性名（[第12章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)）、スキーマ（[第4章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/data-module-structure)）、情報コードの表とフィールドの桁数（[第5章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/data-module-code)）です。要素と属性が何かは、[第15章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/references-and-glossary)の用語集で説明します。メジャー版の間には後方互換がありません。版の違いは[第12章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)で説明します。
+3. **プロジェクトが定めること**：どの版で納品するか、標準番号体系の付け方、仕様が選択肢として残している項目のどれを選ぶかです。このうち機械で検査できる形にしたものが BREX（Business Rules Exchange）です。[第9章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/brex)で説明します。
 4. **ツールが行うこと**：共通ソースデータベースの機能は、仕様では定められていません。本書では、編集ソフトやビューアの製品は推奨しません。
 
 契約書を読むときに最初に確認するのは、「どの Issue（版）か」です。版が決まらないと、要素名の話を始められません。

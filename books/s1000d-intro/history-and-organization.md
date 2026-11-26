@@ -4,7 +4,7 @@ title: "歴史と維持組織"
 
 S1000D は、1980 年代の初めに欧州の航空宇宙の規格として始まり、民間と軍の技術文書の作り方をそろえることを目指してきました。現在は、ASD、AIA、ATA e-Business Program の三つのスポンサー組織のもとで、変更提案（CPF）を審議する仕組みによって維持されています。
 
-この章では、公式サイトが説明している経緯と、現在の維持の仕組みを説明します。版番号の読み方は、[第11章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)で説明します。
+この章では、公式サイトが説明している経緯と、現在の維持の仕組みを説明します。版番号の読み方は、[第12章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)で説明します。
 
 ## 始まり
 
@@ -40,7 +40,7 @@ Issue 7 の第1.1章も、1980 年代の初めに ASD の航空分野で始ま�
 
 Issue 7 の第1.1章は、共同の作成者を Air Transport Association of America（ATA）と書いていますが、仕様書の表紙の発行者（Publishers）は ATA e-Business Program です。公式サイトが二つを別の組織として紹介しているので、本書では仕様本文の「ATA」を、スポンサーの ATA e-Business Program と同じものとしては扱いません。
 
-S シリーズのほかの仕様には、三つのスポンサーのうち ATA e-Business Program は加わっていません。この点は[第9章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/s-series)で説明します。
+S シリーズのほかの仕様には、三つのスポンサーのうち ATA e-Business Program は加わっていません。この点は[第10章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/s-series)で説明します。
 
 ## Council と Steering Committee
 
