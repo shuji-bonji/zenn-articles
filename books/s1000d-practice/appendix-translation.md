@@ -112,7 +112,7 @@ DM の中の文字列は、訳すものと、訳さないものに分かれま�
 
 訳した DM も DM です。BREX の検査は訳した DM にも行います。券売機の CSDB の英語の DM は、国が `US` なので、組織の BREX の国のルールを通ります。BREX が許していない国の DM を作ると、訳の内容が正しくても、BREX の検査で違反になります。
 
-## 道具
+## S1000D Stack で行う
 
 S1000D Stack では DM の翻訳を次の流れで行います。
 
@@ -128,7 +128,7 @@ s1000d-writer-mcp の [`extract_segments`](https://shuji-bonji.github.io/s1000d-
 
 [`apply_segments`](https://shuji-bonji.github.io/s1000d-stack/ja/reference/stack/writer/apply-segments/) は、訳した文を元の DM の構造に戻して、言語の違う DM を作ります。構造は、訳した文からではなく、元の DM のファイルから取ります。そのため、訳す途中で、構造が変わることがありません。
 
-道具は訳しません。訳の質も判定しません。訳すことと、訳を確かめることは、人、または別の道具が行います。
+s1000d-writer-mcp は訳しません。訳の質も判定しません。訳すことと、訳を確かめることは、人、または別のツールが行います。
 
 ## この付録のポイント
 

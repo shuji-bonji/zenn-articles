@@ -54,7 +54,7 @@ flowchart LR
 
 | 置き場所 | 基準 | 誰が書くか |
 | --- | --- | --- |
-| 仕様パッケージ | XSD、既定 BREX | S1000D。読者は配布物を入手して置く（「[仕様パッケージを用意する](https://zenn.dev/shuji_bonji/books/s1000d-practice/viewer/spec-package)」） |
+| 仕様パッケージ | XSD、既定 BREX | S1000D。読者が入手して置く（「[仕様パッケージを用意する](https://zenn.dev/shuji_bonji/books/s1000d-practice/viewer/spec-package)」） |
 | CSDB | プロジェクトの BREX、組織の BREX | プロジェクトと組織。DM と同じように CSDB で管理する |
 
 BREX も DM の一種なので、BREX 自身も XSD で検証されます。券売機の 2 つの BREX は、どちらも `brex.xsd` を指しています。
@@ -126,10 +126,6 @@ DM を作るときは、どの XSD と、どの BREX に従うかを、書く前
 ### BREX を探す場所は 2 つ
 
 BREX の参照をたどる処理は、DM と同じ CSDB だけを探すと、既定 BREX が見つかりません。既定 BREX は CSDB ではなく、仕様パッケージにあるためです。s1000d-verify-mcp は、BREX を、CSDB のフォルダーと、仕様パッケージのフォルダーの両方から探します。
-
-### DM の種類はスキーマの名前で決める
-
-DM がどの XSD に従うかは、`xsi:noNamespaceSchemaLocation` の URL の末尾のファイル名で決まります。DMC の情報コードからは決めません。情報コードが表すのは情報の種類で、XML の構造の種類ではないためです。s1000d-core は、この URL から、スキーマの名前と S1000D の Issue を取り出しています。
 
 ## この章のポイント
 

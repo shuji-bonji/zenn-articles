@@ -2,9 +2,9 @@
 title: "DM を直し、改版する"
 ---
 
-発行したデータモジュール（DM）を直すときは、ファイルを上書きしません。作業中の版を新しいファイルとして始め、何を変えたかを XML の中に書き残します。この章では、版を表す番号、版の状態、更新の理由、変更の印の 4 つの決まりを説明し、券売機の手順 DM を 1 件、実際に改版します。
+発行したデータモジュール（DM）を直すときは、ファイルを上書きしません。作業中の版を新しいファイルとして始め、何を変えたかを XML の中に記録します。この章では、版を表す番号、版の状態、更新の理由、変更の印の 4 つの決まりを説明し、券売機の手順の DM を 1 件、実際に改版します。
 
-決まりの出どころは、S1000D Issue 7 の仕様書の Chap 3.5、Chap 3.9.5.1、Chap 3.9.5.2.1.1 と、既定 BREX です。仕様書の文章は載せず、自分の言葉で書いて、章と Para の番号を添えます。属性の値の一覧は [S1000D リファレンス（非公式）](https://shuji-bonji.github.io/s1000d-stack/ja/reference/s1000d/issue-7/issue-type/)にあります。
+決まりは、S1000D Issue 7 の仕様書の Chap 3.5、Chap 3.9.5.1、Chap 3.9.5.2.1.1 と、既定 BREX にあります。仕様書の文章は載せず、自分の言葉で書いて、章と Para の番号を添えます。属性の値の一覧は [S1000D リファレンス（非公式）](https://shuji-bonji.github.io/s1000d-stack/ja/reference/s1000d/issue-7/)にあります。
 
 ## 版を表す 2 つの番号
 
@@ -32,7 +32,7 @@ flowchart LR
   B -.->|"発行する"| C["002-00<br>発行済みの版"]
 ```
 
-`001-00` のファイルは、`001-01` を始めた後も CSDB に残します。発行済みの版は、その版で示した変更の記録を持ったまま残るものだからです（Chap 3.9.5.2.1.1 の Para 2.1.1）。
+`001-00` のファイルは、`001-01` を始めた後も CSDB に残します。発行済みの版は、その版で示した変更の記録を持ったまま、残しておくものだからです（Chap 3.9.5.2.1.1 の Para 2.1.1）。
 
 ## 版の状態
 
@@ -88,7 +88,7 @@ flowchart LR
 | [`changeMark`](https://shuji-bonji.github.io/s1000d-stack/ja/reference/s1000d/issue-7/change-mark/) | `1` のとき、表示する側が変更バーなどの目印を出します。`0` のときは出しません |
 | [`reasonForUpdateRefIds`](https://shuji-bonji.github.io/s1000d-stack/ja/reference/s1000d/issue-7/reason-for-update-ref-ids/) | 理由である `reasonForUpdate` の `id` です |
 
-変更の印の決まりは次のとおりです。出どころはどれも Chap 3.9.5.2.1.1 です。
+変更の印の決まりは次のとおりです。どれも Chap 3.9.5.2.1.1 にあります。
 
 - **印は、前の発行済みの版からの差を表します**（Para 2.1.1）。`001-01` の印は、`001-00` から何が変わったかを示します。
 - **取り除く要素は、消さずに残します**（Para 2.4.1）。`changeType="delete"` を付けて、要素を XML の中に置いたままにします。読む人に、何が無くなったかを見せるためです。
@@ -104,7 +104,7 @@ flowchart LR
 
 ## 手を動かす
 
-券売機の CSDB から、手順 DM「乗換案内からきっぷを買う - STEP2」を改版します。ファイルは `DMC-KENBAIKI-A-10-20-00-01A-520A-D_001-00_JA-JP.XML` です。
+券売機の CSDB から、手順の DM「乗換案内からきっぷを買う - STEP2」を改版します。ファイルは `DMC-KENBAIKI-A-10-20-00-01A-520A-D_001-00_JA-JP.XML` です。
 
 想定は、券売機のソフトウェアが更新されて、到着駅の選択画面が次のように変わった、というものです。
 
@@ -220,7 +220,7 @@ s1000d-writer-mcp の [`start_revision`](https://shuji-bonji.github.io/s1000d-st
 </proceduralStep>
 ```
 
-改版の前と後を、表示の例で並べます。表示の例は、著者が描いたものです。実際の見た目は、閲覧の道具が決めます。この例では、足した手順と取り除いた手順に、`changeType` の値を札として付けています。
+改版の前と後を、表示の例で並べます。表示の例は、著者が描いたものです。実際の見た目は、閲覧ソフトが決めます。この例では、足した手順と取り除いた手順に、`changeType` の値を札として付けています。
 
 ```html-embed
 <div class="cm">
@@ -376,5 +376,5 @@ CSDB を Git で持つ場合、この差分は、改版で何を変えたかを�
 ## 出典
 
 - 著者が入手した S1000D Issue 7 のパッケージ（仕様書の Chap 3.5、Chap 3.9.5.1、Chap 3.9.5.2.1.1、XML スキーマの `proced.xsd`、既定 BREX の BREX-S1-00030・00033・00036・00038・00044）。入手先は https://users.s1000d.org/
-- S1000D Stack の S1000D リファレンス（非公式）. https://shuji-bonji.github.io/s1000d-stack/ja/reference/s1000d/issue-7/issue-type/
+- S1000D Stack の S1000D リファレンス（非公式）. https://shuji-bonji.github.io/s1000d-stack/ja/reference/s1000d/issue-7/
 - s1000d-core（改版の操作の実装）. https://github.com/shuji-bonji/s1000d-core

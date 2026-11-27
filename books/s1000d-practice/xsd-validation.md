@@ -2,7 +2,7 @@
 title: "XSD で確かめる"
 ---
 
-「[DM と XSD・BREX の関係](https://zenn.dev/shuji_bonji/books/s1000d-practice/viewer/dm-xsd-brex)」で見たとおり、DM は自分が従う XML スキーマ（XSD）を指しています。この章では、その XSD で DM を検証します。扱うのは、確かめる 4 つの段階のうち、整形式と XSD の段階です。要素の名前、並びの順、必須の要素、属性の値の型を機械が確かめます。
+「[DM と XSD・BREX の関係](https://zenn.dev/shuji_bonji/books/s1000d-practice/viewer/dm-xsd-brex)」で見たとおり、DM は自分が従う XML スキーマ（XSD）を指しています。この章では、その XSD で DM を検証します。確かめる 4 つの段階のうち、整形式と XSD の段階を扱います。要素の名前、並びの順、必須の要素、属性の値の型を機械が確かめます。
 
 XSD（XML Schema Definition）は、XML の文書に書ける要素と属性、その順と個数、値の型を定めるための言語です。W3C が勧告として定めた標準で、スキーマそのものも XML で書きます。S1000D は、DM の種類ごとに XSD のファイルを用意しています。たとえば手順の DM には `proced.xsd`、説明の DM には `descript.xsd` を使います。
 
@@ -27,7 +27,7 @@ Issue が違うスキーマでは検証できません。Issue 7 の DM を Issu
 
 | 場所 | 内容 | 使えるか |
 | --- | --- | --- |
-| XML Schema Package の中 | 配布物の本体。ほかのスキーマを読み込む指定（`xs:import`）が、同じフォルダーのファイル名で書かれている | 使える |
+| XML Schema Package の中 | スキーマの本体。ほかのスキーマを読み込む指定（`xs:import`）が、同じフォルダーのファイル名で書かれている | 使える |
 | Data Dictionary の中 | データ辞書の表示用の写し。33 本すべてが、本体と内容が違う。`xs:import` が、インターネット上の URL で書かれている | 使えない |
 
 データ辞書の側を使うと、検証ツールがインターネットからスキーマを取りに行こうとして、失敗します。検証には、XML Schema Package の側を指定してください。
