@@ -23,14 +23,14 @@ S1000D Stack は、スキーマに似せた別のスキーマを作って配る�
 
 ## パッケージの中身
 
-Issue 7 の仕様パッケージは 1 つの zip です。展開すると、仕様書の PDF が 1 つと、内側の zip が 10 本出てきます。内側の zip も展開します。
+Issue 7 の仕様パッケージは、1 つの zip として配布されています。展開すると、仕様書の PDF が 1 つと、内側の zip が 10 本出てきます。内側の zip も含めて、すべて展開してください。
 
 | 内側の zip | 中身 | この本で使うか |
 | --- | --- | --- |
 | XML Schema Package | XSD（`xml_schema_flat/` に 33 本。DM の種類ごとのスキーマと、それらが読み込む共通のスキーマ）、使える図の形式の一覧 | 使う（XSD で確かめる） |
 | Default BREX | 既定 BREX の DM が 1 件 | 使う（BREX で確かめる） |
 | Bike Samples | 自転車を題材にした公式サンプルの CSDB | 件数を数えるときだけ |
-| Data Dictionary | 要素と属性の定義 | 調べるときに使う。中のスキーマは検証には使わない（XSD で確かめる） |
+| Data Dictionary | 要素と属性の定義を引く画面（`Index.html`） | 調べるときに使う。中のスキーマは検証には使わない（XSD で確かめる） |
 | Business Rules Template | ビジネスルール文書のひな形 | 使わない |
 | Business Rules Decision Point Index | ビジネスルールの決定点の一覧（表計算のファイル） | 使わない |
 | Example SNS | システムの番号の体系の例 | 使わない |

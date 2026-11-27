@@ -32,7 +32,7 @@ csdb/
 └── DML-KENBAIKI-K0001-S-2026-00001_001-00.XML            データ管理リスト
 ```
 
-フォルダーを分ける必要はありません。種類ごと、システムごとにフォルダーを分けると、人には見やすくなります。その場合は、S1000D Stack の設定（`csdbDirs`）に、すべてのフォルダーを書きます。
+フォルダーを分ける必要はありません。種類ごと、システムごとにフォルダーを分けると、人が一覧を見たときに分かりやすくなります。その場合は、S1000D Stack の設定（`csdbDirs`）に、すべてのフォルダーを書きます。
 
 ## 版ごとに、ファイルを残す
 
@@ -185,16 +185,16 @@ CSDB の全体を納める前に確かめる観点をまとめます。この本
 
 | 観点 | 確かめること | 扱った章 |
 | --- | --- | --- |
-| ファイル名 | ファイル名と、中身の DMC・版・言語が一致している | ファイル名から中身を見分ける |
-| XSD | すべての DM・PM が、スキーマの検証を通る。スキーマの Issue が、納める Issue と同じ | XSD で確かめる |
-| BREX | すべての DM・PM が、BREX の検査を通る。検査に、既定 BREX が入っている | BREX で確かめる |
-| 人が確かめるルール | BREX の機械で検査できない取り決めをレビューで確かめた | BREX で確かめる |
-| 参照 | DM・PM・図への参照の先が、すべてある | 参照と図をたどる |
-| 版 | 発行するものの `inWork` が `00`。版の状態、更新の理由、変更の印がそろっている | DM を直し、改版する |
-| 適用性 | 製品ごとに読んで、出る手順が意図どおり | 適用性で出し分ける |
-| PM | 載せるべき DM が、すべて PM に載っている | PM でまとめる |
+| ファイル名 | ファイル名と、中身の DMC・版・言語が一致している | [ファイル名から中身を見分ける](https://zenn.dev/shuji_bonji/books/s1000d-practice/viewer/file-names) |
+| XSD | すべての DM・PM の検証の状態が `valid`（`schema-not-found`・`not-run` は通ったことにならない）。使ったスキーマが XML Schema Package の側にあり、その Issue が納める Issue と同じ | [XSD で確かめる](https://zenn.dev/shuji_bonji/books/s1000d-practice/viewer/xsd-validation) |
+| BREX | すべての DM・PM が、BREX の検査を通り、状態が `incomplete` でない。検査に、既定 BREX が入っている | [BREX で確かめる](https://zenn.dev/shuji_bonji/books/s1000d-practice/viewer/brex-validation) |
+| 人が確かめるルール | BREX の機械で検査できない取り決めをレビューで確かめた | [BREX で確かめる](https://zenn.dev/shuji_bonji/books/s1000d-practice/viewer/brex-validation) |
+| 参照 | DM・PM・図への参照の先が、すべてある | [参照と図をたどる](https://zenn.dev/shuji_bonji/books/s1000d-practice/viewer/references-and-graphics) |
+| 版 | 発行するものの `inWork` が `00`。版の状態、更新の理由、変更の印がそろっている | [DM を直し、改版する](https://zenn.dev/shuji_bonji/books/s1000d-practice/viewer/revise-data-module) |
+| 適用性 | 製品ごとに読んで、出る手順が意図どおり | [適用性で出し分ける](https://zenn.dev/shuji_bonji/books/s1000d-practice/viewer/applicability) |
+| PM | 載せるべき DM が、すべて PM に載っている | [PM でまとめる](https://zenn.dev/shuji_bonji/books/s1000d-practice/viewer/publication-module) |
 | DML | DML と CSDB が合っている | この章 |
-| 品質保証 | `qualityAssurance` が、プロジェクトの求める段階になっている | 識別・状態の部分を読む |
+| 品質保証 | `qualityAssurance` が、プロジェクトの求める段階になっている | [識別・状態の部分を読む](https://zenn.dev/shuji_bonji/books/s1000d-practice/viewer/ident-and-status) |
 
 s1000d-verify-mcp の [`verify_csdb`](https://shuji-bonji.github.io/s1000d-stack/ja/reference/stack/verify/verify-csdb/) は、CSDB の DM と PM をまとめて検証します。この本の例をすべて行った後の券売機の CSDB の結果です。
 
