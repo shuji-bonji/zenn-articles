@@ -1,7 +1,7 @@
 title: 'S1000D実践 — データモジュールを読み、確かめ、作る'
 summary: '「S1000D入門」の続編。自作の券売機のデータを例に、データモジュールを読み、XSD と BREX で確かめ、作り、改版し、CSDB にまとめるまでを、仕様の章番号を添えて説明する。'
 topics: ['s1000d', 'xml', 'ietp']
-published: false
+published: true
 price: 0
 chapters:
   - introduction
