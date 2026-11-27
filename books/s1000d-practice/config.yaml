@@ -11,6 +11,7 @@ chapters:
   - descriptive-and-procedural
   - fault-and-process
   - references-and-graphics
+  - dm-xsd-brex
   - xsd-validation
   - brex-validation
   - create-data-module

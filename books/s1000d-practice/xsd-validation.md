@@ -2,29 +2,11 @@
 title: "XSD で確かめる"
 ---
 
-ここまでの章で、DM の XML を読みました。この章からは、書かれた XML が決まりに合っているかを確かめます。最初の段階は XML スキーマ（XSD）による検証です。要素の名前、並びの順、必須の要素、属性の値の型を機械が確かめます。
+「[DM と XSD・BREX の関係](https://zenn.dev/shuji_bonji/books/s1000d-practice/viewer/dm-xsd-brex)」で見たとおり、DM は自分が従う XML スキーマ（XSD）を指しています。この章では、その XSD で DM を検証します。扱うのは、確かめる 4 つの段階のうち、整形式と XSD の段階です。要素の名前、並びの順、必須の要素、属性の値の型を機械が確かめます。
 
 XSD（XML Schema Definition）は、XML の文書に書ける要素と属性、その順と個数、値の型を定めるための言語です。W3C が勧告として定めた標準で、スキーマそのものも XML で書きます。S1000D は、DM の種類ごとに XSD のファイルを用意しています。たとえば手順の DM には `proced.xsd`、説明の DM には `descript.xsd` を使います。
 
-XSD は、仕様パッケージの XML Schema Package に入っています。置き方は「[仕様パッケージを手元に置く](https://zenn.dev/shuji_bonji/books/s1000d-practice/viewer/spec-package)」で説明しました。
-
-## 確かめる段階
-
-DM を確かめる作業は 4 つの段階に分かれます。前の段階が通っていないと、後の段階の結果は当てになりません。
-
-```mermaid
-flowchart LR
-  W["1 整形式<br>XML として読めるか"] --> X["2 XSD<br>構造が合っているか"]
-  X --> B["3 BREX<br>プロジェクトのルールに<br>合っているか"]
-  X --> R["4 参照<br>指す先があるか"]
-```
-
-| 段階 | 確かめること | 扱う章 |
-| --- | --- | --- |
-| 整形式 | タグが閉じている、などの XML としての正しさ | この章 |
-| XSD | 要素と属性の名前、順、必須、値の型 | この章 |
-| BREX | プロジェクトが決めた、値と構造の使い方 | BREX で確かめる |
-| 参照 | 指す先の DM・図・`id` があるか | 参照と図をたどる |
+XSD は、仕様パッケージの XML Schema Package に入っています。入手と置き方は「[仕様パッケージを用意する](https://zenn.dev/shuji_bonji/books/s1000d-practice/viewer/spec-package)」で説明しました。
 
 ## どのスキーマで検証するか
 
@@ -38,6 +20,17 @@ flowchart LR
 この値は URL の形をしていますが、検証のたびに、この URL からスキーマを取ってくるわけではありません。URL の末尾のファイル名（`proced.xsd`）と S1000D の Issue（`S1000D_7`）を見て、コンピューターに置いた仕様パッケージの中の、同じ名前のスキーマを使います。
 
 Issue が違うスキーマでは検証できません。Issue 7 の DM を Issue 4.1 のスキーマで検証すると、名前が変わった要素がすべてエラーになります。
+
+## `xml_schema_flat` は 2 つあります
+
+仕様パッケージを展開したフォルダーの中に、`xml_schema_flat/` という名前のフォルダーが 2 つ見つかります。検証に使えるのは片方だけです。
+
+| 場所 | 内容 | 使えるか |
+| --- | --- | --- |
+| XML Schema Package の中 | 配布物の本体。ほかのスキーマを読み込む指定（`xs:import`）が、同じフォルダーのファイル名で書かれている | 使える |
+| Data Dictionary の中 | データ辞書の表示用の写し。33 本すべてが、本体と内容が違う。`xs:import` が、インターネット上の URL で書かれている | 使えない |
+
+データ辞書の側を使うと、検証ツールがインターネットからスキーマを取りに行こうとして、失敗します。検証には、XML Schema Package の側を指定してください。
 
 ## XSD が見つけるもの
 
@@ -71,7 +64,7 @@ s1000d-verify-mcp の [`validate_schema`](https://shuji-bonji.github.io/s1000d-s
 
 **2 件目**は並びの誤りです。`This element is not expected` は、その場所にその要素を置けない、という意味です。続く `Expected is one of ( … )` が、その場所に置ける要素の一覧です。
 
-2 件目のエラーには役に立つ情報が入っています。`memo` を置いた場所で、スキーマが置けるとしているのは、`proceduralStep` か `proceduralStepAlts` でした。段落や図は、もう置けない場所だった、ということです。前の章で見た、「手順の中では、段落の後に下の階層の手順が来る」という順が、ここに現れています。
+2 件目のエラーには役に立つ情報が入っています。`memo` を置いた場所で、スキーマが置けるとしているのは、`proceduralStep` か `proceduralStepAlts` でした。段落や図は、もう置けない場所だった、ということです。「[説明と手順の内容を読む](https://zenn.dev/shuji_bonji/books/s1000d-practice/viewer/descriptive-and-procedural)」で見た、「手順の中では、段落や図の後に下の階層の手順が来る」という順が、ここに現れています。
 
 :::message
 並びの誤りのエラーは、誤りのある要素ではなく、その次の要素の場所で出ることがあります。必須の要素を書き忘れたときは、「次に来た要素は、ここには置けない」というエラーになります。エラーの行だけを見ずに、`Expected is one of` の一覧を見て、何が足りないかを考えます。
@@ -103,6 +96,12 @@ XSD の検証が通っても確かめられていないことがあります。
 | 使ったスキーマの場所 | 仕様パッケージの正しい側のフォルダーか |
 | S1000D の Issue | DM の Issue と、スキーマの Issue が同じか |
 
+使ったスキーマの場所は、次のように返ります。券売機の手順の DM を検証したときの値です。場所が XML Schema Package の中になっていれば、正しい側を使えています。
+
+```text
+…/xml-schema-package/S1000D Issue 7 XML Schema Package/xml_schema_flat/proced.xsd
+```
+
 検証の結果を記録に残すときは、「通った」だけでなく、どのスキーマで、いつ検証したかも残します。スキーマの Issue が違えば、同じ DM でも結果が変わるためです。
 
 ## 実装するときの注意
@@ -120,6 +119,10 @@ JavaScript だけで書かれた、S1000D の規模の XSD を検証できるラ
 | スキーマの扱い | 呼び出すたびに、スキーマを読み込み直す | 読み込んだスキーマを使い回せる |
 
 判定は同じで、速さが約 30 倍違いました。CSDB の全体を検証する使い方では、同じスキーマで多くの DM を検証するので、スキーマを使い回せる方を選びました。
+
+### スキーマのフォルダーを名前で決め打ちにしない
+
+仕様パッケージの内側の zip を展開したフォルダーの名前は、利用者によって違います。s1000d-core は、フォルダーの名前を決めずに、`brex.xsd` があるフォルダーをスキーマのフォルダーとして探します。ただし、データ辞書のフォルダーの下は除きます。`xml_schema_flat/` が 2 つあり、データ辞書の側は検証に使えないためです。
 
 ### `xs:import` を解決する
 
@@ -140,12 +143,13 @@ WebAssembly の中からは、ファイルシステムが直接は見えませ�
 ## この章のポイント
 
 - 検証に使うスキーマは DM のルート要素が指しています。URL から取ってくるのではなく、コンピューターに置いた同じ名前のスキーマを使います。
+- `xml_schema_flat/` は 2 つあります。使えるのは XML Schema Package の中のものです。
 - 並びの誤りのエラーは、`Expected is one of` の一覧を見て、その場所に何が置けるかを読みます。
 - XSD の検証は構造だけを確かめます。プロジェクトのルール、ほかの DM との関係、内容の適切さは、別の方法で確かめます。
 - 検証の結果は、状態、使ったスキーマの場所、S1000D の Issue の 3 つを見ます。
 
 ## 出典
 
-- 著者が入手した S1000D Issue 7 のパッケージ（XML Schema Package、Bike Samples）。入手先は https://users.s1000d.org/
+- 著者が入手した S1000D Issue 7 のパッケージ（XML Schema Package、Data Dictionary、Bike Samples）。入手先は https://users.s1000d.org/
 - libxml2-wasm. https://github.com/jameslan/libxml2-wasm
 - xmllint-wasm. https://github.com/notengrafik/xmllint-wasm
