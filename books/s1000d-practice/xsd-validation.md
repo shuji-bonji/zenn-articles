@@ -4,6 +4,8 @@ title: "XSD で確かめる"
 
 ここまでの章で、DM の XML を読みました。この章からは、書かれた XML が決まりに合っているかを確かめます。最初の段階は XML スキーマ（XSD）による検証です。要素の名前、並びの順、必須の要素、属性の値の型を機械が確かめます。
 
+XSD（XML Schema Definition）は、XML の文書に書ける要素と属性、その順と個数、値の型を定めるための言語です。W3C が勧告として定めた標準で、スキーマそのものも XML で書きます。S1000D は、DM の種類ごとに XSD のファイルを用意しています。たとえば手順の DM には `proced.xsd`、説明の DM には `descript.xsd` を使います。
+
 XSD は、仕様パッケージの XML Schema Package に入っています。置き方は「[仕様パッケージを手元に置く](https://zenn.dev/shuji_bonji/books/s1000d-practice/viewer/spec-package)」で説明しました。
 
 ## 確かめる段階
@@ -106,6 +108,8 @@ XSD の検証が通っても確かめられていないことがあります。
 ## 実装するときの注意
 
 ### 検証のライブラリの選び方
+
+Issue 7 のスキーマ 33 本は、XSD 1.1 で加わった機能（`xs:assert`、`xs:alternative` など）を使っていません。そのため、XSD 1.0 にだけ対応したライブラリ（libxml2 など）でも検証できます。
 
 JavaScript だけで書かれた、S1000D の規模の XSD を検証できるライブラリは、見つかりませんでした。s1000d-core は、C のライブラリ libxml2 を WebAssembly にしたものを使っています。候補を 2 つ、Issue 7 のスキーマ 33 本と、公式サンプルの DM 106 件で比べました。
 

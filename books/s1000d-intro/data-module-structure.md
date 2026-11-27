@@ -187,6 +187,8 @@ flowchart TB
 
 ## スキーマは種類ごとに分かれる
 
+スキーマは、XML の文書に書ける要素と属性、その順と個数、値の型を定めたものです。S1000D のスキーマは、XSD（XML Schema Definition）という言語で書かれています。XSD は W3C が勧告として定めた標準で、スキーマそのものも XML で書きます。DM の XML がスキーマに合っているかは、ソフトウェアで機械的に確かめられます。Issue 3.0 のパッケージには、XSD のほかに DTD もありました（[第12章](https://zenn.dev/shuji_bonji/books/s1000d-intro/viewer/issues-and-cautions)）。
+
 DM の外側の形は共通でも、内容の部分を検証するスキーマは、種類ごとに別のファイルになっています。
 
 | 版 | 種類に対応する主なスキーマファイル |
